@@ -1,5 +1,5 @@
 {
-  "serviceName": "Service name goes here",
+  "serviceName": "Pollutant Release and Transfer Register",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {
