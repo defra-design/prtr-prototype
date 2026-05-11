@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  UK Pollutant Release and Transfer Register (PRTR) – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        UK Pollutant Release and Transfer Register (PRTR)
+      </h1>
+
+      <p>
+        <a href="location-basic">Search by location</a><br>
+        Some descriptive information here?
+      </p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <p>
+        <a href="download">Download all data for a year</a><br>
+        Some descriptive information here?
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
