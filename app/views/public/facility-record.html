@@ -1,0 +1,276 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Brunswick Waste Reception Site – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Brunswick Waste Reception Site
+      </h1>
+
+      <p>
+        <a href="">Facility details</a>
+      </p>
+      <p>
+        <a href="">Competent authority details</a>
+      </p>
+      <p>
+        <a href="location-search.html">Start new search</a>
+      </p>
+
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-7">
+        Releases and transfers
+      </h2>
+      {{ mojSubNavigation({
+        label: "Sub navigation",
+        items: [{
+          text: "2007",
+          href: "#"
+        }, {
+          text: "2008",
+          href: "#"
+        }, {
+          text: "2009",
+          href: "#"
+        }, {
+          text: "2010",
+          href: "#"
+        }, {
+          text: "2011",
+          href: "#"
+        }, {
+          text: "2012",
+          href: "#"
+        }, {
+          text: "2013",
+          href: "#"
+        }, {
+          text: "2014",
+          href: "#"
+        }, {
+          text: "2015",
+          href: "#"
+        }, {
+          text: "2016",
+          href: "#"
+        }, {
+          text: "2017",
+          href: "#"
+        }, {
+          text: "2018",
+          href: "#"
+        }, {
+          text: "2019",
+          href: "#"
+        }, {
+          text: "2020",
+          href: "#"
+        }, {
+          text: "2021",
+          href: "#"
+        }, {
+          text: "2022",
+          href: "#"
+        }, {
+          text: "2023",
+          href: "#"
+        }, {
+          text: "2024",
+          href: "#",
+          active: true
+        }]
+      }) }}
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Pollutant releases to air</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pollutant</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total released</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Threshold / Safe level</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Additional detail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              <a href="lead">Lead and compounds (as Pb)</a>
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              612kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              200kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Pollutant releases to water</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pollutant</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total released</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Threshold / Safe level</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Additional detail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              <a href="lead">Lead and compounds (as Pb)</a>
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              612kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              200kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Pollutant releases to soil</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pollutant</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total released</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Threshold / Safe level</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Additional detail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              <a href="lead">Lead and compounds (as Pb)</a>
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              612kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              200kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Pollutant transfers to waste water</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pollutant</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total transferred</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Threshold / Safe level</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Additional detail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              <a href="lead">Lead and compounds (as Pb)</a>
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              612kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-table__cell--numeric">
+              200kg
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="govuk-table govuk-!-margin-bottom-9">
+        <caption class="govuk-table__caption govuk-table__caption--m">Waste transfers</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Quantity</th>
+            <th scope="col" class="govuk-table__header">Waste type</th>
+            <th scope="col" class="govuk-table__header">Treatment</th>
+            <th scope="col" class="govuk-table__header govuk-!-text-align-right">Additional detail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              134,982 TONNE
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Non hazardous waste
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Recovery
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              7.026 TONNE
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Domestic hazardous waste
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Recovery
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              5,788 TONNE
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Transboundary hazardous waste
+            </td>
+            <td scope="row" class="govuk-table__cell">
+              Disposal
+            </td>
+            <td scope="row" class="govuk-table__cell govuk-!-text-align-right">
+              <a href="release-additional">View details</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search for a facility – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/search-type" method="post">
+
+        {{ govukRadios({
+          name: "searchFacility",
+          fieldset: {
+            legend: {
+              text: "Search for a facility",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select a search"
+          },
+          items: [
+            {
+              value: "location",
+              text: "Search by location"
+            },
+            {
+              value: "facility",
+              text: "Search by name of facility"
+            },
+            {
+              value: "region",
+              text: "Search by region or county"
+            },
+            {
+              value: "river",
+              text: "Search by river basin"
+            }
+          ]
+        }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

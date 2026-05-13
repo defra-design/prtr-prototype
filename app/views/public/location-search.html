@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search by location – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="results-location" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Search by location",
+            classes: "govuk-label--xl",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Enter a region, county, city, town, village or postcode."
+          },
+          id: "location-search",
+          name: "locationSearch"
+        }) }}
+
+        {{ govukRadios({
+          name: "searchRadius",
+          fieldset: {
+            legend: {
+              text: "Select a search area",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "5",
+              text: "5 miles"
+            },
+            {
+              value: "25",
+              text: "25 miles"
+            },
+            {
+              value: "50",
+              text: "50 miles"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
