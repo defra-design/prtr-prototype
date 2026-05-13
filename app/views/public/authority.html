@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Competent authority details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Competent authority details
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Environment Agency (EA)"
+            }
+          },
+          {
+            key: {
+              text: "Contact team or individual"
+            },
+            value: {
+              text: "Pollution Inventory team"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "Parkway Avenue<br/>Quadrant Two<br/>Sheffield<br/>S9 4WF"
+            }
+          },
+          {
+            key: {
+              text: "Phone"
+            },
+            value: {
+              text: "+44 03708506506"
+            }
+          },
+          {
+            key: {
+              text: "Fax"
+            },
+            value: {
+              text: "Not provided"
+            }
+          },
+          {
+            key: {
+              text: "Email"
+            },
+            value: {
+              html: '<a href="mailto:pollution.inventory@environment-agency.gov.uk">pollution.inventory@environment-agency.gov.uk </a>'
+            }
+          }
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

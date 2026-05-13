@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional detail of transboundary hazardous waste transfer – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional detail of transboundary hazardous waste transfer
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Quantity"
+            },
+            value: {
+              text: "5,788 TONNE"
+            }
+          },
+          {
+            key: {
+              text: "Treatment"
+            },
+            value: {
+              text: "Disposal"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Measured"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Measurement Methodology already prescribed by the competent authority in a licence or an operating permit for that facility."
+            }
+          },
+          {
+            key: {
+              text: "Receiver company"
+            },
+            value: {
+              html: "Portoesme s.r.l<br/>S.P.n.2<br/>Portoscuso<br/>09010<br/>Italy"
+            }
+          },
+          {
+            key: {
+              text: "Site"
+            },
+            value: {
+              html: "S.P.n.2<br/>Portoscuso<br/>09010"
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What is a transboundary hazardous waste transfer?
+      </h2>
+      <p>
+        This refers to the shipment, export, or import of dangerous waste materials - such as toxic chemicals, infectious medical waste, or explosive substances - across international borders for disposal, recycling, or recovery. These movements are strictly regulated by international law to prevent environmental damage and protect human health.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is hazardous waste?
+      </h2>
+      <p>
+        Hazardous waste is any discarded material that poses a substantial or potential threat to public health or the environment due to its chemical, biological, or physical properties.
+      </p>
+      <h2 class="govuk-heading-m">
+        What does disposal mean?
+      </h2>
+      <p>
+        Waste is taken to a specialised facility where it is sorted, and aggregated before being transported to final disposal sites like landfills or recycling centres.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional details of release to air – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional details of release to air
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Pollutant released to air"
+            },
+            value: {
+              text: "Lead and compounds (as Pb)"
+            }
+          },
+          {
+            key: {
+              text: "Total released"
+            },
+            value: {
+              text: "612kg"
+            }
+          },
+          {
+            key: {
+              text: "Threshold / Safe level"
+            },
+            value: {
+              text: "200kg"
+            }
+          },
+          {
+            key: {
+              text: "Accidentally released"
+            },
+            value: {
+              text: "0"
+            }
+          },
+          {
+            key: {
+              text: "Percentage of total accidentally released"
+            },
+            value: {
+              text: "0%"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Measured"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Measurement Methodology already prescribed by the competent authority in a licence or an operating permit for that facility."
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

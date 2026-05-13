@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Lead and compounds (as Pb) – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Lead and compounds (as Pb)
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        What else is it known as?
+      </h2>
+      <p>
+        Lead and compounds (as Pb) can also be known as Pb and compounds.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is it?
+      </h2>
+      <p>
+        Pure lead is a bluish white metal. It is very dense, soft, highly malleable (bend-able), ductile (can be drawn into wires), but does not conduct electricity or heat very well. Although lead is resistant to corrosion, it dissolves slowly in water.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is it used for?
+      </h2>
+      <p>
+        The main use of lead is in lead-acid batteries. It is also used for roofing, for solders in electrical equipment and in radiation shielding. In the past, lead was also widely used for plumbing, as an "anti-knock" additive in petrol and in paints.
+      </p>
+      <h2 class="govuk-heading-m">
+        Where does it come from?
+      </h2>
+      <p>
+        The main man-made releases of lead are from metal production and processing; from coal-fired power stations and from the chemical industry. A significant amount used to be released in vehicle exhaust, before the addition of lead to petrol was phased out. Similarly, domestic releases from lead plumbing piping and from paints are decreasing as they are replaced by safer modern alternatives. Small amounts are released naturally from the earth's crust, from volcanoes, from forest fires and in sea salt spray.
+      </p>
+      <h2 class="govuk-heading-m">
+        How might it affect the environment?
+      </h2>
+      <p>
+        Exposure to high levels of lead is toxic to plants and animals. It is usually found in the environment in soils or sediments. The solubility of lead increases in acidic waters. No significant effects on the global environment are expected.
+      </p>
+      <h2 class="govuk-heading-m">
+        How might exposure to it affect human health?
+      </h2>
+      <p>
+        Day-to-day exposure to lead may occur from old lead piping or paint, soil or dust from industry using lead and from vehicle exhaust where leaded petrol has been used. Workers in certain industries might also be exposed to lead at what might, over time, become dangerous levels. Lead is a cumulative poison which affects the central nervous system. It can also increase the risk of premature birth, reduce birth weight, induce learning difficulties, inhibit growth, damage the kidneys, cause weakness in the joints, affect the memory, damage the male reproductive system, cause abortions and is potentially carcinogenic.
+      </p>
+      <h2 class="govuk-heading-m">
+        What steps are being taken to limit the potential impacts?
+      </h2>
+      <p>
+        The main legislation now controlling releases of lead in the UK is the National Air Quality Strategy, in which lead is one of the eight key air pollutants targeted for action; as well as regulations on releases of dangerous substances to surface waters. In Europe, lead releases are controlled by Directives on pollution of the aquatic environment (76/464); restrictions on its sale or use (76/769); and it listed as a "priority hazardous substance" under the proposed Water Framework Directive. At an international level, lead releases are controlled by the OSPAR convention which protects the marine environment of the north-east Atlantic; the UNECE convention on long-range transboundary air pollution; and the Basel convention on transboundary movement and disposal of hazardous wastes.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

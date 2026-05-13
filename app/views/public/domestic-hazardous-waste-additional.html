@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional detail of domestic hazardous waste transfer – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional detail of domestic hazardous waste transfer
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Quantity"
+            },
+            value: {
+              text: "7,026 TONNE"
+            }
+          },
+          {
+            key: {
+              text: "Treatment"
+            },
+            value: {
+              text: "Recovery"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Measured"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Measurement by weighing."
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What is a domestic hazardous waste transfer?
+      </h2>
+      <p>
+        This refers to the legal, documented process of moving dangerous waste produced in households (or by tradespeople at homes) to authorized disposal or treatment facilities.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is hazardous waste?
+      </h2>
+      <p>
+        Hazardous waste is any discarded material that poses a substantial or potential threat to public health or the environment due to its chemical, biological, or physical properties.
+      </p>
+      <h2 class="govuk-heading-m">
+        What does recovery mean?
+      </h2>
+      <p>
+        Waste recovery treats waste to serve a useful purpose, replacing raw materials and reducing landfill use through methods like energy generation (incineration), recycling, composting, and material reprocessing.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

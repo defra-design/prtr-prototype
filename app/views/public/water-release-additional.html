@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional details of release to water – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional details of release to water
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Pollutant released to water"
+            },
+            value: {
+              text: "Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)"
+            }
+          },
+          {
+            key: {
+              text: "Total released"
+            },
+            value: {
+              text: "110kg"
+            }
+          },
+          {
+            key: {
+              text: "Threshold / Safe level"
+            },
+            value: {
+              text: "1kg"
+            }
+          },
+          {
+            key: {
+              text: "Accidentally released"
+            },
+            value: {
+              text: "0"
+            }
+          },
+          {
+            key: {
+              text: "Percentage of total accidentally released"
+            },
+            value: {
+              text: "0%"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Calculated"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Other calculation methodology."
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}
