@@ -15,23 +15,22 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      <h1 class="govuk-heading-xl">
+        Search by location
+      </h1>
+      <p>For locations in Northern Ireland, you can only search by postcode.</p>
       <form class="form" action="narrow-location" method="post">
 
         {{ govukInput({
           label: {
-            text: "Search by location",
-            classes: "govuk-label--xl",
-            isPageHeading: true
-          },
-          hint: {
-            text: "Enter a region, county, city, town, village or postcode."
+            text: "Enter a city, town, village or postcode",
+            classes: "govuk-!-font-weight-bold"
           },
           id: "location-search",
           name: "locationSearch"
         }) }}
 
-        {{ govukRadios({
+        <!-- {{ govukRadios({
           name: "searchRadius",
           fieldset: {
             legend: {
@@ -54,7 +53,7 @@
               text: "50 miles"
             }
           ]
-        }) }}
+        }) }} -->
 
         {{ govukButton({
           text: "Continue"
