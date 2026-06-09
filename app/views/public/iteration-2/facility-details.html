@@ -1,0 +1,126 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Facility details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Facility details
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: "Brunswick Waste Reception Site"
+            }
+          },
+          {
+            key: {
+              text: "Activity"
+            },
+            value: {
+              text: "5.c Disposal of non-hazardous waste"
+            }
+          },
+          {
+            key: {
+              text: "IPPC code"
+            },
+            value: {
+              text: "5.3"
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "Brunswick Industrial Est<br>Newcastle Upon Tyne <br>NE13 7"
+            }
+          },
+          {
+            key: {
+              text: "Coordinates (Lat, Lon)"
+            },
+            value: {
+              text: "55.046479, -1.643142"
+            }
+          },
+          {
+            key: {
+              text: "NUTS region"
+            },
+            value: {
+              text: "	Northumberland and Tyne and Wear (UKC2) "
+            }
+          },
+          {
+            key: {
+              text: "NACE code"
+            },
+            value: {
+              text: "38.21 - Treatment and disposal of non-hazardous waste"
+            }
+          },
+          {
+            key: {
+              text: "River basin"
+            },
+            value: {
+              text: "Northumbria"
+            }
+          },
+          {
+            key: {
+              text: "National ID"
+            },
+            value: {
+              text: "EW_EA-13989"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What is the IPPC code?
+      </h2>
+      <p>
+        IPPC code refers to a classification value used to identify specific industrial or agricultural processes regulated under the European Union’s Integrated Pollution Prevention and Control (IPPC) Directive(96/61/EC and later 2008/1/EC).
+      </p>
+      <h2 class="govuk-heading-m">
+        What is the NUTS region?
+      </h2>
+      <p>
+        To reference countries’ regions for statistical purposes, the EU has developed a classification known as <a href="https://ec.europa.eu/eurostat/statistics-explained/index.php/Glossary:NUTS">NUTS or the Nomenclature of territorial units for statistics (opens in new tab)</a>.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is the NACE code?
+      </h2>
+      <p>
+        The 'statistical classification of economic activities' in the European Community, abbreviated as NACE.
+      </p>
+      <h2 class="govuk-heading-m">
+        What is the National ID?
+      </h2>
+      <p>
+        A unique identifier assigned to facilities and businesses that generate, store, transport, or dispose of hazardous waste. This identifier, often issued by national environmental regulatory authorities (like the Environment Agency in the UK or the EPA in the US/Ireland), allows for tracking the entire lifecycle of hazardous waste from generation to disposal.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

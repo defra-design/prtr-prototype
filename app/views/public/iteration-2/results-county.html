@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Facilities in Tyne and Wear – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Facilities in Tyne and Wear
+      </h1>
+
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <p>Showing 1 to 10 of 72 records</p>
+      <table class="govuk-table govuk-!-margin-bottom-9">
+      <caption class="govuk-table__caption govuk-table__caption--l govuk-visually-hidden">Search results for facilities within 50 miles of Newcastle upon Tyne</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-third">Facility</th>
+          <th scope="col" class="govuk-table__header">Activity</th>
+          <th scope="col" class="govuk-table__header">Most recent reporting</th>
+          <th scope="col" class="govuk-table__header govuk-!-text-align-right">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for record in data['resultsCounty'] %}
+          <tr>
+            <td scope="row" class="govuk-table__cell">
+              {{ record['facilityName'] }}
+            </td>
+            <td class="govuk-table__cell">
+              {{ record['activity'] }}
+            </td>
+            <td class="govuk-table__cell">
+              <ul class="govuk-list">
+                {% for item in record['reported'] %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+            <td class="govuk-table__cell govuk-!-text-align-right">
+              <a href="{{ record['actionLink'] }}">View <span class="govuk-visually-hidden"> details for {{ record['facilityName'] }}</span></a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      current: true,
+      href: "#"
+    },
+    {
+      ellipsis: true
+    },
+    {
+      number: 4,
+      href: "#"
+    },
+    {
+      number: 5,
+      href: "#"
+    },
+    {
+      number: 6,
+      href: "#"
+    },
+    {
+      ellipsis: true
+    },
+    {
+      number: 8,
+      href: "#"
+    }
+  ]
+}) }}
+    
+
+    </div>
+  </div>
+
+{% endblock %}

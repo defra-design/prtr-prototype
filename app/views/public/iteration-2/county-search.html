@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search by region or county – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="results-county" method="post">
+
+        
+
+        {{ xGovukAutocomplete({
+          id: "county-search",
+          name: "countySearch",
+          label: {
+            classes: "govuk-label--xl",
+            isPageHeading: true,
+            text: "Search by region or county"
+          },
+          items: [
+            { text: "Antrim" },
+            { text: "Armagh" },
+            { text: "Avon" },
+            { text: "Bedfordshire" },
+            { text: "Berkshire" },
+            { text: "Borders" },
+            { text: "Buckinghamshire" },
+            { text: "Cambridgeshire" },
+            { text: "Central" },
+            { text: "Cheshire" },
+            { text: "Clwyd" },
+            { text: "Cornwall" },
+            { text: "Cumbria" },
+            { text: "Derbyshire" },
+            { text: "Derry" },
+            { text: "Devon" },
+            { text: "Dorset" },
+            { text: "Down" },
+            { text: "Dunfries and Galloway" },
+            { text: "Durham" },
+            { text: "Dyfed" },
+            { text: "East Sussex" },
+            { text: "Essex" },
+            { text: "Fermanagh" },
+            { text: "Fife" },
+            { text: "Gloucestershire" },
+            { text: "Grampian" },
+            { text: "Greater London" },
+            { text: "Greater Manchester" },
+            { text: "Gwent" },
+            { text: "Gwynedd" },
+            { text: "Hampshire" },
+            { text: "Herefordshire" },
+            { text: "Hertfordshire" },
+            { text: "Highland" },
+            { text: "Humberside" },
+            { text: "Isle of Wight" },
+            { text: "Kent" },
+            { text: "Lancashire" },
+            { text: "Leicestershire" },
+            { text: "Licolnshire" },
+            { text: "Lothian" },
+            { text: "Merseyside" },
+            { text: "Mid Glamorgan" },
+            { text: "Norfolk" },
+            { text: "North Yorkshire" },
+            { text: "Northamptonshire" },
+            { text: "Northumberland" },
+            { text: "Nottinghamshire" },
+            { text: "Orkney" },
+            { text: "Oxfordshire" },
+            { text: "Powys" },
+            { text: "Rutland" },
+            { text: "Shetland" },
+            { text: "Shropshire" },
+            { text: "Somerset" },
+            { text: "South Glamorgan" },
+            { text: "South Yorkshire" },
+            { text: "Staffordshire" },
+            { text: "Strathclyde" },
+            { text: "Suffolk" },
+            { text: "Surrey" },
+            { text: "Tayside" },
+            { text: "Tyne and Wear" },
+            { text: "Tyrone" },
+            { text: "Warwickshire" },
+            { text: "West Glamorgan" },
+            { text: "West Midlands" },
+            { text: "West Sussex" },
+            { text: "West Yorkshire" },
+            { text: "Western Isles" },
+            { text: "Wiltshire" },
+            { text: "Worcestershire" }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p>PROTOTYPE: <a href="results-county-none">View no facilities in the county page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

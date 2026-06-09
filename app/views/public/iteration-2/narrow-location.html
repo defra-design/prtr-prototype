@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Locations matching 'Newcastle' – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Locations matching 'Newcastle'
+      </h1>
+
+      <p>
+        More than one match was found for your location. Choose the correct location from the following options:
+      </p>
+      <ul class="govuk-list">
+        <li><a href="results-location">Newcastle upon Tyne, Newcastle upon Tyne</a></li>
+        <li><a href="">Newcastle-under-Lyme, Newcastle-under-Lyme</a></li>
+        <li><a href="">Newcastle, Shropshire</a></li>
+        <li><a href="">Newcastle, Fife</a></li>
+        <li><a href="">Newcastle Great Park, Newcastle upon Tyne</a></li>
+        <li><a href="">Newcastle International Airport, Newcastle upon Tyne</a></li>
+        <li><a href="">Newcastle Emlyn, Sir Gaerfyrddin - Carmarthenshire</a></li>
+        <li><a href="">Little Newcastle, Sir Benfro - Pembrokeshire</a></li>
+      </ul>
+
+      <p>Or <a href="location-search.html">try searching again</a>.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

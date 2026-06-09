@@ -13,12 +13,12 @@ router.post('/search-type', function(request, response) {
 
 	var searchselection = request.session.data['searchFacility']
 	if (searchselection == "location"){
-		response.redirect("public/location-search.html")
+		response.redirect("public/iteration-2/location-search.html")
 	} else if (searchselection == "facility"){
-		response.redirect("public/facility-search.html")
+		response.redirect("public/iteration-2/facility-search.html")
 	} else if (searchselection == "region"){
-		response.redirect("public/region-search.html")
+		response.redirect("public/iteration-2/county-search.html")
 	} else if (searchselection == "river"){
-		response.redirect("public/river-basin-search.html")
+		response.redirect("public/iteration-2/river-basin-search.html")
 	}
 })

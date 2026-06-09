@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional detail of non hazardous waste transfer – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional detail of non hazardous waste transfer
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Quantity"
+            },
+            value: {
+              text: "134,982 TONNE"
+            }
+          },
+          {
+            key: {
+              text: "Treatment"
+            },
+            value: {
+              text: "Recovery"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Measured"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Measurement by weighing."
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        What is non hazardous waste?
+      </h2>
+      <p>
+        Non hazardous waste is any solid or liquid waste that does not pose an immediate threat to human health or the environment.
+      </p>
+      <h2 class="govuk-heading-m">
+        What does recovery mean?
+      </h2>
+      <p>
+        Waste recovery treats waste to serve a useful purpose, replacing raw materials and reducing landfill use through methods like energy generation (incineration), recycling, composting, and material reprocessing.
+      </p>
+
+    </div>
+  </div>
+{% endblock %}

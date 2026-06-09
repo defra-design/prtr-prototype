@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Additional details of release to soil – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Additional details of release to soil
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Pollutant released to soil"
+            },
+            value: {
+              text: "Zinc and compounds (as Zn)"
+            }
+          },
+          {
+            key: {
+              text: "Total released"
+            },
+            value: {
+              text: "3,460kg"
+            }
+          },
+          {
+            key: {
+              text: "Threshold / Safe level"
+            },
+            value: {
+              text: "100kg"
+            }
+          },
+          {
+            key: {
+              text: "Accidentally released"
+            },
+            value: {
+              text: "0"
+            }
+          },
+          {
+            key: {
+              text: "Percentage of total accidentally released"
+            },
+            value: {
+              text: "0%"
+            }
+          },
+          {
+            key: {
+              text: "Method of obtaining data"
+            },
+            value: {
+              text: "Measured"
+            }
+          },
+          {
+            key: {
+              text: "Method description"
+            },
+            value: {
+              text: "Other measurement methodology."
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality requested"
+            },
+            value: {
+              text: "None"
+            }
+          }
+        ]
+      }) }}
+
+
+    </div>
+  </div>
+{% endblock %}

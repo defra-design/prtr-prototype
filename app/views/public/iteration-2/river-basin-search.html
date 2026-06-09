@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search by river basin – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="results-river" method="post">
+
+        
+
+        {{ xGovukAutocomplete({
+          id: "river-search",
+          name: "riverSearch",
+          label: {
+            classes: "govuk-label--xl",
+            isPageHeading: true,
+            text: "Search by river basin"
+          },
+          items: [
+            { text: "Anglian" },
+            { text: "Dee" },
+            { text: "Humber" },
+            { text: "Neagh Bann (GBNIIENB)" },
+            { text: "North Eastern (GBNINE)" },
+            { text: "North Sea, UK" },
+            { text: "North West" },
+            { text: "North Western (GBNIIENW)" },
+            { text: "Northumbria" },
+            { text: "Offshore" },
+            { text: "Scotland" },
+            { text: "Severn" },
+            { text: "Shannon (IEGBNISH)" },
+            { text: "Solway Tweed" },
+            { text: "South East" },
+            { text: "South West" },
+            { text: "Thames" },
+            { text: "Western Wales" }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p>PROTOTYPE: <a href="results-river-none">View no facilities in the river basin page</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
