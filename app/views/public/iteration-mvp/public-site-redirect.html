@@ -1,0 +1,30 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  <!-- {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }} -->
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p>This site is being replaced.</p>
+
+      <p><a href="https://www.gov.uk/guidance/uk-pollutant-release-and-transfer-register-prtr-data-sets">Learn more about the UK Pollutant Release and Transfer Register (PRTR)</a>, or <a href="landing.html">download PRTR datasets</a> from the updated website.</p>
+
+    </div>
+  </div>
+
+{% endblock %}
