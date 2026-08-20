@@ -1,0 +1,139 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Celsa Swansea Scrap Yard – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Celsa Swansea Scrap Yard
+      </h1>
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Reporting year 2026"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "NACE code"
+            },
+            value: {
+              html: "24.10 - Manufacture of basic iron and steel and of ferro-alloys"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "NACE code"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Main activity"
+            },
+            value: {
+              html: "2.b Pig iron or steel"
+            }
+          },
+          {
+            key: {
+              text: "Other activities"
+            },
+            value: {
+              html: "No other activities"
+            }
+          },
+          {
+            key: {
+              text: "Confidentiality for all facility data"
+            },
+            value: {
+              html: "Yes"
+            }
+          },
+          {
+            key: {
+              text: "Reason for confidentiality"
+            },
+            value: {
+              html: "Reason 1"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Pollutants"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Add"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "You have not added any pollutants",
+              classes: "govuk-!-width-full"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Waste"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Add"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "You have not added any waste",
+              classes: "govuk-!-width-full"
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit",
+          href: "cannot-submit"
+        }) }}
+
+        <a class="govuk-link" href="facilities">Return to facilities</a>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

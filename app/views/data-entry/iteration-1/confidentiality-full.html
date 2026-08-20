@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Do you need to request confidentiality on all data reported for this facility? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="confidentiality-full-reason" method="post">
+        <span class="govuk-caption-xl">Celsa Swansea Scrap Yard</span>
+        {{ govukRadios({
+          name: "confidentialFull",
+          fieldset: {
+            legend: {
+              text: "Do you need to request confidentiality on all data reported for this facility?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "conf-yes",
+              text: "Yes",
+              hint: {
+                text: "If your request is approved, the data for this facility will be shared with Defra, but not published to the public"
+              }
+            },
+            {
+              value: "conf-no",
+              text: "No",
+              hint: {
+                text: "You can request confidentiality on individual data items if needed"
+              }
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <a class="govuk-link" href="facilities">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

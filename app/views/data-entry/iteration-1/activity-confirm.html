@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirm the Annex I activities of this facility in 2025 – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Celsa Swansea Scrap Yard</span>
+      <h1 class="govuk-heading-xl">
+        Confirm the Annex I activities of this facility in 2026
+      </h1>
+
+      <form class="form" action="confidentiality-full" method="post">
+
+        <p>Some stuff?</p>
+
+        <h2 class="govuk-heading-m">Main activity</h2>
+        <div id="event-name-hint" class="govuk-hint">
+          Some stuff?
+        </div>
+        <p class="govuk-!-margin-bottom-6">2.b Pig iron or steel</p>
+
+        <h2 class="govuk-heading-m">Other activities</h2>
+        <div id="event-name-hint" class="govuk-hint">
+          Some stuff?
+        </div>
+        <p class="govuk-!-margin-bottom-6">No other activities</p>
+
+        {{ govukRadios({
+          name: "whereDoYouLive",
+          fieldset: {
+            legend: {
+              text: "Are these activities correct for this facility for 2026?",
+              classes: "govuk-fieldset__legend--m govuk-!-padding-top-2"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, these activities are correct"
+            },
+            {
+              value: "no",
+              text: "No, I need to update these activities"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <a class="govuk-link" href="facilities">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

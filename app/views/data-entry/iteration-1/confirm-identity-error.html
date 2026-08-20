@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirm your identity – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#enter-code-error">Code not recognised. Enter the code exactly as it is shown in your email.</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h1 class="govuk-heading-xl">
+        Confirm your identity
+      </h1>
+      <p>A code has been sent to your email address. Do not share this code with anyone else.</p>
+
+      <form class="form" action="landing" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Enter code",
+            classes: "govuk-label--m"
+          },
+          errorMessage: {
+            text: "Code not recognised. Enter the code exactly as it is shown in your email.",
+            id: "code-error"
+          },
+          classes: "govuk-!-width-one-third",
+          id: "enter-code",
+          name: "enterCode"
+        }) }}
+
+        {% call govukDetails({
+          summaryText: "Help"
+        }) %}
+          Help for code not working, email not arrived, checking junk, requesting a new code.
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+

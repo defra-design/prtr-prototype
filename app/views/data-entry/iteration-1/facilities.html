@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Facilities to report on for 2025 {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Facilities to report on for 2026
+      </h1>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-1-status">
+              Celsa Manufacturing (UK) Limited, Section Mill
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-1-status">
+            <strong class="govuk-tag govuk-tag--yellow">
+              In progress
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-2-status">
+              Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-2-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Submitted
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-3-status">
+              Celsa Manufacturing UK Ltd, Cardiff Rod And Bar Mill
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-3-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Submitted
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="nace-confirm" aria-describedby="facility-4-status">
+              Celsa Swansea Scrap Yard
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-4-status">
+            Not started
+          </div>
+        </li>
+      </ul>
+
+      {% call govukDetails({
+        summaryText: "Help"
+      }) %}
+        Text here
+      {% endcall %}
+
+    </div>
+  </div>
+
+{% endblock %}

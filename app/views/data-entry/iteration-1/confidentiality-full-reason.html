@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the reason for requesting confidentiality on all data reported for this facility? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="start-report" method="post">
+        <span class="govuk-caption-xl">Celsa Swansea Scrap Yard</span>
+        {{ govukRadios({
+          name: "confidentialFullReason",
+          fieldset: {
+            legend: {
+              text: "What is the reason for requesting confidentiality on all data reported for this facility?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "reason-1",
+              text: "Reason 1"
+            },
+            {
+              value: "reason-2",
+              text: "Reason 2"
+            },
+            {
+              value: "reason-3",
+              text: "Reason 3"
+            },
+            {
+              value: "reason-4",
+              text: "Reason 4"
+            },
+            {
+              value: "reason-5",
+              text: "Reason 5"
+            },
+            {
+              value: "reason-6",
+              text: "Reason 6"
+            },
+            {
+              value: "reason-7",
+              text: "Reason 7"
+            },
+            {
+              value: "reason-8",
+              text: "Reason 8"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <a class="govuk-link" href="facilities">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
