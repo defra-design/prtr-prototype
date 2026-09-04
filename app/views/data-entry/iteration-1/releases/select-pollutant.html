@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Which pollutant was released to air? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="amount" method="post">
+        {% if ( data["releaseMedium"] == "air") %}
+          {{ govukRadios({
+            name: "pollutant",
+            fieldset: {
+              legend: {
+                text: "Which pollutant was released to air?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "carbon dioxide (CO2)",
+                text: "Carbon dioxide (CO2)"
+              },
+              {
+                value: "carbon dioxide (CO2) excluding biomass",
+                text: "Carbon dioxide (CO2) excluding biomass"
+              },
+              {
+                value: "hydro-fluorocarbons (HFCs)",
+                text: "Hydro-fluorocarbons (HFCs)"
+              }
+            ]
+          }) }}
+        {% elseif ( data["releaseMedium"] == "land") %}
+          {{ govukRadios({
+            name: "pollutant",
+            fieldset: {
+              legend: {
+                text: "Which pollutant was released to land?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "land-1",
+                text: "Land 1"
+              },
+              {
+                value: "land-2",
+                text: "Land 2"
+              },
+              {
+                value: "land-3",
+                text: "Land 3"
+              }
+            ]
+          }) }}
+        {% elseif ( data["releaseMedium"] == "water") %}
+          {{ govukRadios({
+            name: "pollutant",
+            fieldset: {
+              legend: {
+                text: "Which pollutant was released to water?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "water-1",
+                text: "Water 1"
+              },
+              {
+                value: "water-2",
+                text: "Water 2"
+              },
+              {
+                value: "water-3",
+                text: "Water 3"
+              }
+            ]
+          }) }}
+        {% endif %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

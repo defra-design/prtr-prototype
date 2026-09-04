@@ -14,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Celsa Swansea Scrap Yard
+        {{ data['facility-name'] }} report
       </h1>
 
       {{ govukSummaryList({
@@ -79,12 +79,12 @@
       {{ govukSummaryList({
         card: {
           title: {
-            text: "Pollutants"
+            text: "Pollutant releases"
           },
           actions: {
             items: [
               {
-                href: "#",
+                href: "releases/medium",
                 text: "Add"
               }
             ]
@@ -94,7 +94,7 @@
           {
             key: {
               html: "You have not added any pollutants",
-              classes: "govuk-!-width-full"
+              classes: "govuk-!-width-full govuk-!-font-weight-regular"
             }
           }
         ]
@@ -103,7 +103,7 @@
       {{ govukSummaryList({
         card: {
           title: {
-            text: "Waste"
+            text: "Pollutant transfers to wastewater"
           },
           actions: {
             items: [
@@ -117,8 +117,32 @@
         rows: [
           {
             key: {
-              html: "You have not added any waste",
-              classes: "govuk-!-width-full"
+              html: "You have not added any pollutant transfers to wastewater",
+              classes: "govuk-!-width-full govuk-!-font-weight-regular"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Waste transfers"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Add"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              html: "You have not added any waste transfers",
+              classes: "govuk-!-width-full govuk-!-font-weight-regular"
             }
           }
         ]

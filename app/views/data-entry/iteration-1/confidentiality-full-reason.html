@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="start-report" method="post">
-        <span class="govuk-caption-xl">Celsa Swansea Scrap Yard</span>
+        <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
         {{ govukRadios({
           name: "confidentialFullReason",
           fieldset: {

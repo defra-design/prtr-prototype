@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Facilities to report on for 2025 {{ serviceName }} – GOV.UK Prototype Kit
+  Facilities you are responsible for - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Facilities to report on for 2026
+        Facilities you are responsible for
       </h1>
 
       <ul class="govuk-task-list">
@@ -28,20 +28,18 @@
             </a>
           </div>
           <div class="govuk-task-list__status" id="facility-1-status">
-            <strong class="govuk-tag govuk-tag--yellow">
-              In progress
-            </strong>
+            Review facility
           </div>
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-2-status">
+            <a class="govuk-link govuk-task-list__link" href="report-submitted" aria-describedby="facility-2-status">
               Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
             </a>
           </div>
           <div class="govuk-task-list__status" id="facility-2-status">
             <strong class="govuk-tag govuk-tag--green">
-              Submitted
+              Report submitted
             </strong>
           </div>
         </li>
@@ -52,19 +50,19 @@
             </a>
           </div>
           <div class="govuk-task-list__status" id="facility-3-status">
-            <strong class="govuk-tag govuk-tag--green">
-              Submitted
+            <strong class="govuk-tag govuk-tag--yellow">
+              Report in progress
             </strong>
           </div>
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="nace-confirm" aria-describedby="facility-4-status">
+            <a class="govuk-link govuk-task-list__link" href="nace-confirm?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-4-status">
               Celsa Swansea Scrap Yard
             </a>
           </div>
           <div class="govuk-task-list__status" id="facility-4-status">
-            Not started
+            Ready to report
           </div>
         </li>
       </ul>

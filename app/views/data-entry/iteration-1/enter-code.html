@@ -1,7 +1,7 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-no-nav.html" %}
 
 {% block pageTitle %}
-  Confirm your identity – {{ serviceName }} – GOV.UK Prototype Kit
+  Enter code – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -14,11 +14,11 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Confirm your identity
+        Enter code
       </h1>
       <p>A code has been sent to your email address. Do not share this code with anyone else.</p>
 
-      <form class="form" action="landing" method="post">
+      <form class="form" action="facilities" method="post">
 
         {{ govukInput({
           label: {
@@ -33,7 +33,7 @@
         {% call govukDetails({
           summaryText: "Help"
         }) %}
-          Help for code not working, email not arrived, checking junk, requesting a new code.
+          Help
         {% endcall %}
 
         {{ govukButton({

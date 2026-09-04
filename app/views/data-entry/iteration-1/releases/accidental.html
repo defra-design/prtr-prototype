@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Was any of the {{ data['pollutantAmount'] }}kg released accidentally? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="obtain-data" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+              <h1 class="govuk-fieldset__heading">
+                Was any of the {{ data['pollutantAmount'] }}kg released accidentally?
+              </h1>
+            </legend>
+            <!-- <div id="contact-hint" class="govuk-hint">
+              Select one option
+            </div> -->
+            <div class="govuk-radios" data-module="govuk-radios">
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accidental-yes" name="accidentalRelease" type="radio" value="Yes" data-aria-controls="conditional-accidental-yes">
+                <label class="govuk-label govuk-radios__label" for="accidental-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-accidental-yes">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="pollutant-accidental-amount">
+                    Enter amount that was released accidentally
+                  </label>
+                  <div class="govuk-input__wrapper">
+                    <input class="govuk-input govuk-input--width-5" id="pollutant-accidental-amount" name="pollutantAccidentalAmount" type="text" inputmode="decimal" aria-describedby="amount-hint">
+                    <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="accidental-no" name="accidentalRelease" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="accidental-no">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What was the total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="accidental" method="post">
+          <div class="govuk-form-group">
+            <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--xl" for="pollutant-amount">
+                What was the total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }}?
+              </label>
+            </h1>
+            <div id="amount-hint" class="govuk-hint">
+              In 2025, you reported the total amount released was 100kg.
+            </div>
+            <div class="govuk-input__wrapper">
+              <input class="govuk-input govuk-input--width-5" id="pollutant-amount" name="pollutantAmount" type="text" inputmode="decimal" aria-describedby="amount-hint">
+              <div class="govuk-input__suffix" aria-hidden="true">kg</div>
+            </div>
+          </div>
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -6,9 +6,22 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+// Logging session data  
+  
+  router.use((req, res, next) => {    
+      const log = {  
+        method: req.method,  
+        url: req.originalUrl,  
+        data: req.session.data  
+      }  
+      console.log(JSON.stringify(log, null, 2))  
+     
+    next()  
+  }) 
+
 // Add your routes here
 
-// Search type redirect - initial design
+// PUBLIC search type redirect - initial design
 router.post('/search-type', function(request, response) {
 
 	var searchselection = request.session.data['searchFacility']
@@ -22,3 +35,4 @@ router.post('/search-type', function(request, response) {
 		response.redirect("public/iteration-2/river-basin-search.html")
 	}
 })
+

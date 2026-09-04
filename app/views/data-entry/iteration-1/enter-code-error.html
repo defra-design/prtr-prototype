@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-no-nav.html" %}
 
 {% block pageTitle %}
   Confirm your identity – {{ serviceName }} – GOV.UK Prototype Kit
@@ -50,7 +50,7 @@
         {% call govukDetails({
           summaryText: "Help"
         }) %}
-          Help for code not working, email not arrived, checking junk, requesting a new code.
+          Help.
         {% endcall %}
 
         {{ govukButton({
