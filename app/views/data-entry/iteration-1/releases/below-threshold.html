@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is below the threshold - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is below the threshold
+      </h1>
+      <p>You entered {{ data['pollutantAmount'] }}kg</p>
+
+      <form class="form" action="/below-threshold" method="post">
+
+        {{ govukRadios({
+          name: "belowThreshold",
+          fieldset: {
+            legend: {
+              text: "Is this amount correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "correct",
+              text: "Yes, it is correct"
+            },
+            {
+              value: "incorrect",
+              text: "No, I need to change the amount"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

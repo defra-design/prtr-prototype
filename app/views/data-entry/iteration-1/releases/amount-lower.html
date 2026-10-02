@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is significantly lower than 2025 - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is significantly lower than 2025
+      </h1>
+      <p>In 2025, you reported the total amount released was 100kg, but for 2026 you have entered {{ data['pollutantAmount'] }}kg</p>
+
+      <form class="form" action="/lower-amount" method="post">
+        {% set lowerReason %}
+          {{ govukTextarea({
+            id: "reason-lower",
+            name: "reasonLower",
+            label: {
+              text: "Enter an explanation for the significant decrease",
+              classes: "govuk-label--s"
+            }
+          }) }}
+          {% endset -%}
+        {{ govukRadios({
+          name: "lowerAmount",
+          fieldset: {
+            legend: {
+              text: "Are you sure this amount is correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "correct",
+              text: "Yes, it is correct",
+              conditional: {
+                html: lowerReason
+              }
+            },
+            {
+              value: "incorrect",
+              text: "No, I need to change the amount"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

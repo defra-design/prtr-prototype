@@ -21,6 +21,29 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+// DATA ENTRY
+// Below threshold redirect
+router.post('/below-threshold', function(request, response) {
+
+	var belowCorrect = request.session.data['belowThreshold']
+	if (belowCorrect == "correct"){
+		response.redirect("data-entry/iteration-1/releases/amount-lower.html")
+	} else if (belowCorrect == "incorrect"){
+		response.redirect("data-entry/iteration-1/releases/amount.html")
+	}
+})
+
+// Below threshold redirect
+router.post('/lower-amount', function(request, response) {
+
+	var lower = request.session.data['lowerAmount']
+	if (lower == "correct"){
+		response.redirect("data-entry/iteration-1/releases/accidental.html")
+	} else if (lower == "incorrect"){
+		response.redirect("data-entry/iteration-1/releases/amount.html")
+	}
+})
+
 // PUBLIC search type redirect - initial design
 router.post('/search-type', function(request, response) {
 
