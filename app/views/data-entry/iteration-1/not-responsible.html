@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Contact your Regulator about this incorrect assignment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Contact your Regulator about this incorrect assignment
+      </h1>
+
+      <p>Let them know you are not responsible for this facility, so it can be removed from your reporting.</p>
+      <p>If you know who is now responsible for PRTR reporting for this facility, let your Regulator know.</p>
+      <p>You will receive an email when your Regulator informs Defra of who is responsible for this facility and it has been removed from your reporting.</p>
+
+      <p><a href="facilities?CSSY=queried">Return to facilities</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

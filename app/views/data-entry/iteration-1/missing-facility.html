@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Contact your Regulator – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Contact your Regulator about the missing facility
+      </h1>
+
+      <p>Let them know the details of the facility you believe you should be reporting on.</p>
+      <p>You will receive an email when the facility has been added to your reporting.</p>
+
+      <p><a href="facilities">Return to facilities</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

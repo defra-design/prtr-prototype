@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you responsible for reporting PRTR data for this facility? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+
+      <form class="form" action="/facilityConfirm" method="post">
+        {{ govukRadios({
+          name: "confirmReporting",
+          fieldset: {
+            legend: {
+              text: "Are you responsible for reporting PRTR data for this facility?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No",
+              hint: {
+                text: "Access to reporting on this facility will be removed for you until your Regulator informs Defra of who is responsible for this facility"
+              }
+            }
+          ]
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

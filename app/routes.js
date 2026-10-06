@@ -22,6 +22,28 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 // DATA ENTRY
+// Are you responsible for this facility?
+router.post('/facilityConfirm', function(request, response) {
+
+	var confirmYourFacility = request.session.data['confirmReporting']
+	if (confirmYourFacility == "yes"){
+		response.redirect("data-entry/iteration-1/zero-return.html")
+	} else if (confirmYourFacility == "no"){
+		response.redirect("data-entry/iteration-1/not-responsible.html")
+	}
+})
+
+// Zero return?
+router.post('/zeroConfirm', function(request, response) {
+
+	var confirmZero = request.session.data['zeroReturn']
+	if (confirmZero == "yes"){
+		response.redirect("data-entry/iteration-1/facilities.html?CSSY=zero")
+	} else if (confirmZero == "no"){
+		response.redirect("data-entry/iteration-1/report.html")
+	}
+})
+
 // Below threshold redirect in pollutant releases journey
 router.post('/below-threshold', function(request, response) {
 

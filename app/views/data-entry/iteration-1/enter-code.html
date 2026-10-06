@@ -14,10 +14,19 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Enter code
+        Check you email for a code
       </h1>
-      <p>A code has been sent to your email address. Do not share this code with anyone else.</p>
-
+      <p>A unique code has been sent to your email address. Do not share this code with anyone else.</p>
+      <p>The code email can take a few mintes to arrive.</p>
+      <p>If you do not receive the code email after 10 minutes:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          check that the email is not in your spam or junk folder
+        </li>
+        <li>
+          check you are connected to the internet
+        </li>
+      </ul>
       <form class="form" action="facilities" method="post">
 
         {{ govukInput({
@@ -31,9 +40,10 @@
         }) }}
 
         {% call govukDetails({
-          summaryText: "Help"
+          summaryText: "My code hasn't arrived or isn't working"
         }) %}
-          Help
+          <p>You can <a class="govuk-link" href="">request a new code email</a> to your email address.</p>
+          <p>If the new code still doesn't work, contact XXX to let them know there is a problem with you accessing the service.</p>
         {% endcall %}
 
         {{ govukButton({

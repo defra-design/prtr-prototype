@@ -22,56 +22,77 @@
 
       <ul class="govuk-task-list">
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-1-status">
-              Celsa Manufacturing (UK) Limited, Section Mill
-            </a>
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Manufacturing (UK) Limited, Section Mill
+            <div id="facility-1-hint" class="govuk-task-list__hint">
+              You will be contacted when this facility has been removed from your list
+            </div>
           </div>
           <div class="govuk-task-list__status" id="facility-1-status">
-            Review facility
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="report-submitted" aria-describedby="facility-2-status">
-              Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
-            </a>
-          </div>
-          <div class="govuk-task-list__status" id="facility-2-status">
-            <strong class="govuk-tag govuk-tag--green">
-              Report submitted
+            <strong class="govuk-tag govuk-tag--red">
+              Wrong assignment
             </strong>
           </div>
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
+          </div>
+          <div class="govuk-task-list__status" id="facility-2-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Zero return sent
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
             <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-3-status">
               Celsa Manufacturing UK Ltd, Cardiff Rod And Bar Mill
             </a>
           </div>
           <div class="govuk-task-list__status" id="facility-3-status">
             <strong class="govuk-tag govuk-tag--yellow">
-              Report in progress
+              Return in progress
             </strong>
           </div>
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="report?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-4-status">
-              Celsa Swansea Scrap Yard
-            </a>
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Cardiff Scrap Yard
           </div>
           <div class="govuk-task-list__status" id="facility-4-status">
-            Ready to report
+            <strong class="govuk-tag govuk-tag--green">
+              Return sent
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            {% if ( data["CSSY"] == "zero") %}
+              Celsa Swansea Scrap Yard
+            {% else %}
+              <a class="govuk-link govuk-task-list__link" href="your-facility?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-5-status">
+                Celsa Swansea Scrap Yard
+              </a>
+            {% endif %}
+          </div>
+          <div class="govuk-task-list__status" id="facility-5-status">
+            {% if ( data["CSSY"] == "zero") %}
+              <strong class="govuk-tag govuk-tag--blue">
+                Zero return sent
+              </strong>
+            {% elseif ( data["CSSY"] == "queried") %}
+              <strong class="govuk-tag govuk-tag--red">
+                Wrong assignment
+              </strong>
+            {% else %}
+              Not started
+            {% endif %}
           </div>
         </li>
       </ul>
 
-      {% call govukDetails({
-        summaryText: "Help"
-      }) %}
-        Text here
-      {% endcall %}
+      <p><a href="missing-facility">Is there a facility missing?</a></p>
 
     </div>
   </div>

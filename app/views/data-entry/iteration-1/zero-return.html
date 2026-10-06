@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Do you need to submit a zero return for this facility? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+
+      <form class="form" action="/zeroConfirm" method="post">
+        {{ govukRadios({
+          name: "zeroReturn",
+          fieldset: {
+            legend: {
+              text: "Do you need to submit a zero return for this facility?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },hint: {
+            text: "You should only submit a zero return if your facilitiy has not produced any pollutants or waste transfers required for PRTR reporting"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, I need to submit a zero return",
+              hint: {
+                text: "Your Regulator will be notified that you have submitted a zero return"
+              }
+            },
+            {
+              value: "no",
+              text: "No, I need to report values for pollutants or waste"
+            }
+          ]
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

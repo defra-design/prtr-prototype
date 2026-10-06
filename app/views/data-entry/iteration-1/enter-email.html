@@ -22,7 +22,7 @@
 
         {{ govukInput({
           label: {
-            text: "Enter email",
+            text: "Enter your email address",
             classes: "govuk-label--m"
           },
           classes: "govuk-!-width-one-third",
@@ -31,9 +31,9 @@
         }) }}
 
         {% call govukDetails({
-          summaryText: "My email has not been recognised."
+          summaryText: "My email address is not recognised."
         }) %}
-          My email has not been recognised.
+          Contact XXX to let them know there is a problem with you accessing the service.
         {% endcall %}
 
         {{ govukButton({

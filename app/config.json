@@ -1,5 +1,5 @@
 {
-  "serviceName": "Pollutant Release and Transfer reporting",
+  "serviceName": "Pollutant Release and Transfer data reporting",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {
