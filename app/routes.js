@@ -22,7 +22,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 // DATA ENTRY
-// Below threshold redirect
+// Below threshold redirect in pollutant releases journey
 router.post('/below-threshold', function(request, response) {
 
 	var belowCorrect = request.session.data['belowThreshold']
@@ -33,7 +33,7 @@ router.post('/below-threshold', function(request, response) {
 	}
 })
 
-// Below threshold redirect
+// Significantly lower redirect in pollutant releases journey
 router.post('/lower-amount', function(request, response) {
 
 	var lower = request.session.data['lowerAmount']
@@ -44,7 +44,46 @@ router.post('/lower-amount', function(request, response) {
 	}
 })
 
-// PUBLIC search type redirect - initial design
+// Data method in pollutant releases journey
+router.post('/select-method-release', function(request, response) {
+
+	var dataRelease = request.session.data['pollutantData']
+	if (dataRelease == "measurement"){
+		response.redirect("data-entry/iteration-1/releases/select-method-measurement.html")
+	} else if (dataRelease == "calculation"){
+		response.redirect("data-entry/iteration-1/releases/select-method-calculation.html")
+	} else if (dataRelease == "estimated"){
+		response.redirect("data-entry/iteration-1/releases/check-answers.html")
+	}
+})
+
+// Significantly higher redirect in pollutant transfers journey
+router.post('/higher-amount', function(request, response) {
+
+	var higher = request.session.data['higherAmount']
+	if (higher == "correct"){
+		response.redirect("data-entry/iteration-1/transfers/accidental.html")
+	} else if (higher == "incorrect"){
+		response.redirect("data-entry/iteration-1/transfers/amount.html")
+	}
+})
+
+// Data method in pollutant transfers journey
+router.post('/select-method-transfer', function(request, response) {
+
+	var dataTransfer = request.session.data['pollutantTransferData']
+	if (dataTransfer == "measurement"){
+		response.redirect("data-entry/iteration-1/transfers/select-method-measurement.html")
+	} else if (dataTransfer == "calculation"){
+		response.redirect("data-entry/iteration-1/transfers/select-method-calculation.html")
+	} else if (dataTransfer == "estimated"){
+		response.redirect("data-entry/iteration-1/transfers/check-answers.html")
+	}
+})
+
+
+// PUBLIC WEBSITE
+// Search type redirect - initial design
 router.post('/search-type', function(request, response) {
 
 	var searchselection = request.session.data['searchFacility']

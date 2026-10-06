@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What was the method of {{ data['pollutant-data'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="check-answers" method="post">
+        {% set designation %}
+          {{ govukInput({
+            id: "M-INT-designation",
+            name: "MINTDesignationTransfer",
+            classes: "govuk-input--width-10",
+            label: {
+              text: "Enter ISO or CEN designation",
+              classes: "govuk-label--s"
+            }
+          }) }}
+          {% endset -%}
+        {{ govukRadios({
+          name: "pollutantTransferMethod",
+          fieldset: {
+            legend: {
+              html: "What was the method of measurement?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "M-ALT",
+              text: "M-ALT"
+            },
+            {
+              value: "M-CRM",
+              text: "M-CRM"
+            },
+            {
+              value: "M-ETS",
+              text: "M-ETS"
+            },
+            {
+              value: "M-INT",
+              text: "M-INT",
+              conditional: {
+              html: designation
+            }
+            },
+            {
+              value: "M-IPCC",
+              text: "M-IPCC"
+            },
+            {
+              value: "M-MAB",
+              text: "M-MAB"
+            },
+            {
+              value: "M-NRB",
+              text: "M-NRB"
+            },
+            {
+              value: "M-OTH",
+              text: "M-OTH"
+            },
+            {
+              value: "M-PER",
+              text: "M-PER"
+            },
+            {
+              value: "M-SSC",
+              text: "M-SSC"
+            },
+            {
+              value: "M-UNECE/EMEP",
+              text: "M-UNECE/EMEP"
+            },
+            {
+              value: "M-WEIGH",
+              text: "M-WEIGH"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

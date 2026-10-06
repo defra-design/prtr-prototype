@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What type of release was it? – {{ serviceName }} – GOV.UK Prototype Kit
+  How did you obtain this data? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -16,33 +16,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
-      <form class="form" action="select-pollutant" method="post">
-
+      <form class="form" action="/select-method-transfer" method="post">
         {{ govukRadios({
-          name: "releaseMedium",
+          name: "pollutantTransferData",
           fieldset: {
             legend: {
-              text: "What type of release was it?",
+              text: "How did you obtain this data?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },
           items: [
             {
-              value: "air",
-              text: "Release to air"
+              value: "measurement",
+              text: "Measured"
             },
             {
-              value: "water",
-              text: "Release to water"
+              value: "calculation",
+              text: "Calculated"
             },
             {
-              value: "land",
-              text: "Release to land"
+              value: "estimated",
+              text: "Estimated"
             }
           ]
         }) }}
-
+        
         {{ govukButton({
           text: "Continue"
         }) }}

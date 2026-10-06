@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What was the method of {{ data['pollutant-data'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="check-answers" method="post">
+        
+        {% set Cdesignation %}
+          {{ govukInput({
+            id: "C-INT-designation",
+            name: "CINTDesignationTransfer",
+            classes: "govuk-input--width-10",
+            label: {
+              text: "Enter ISO or CEN designation",
+              classes: "govuk-label--s"
+            }
+          }) }}
+          {% endset -%}
+        {{ govukRadios({
+          name: "pollutantTransferMethodC",
+          fieldset: {
+            legend: {
+              html: "What was the method of calculation?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "C-ALT",
+              text: "C-ALT"
+            },
+            {
+              value: "C-CRM",
+              text: "C-CRM"
+            },
+            {
+              value: "C-ETS",
+              text: "C-ETS"
+            },
+            {
+              value: "C-INT",
+              text: "C-INT",
+              conditional: {
+              html: Cdesignation
+            }
+            },
+            {
+              value: "C-IPCC",
+              text: "C-IPCC"
+            },
+            {
+              value: "C-MAB",
+              text: "C-MAB"
+            },
+            {
+              value: "C-NRB",
+              text: "C-NRB"
+            },
+            {
+              value: "C-OTH",
+              text: "C-OTH"
+            },
+            {
+              value: "C-PER",
+              text: "C-PER"
+            },
+            {
+              value: "C-SSC",
+              text: "C-SSC"
+            },
+            {
+              value: "C-UNECE/EMEP",
+              text: "C-UNECE/EMEP"
+            },
+            {
+              value: "C-WEIGH",
+              text: "C-WEIGH"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

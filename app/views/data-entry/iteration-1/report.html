@@ -1,0 +1,243 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Celsa Swansea Scrap Yard – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data['facility-name'] }} report
+      </h1>
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Reporting year 2026"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Zero report"
+            },
+            value: {
+              text: "No, I need to report values for pollutants or waste"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "to a zero report for this facility"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Pollutant releases
+          </h2>
+          <div class="govuk-summary-card__actions">
+            <a class="govuk-link" href="releases/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+          </div>
+        </div>
+        <div class="govuk-summary-card__content">
+          {% if ( data["releaseAdded"] == "yes") %}
+              <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Pollutant releases already added</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Release type</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-half">Pollutant</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      {% if ( data["releaseMedium"] == "air") %}
+                        Released to air
+                      {% elseif ( data["releaseMedium"] == "water") %}
+                        Released to water
+                      {% elseif ( data["releaseMedium"] == "land") %}
+                        Released to land
+                      {% endif %}
+                    </td>
+                    <td class="govuk-table__cell">
+                      {{ data['pollutant'] | capitalize }}
+                    </td>
+                    <td class="govuk-table__cell govuk-!-text-align-right">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
+                        </li>
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">  
+                You have not added any pollutant releases
+              </p>
+            {% endif %}
+        </div>
+      </div>
+      
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Pollutant transfers to wastewater
+          </h2>
+          <div class="govuk-summary-card__actions">
+            <a class="govuk-link" href="transfers/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+          </div>
+        </div>
+        <div class="govuk-summary-card__content">
+          {% if ( data["transferAdded"] == "yes") %}
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  {{ data['pollutantTransfer'] | capitalize }}
+                </dt>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
+                    </li>
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
+                    </li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>   
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">
+                You have not added any pollutant transfers to wastewater
+              </p>
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Waste transfers
+          </h2>
+          <div class="govuk-summary-card__actions">
+            <a class="govuk-link" href="waste/type">Add<span class="govuk-visually-hidden"> waste transfers</span></a>
+          </div>
+        </div>
+        <div class="govuk-summary-card__content">
+          {% if ( data["wasteAdded"] == "yes") %}
+              <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Waste transfers already added</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Type</th>
+                    <th scope="col" class="govuk-table__header">Treatment</th>
+                    <th scope="col" class="govuk-table__header">Amount</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell">
+                      Type
+                    </td>
+                    <td class="govuk-table__cell">
+                      Treatment
+                    </td>
+                    <td class="govuk-table__cell">
+                      Amount
+                    </td>
+                    <td class="govuk-table__cell govuk-!-text-align-right">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">  details</span></a>
+                        </li>
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">
+                You have not added any waste transfers
+              </p>
+            {% endif %}
+        </div>
+      </div>
+      
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Request confidentiality
+          </h2>
+          {% if ( data["confAdded"] == "yes") %}
+
+          {% else %}
+            <div class="govuk-summary-card__actions">
+              <a class="govuk-link" href="confidentiality/request">Create request<span class="govuk-visually-hidden"> for confidentiality</span></a>
+            </div>
+          {% endif %}
+        </div>
+        <div class="govuk-summary-card__content">
+          {% if ( data["confAdded"] == "yes") %}
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Confidentiality requested
+                </dt>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">  confidentiality request details</span></a>
+                    </li>
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> confidentiality request</span></a>
+                    </li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>   
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">
+                Confidentiality not requested
+              </p>
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit",
+          href: "cannot-submit"
+        }) }}
+
+        <a class="govuk-link" href="facilities">Return to facilities</a>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
