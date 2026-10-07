@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Did you use the same transport company as 2025? - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Did you use the same transport company as 2025?
+      </h1>
+      <p>In 2025, you reported using the following transport company:</p>
+      <p>
+        Renova Miljo<br/>
+        AB Box 36<br/>
+        Gothenburg<br/>
+        40120<br/>
+        Sweden
+      </p>
+
+      <form class="form" action="/confirm-transport-company" method="post">
+        
+        {{ govukRadios({
+          name: "confimTransportCompany",
+          fieldset: {
+            legend: {
+              text: "Is this the transport company you used for this transfer in 2026?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "confirm",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, I used a different company"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

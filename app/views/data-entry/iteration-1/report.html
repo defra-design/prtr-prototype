@@ -81,7 +81,7 @@
                     <td class="govuk-table__cell govuk-!-text-align-right">
                       <ul class="govuk-summary-list__actions-list">
                         <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
+                          <a class="govuk-link" href="releases/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
                         </li>
                         <li class="govuk-summary-list__actions-list-item">
                           <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
@@ -118,7 +118,7 @@
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
+                      <a class="govuk-link" href="transfers/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
                       <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
@@ -159,18 +159,26 @@
                 <tbody class="govuk-table__body">
                   <tr class="govuk-table__row">
                     <td class="govuk-table__cell">
-                      Type
+                      {% if ( data["wasteType"] == "hazardous") %}
+                        Hazardous
+                      {% elseif ( data["wasteType"] == "nonhazardous") %}
+                        Non-hazardous
+                      {% endif %}
                     </td>
                     <td class="govuk-table__cell">
-                      Treatment
+                      {{ data['wasteTreatment'] | capitalize }}
                     </td>
                     <td class="govuk-table__cell">
-                      Amount
+                      {% if ( data["wasteTreatment"] == "disposal") %}
+                        {{ data['wasteDisposalAmount'] }} tonnes
+                      {% elseif ( data["wasteTreatment"] == "recovery") %}
+                        {{ data['wasteRecoveryAmount'] }} tonnes
+                      {% endif %}
                     </td>
                     <td class="govuk-table__cell govuk-!-text-align-right">
                       <ul class="govuk-summary-list__actions-list">
                         <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">  details</span></a>
+                          <a class="govuk-link" href="waste/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
                         </li>
                         <li class="govuk-summary-list__actions-list-item">
                           <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>

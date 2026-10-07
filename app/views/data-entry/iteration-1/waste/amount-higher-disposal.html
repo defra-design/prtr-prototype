@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  The disposal amount of hazardous waste going overseas is significantly higher than 2025 - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        The disposal amount of hazardous waste going overseas is significantly higher than 2025
+      </h1>
+      <p>In 2025, you reported the amount of hazardous waste transferred to the same overseas company for disposal was 100 tonnes, but for 2026 you have entered {{ data['wasteDisposalAmount'] }} tonnes</p>
+
+      <form class="form" action="obtain-data" method="post">
+        {% set higherReason %}
+          {{ govukTextarea({
+            id: "reason-higher",
+            name: "reasonHigherWaste",
+            label: {
+              text: "Enter an explanation for the significant increase",
+              classes: "govuk-label--s"
+            }
+          }) }}
+          {% endset -%}
+        {{ govukRadios({
+          name: "higherAmountWaste",
+          fieldset: {
+            legend: {
+              text: "Are you sure this amount is correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "correct",
+              text: "Yes, it is correct",
+              conditional: {
+                html: higherReason
+              }
+            },
+            {
+              value: "incorrect",
+              text: "No, I need to change the amount"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

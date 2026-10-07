@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Did this company take the waste to the same site as you reported in 2025? - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Did this company take the waste to the same site as you reported in 2025?
+      </h1>
+      <p>In 2025, you reported the transport company took the waste to the following site:</p>
+      <p>
+        Marieholmsgatan<br/>
+        Gothenburg<br/>
+        415 20<br/>
+        Sweden
+      </p>
+
+      <form class="form" action="/confirm-dump-site" method="post">
+        
+        {{ govukRadios({
+          name: "confimSite",
+          fieldset: {
+            legend: {
+              text: "Is this the site the waste was taken to in 2026?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "confirm",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, it has gone to a different site"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

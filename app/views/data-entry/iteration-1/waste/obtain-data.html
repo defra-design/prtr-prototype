@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  How did you obtain this data? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="/select-method-waste" method="post">
+        {{ govukRadios({
+          name: "wasteData",
+          fieldset: {
+            legend: {
+              text: "How did you obtain this data?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          items: [
+            {
+              value: "measurement",
+              text: "Measured"
+            },
+            {
+              value: "calculation",
+              text: "Calculated"
+            },
+            {
+              value: "estimated",
+              text: "Estimated"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

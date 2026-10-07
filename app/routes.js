@@ -103,6 +103,73 @@ router.post('/select-method-transfer', function(request, response) {
 	}
 })
 
+// Waste type haz/nonhaz in waste transfer journey
+router.post('/waste-type', function(request, response) {
+
+	var dataWasteType = request.session.data['wasteType']
+	if (dataWasteType == "hazardous"){
+		response.redirect("data-entry/iteration-1/waste/movement.html")
+	} else if (dataWasteType == "nonhazardous"){
+		response.redirect("data-entry/iteration-1/waste/treatment.html")
+	}
+})
+
+// Hazardous within or outside UK in waste transfer journey
+router.post('/waste-movement', function(request, response) {
+
+	var dataWasteMove = request.session.data['wasteMovement']
+	if (dataWasteMove == "inUK"){
+		response.redirect("data-entry/iteration-1/waste/treatment.html")
+	} else if (dataWasteMove == "overseas"){
+		response.redirect("data-entry/iteration-1/waste/transport-company-confirm.html")
+	}
+})
+
+// Confirm transport company (1 option) in overseas hazardous waste transfer journey
+router.post('/confirm-transport-company', function(request, response) {
+
+	var confirmTransport = request.session.data['confimTransportCompany']
+	if (confirmTransport == "confirm"){
+		response.redirect("data-entry/iteration-1/waste/overseas-site-confirm.html")
+	} else if (confirmTransport == "no"){
+		response.redirect("data-entry/iteration-1/waste/transport-company-enter.html")
+	}
+})
+
+// Confirm dump site (linked to transport selected) in overseas hazardous waste transfer journey
+router.post('/confirm-dump-site', function(request, response) {
+
+	var confirmDumpSite = request.session.data['confimSite']
+	if (confirmDumpSite == "confirm"){
+		response.redirect("data-entry/iteration-1/waste/treatment.html")
+	} else if (confirmDumpSite == "no"){
+		response.redirect("data-entry/iteration-1/waste/overseas-site-enter.html")
+	}
+})
+
+// Select treatment in waste transfer journey
+router.post('/treatment-redirect', function(request, response) {
+
+	var treatmentWaste = request.session.data['wasteTreatment']
+	if (treatmentWaste == "disposal"){
+		response.redirect("data-entry/iteration-1/waste/amount-disposal.html")
+	} else if (treatmentWaste == "recovery"){
+		response.redirect("data-entry/iteration-1/waste/amount-recovery.html")
+	}
+})
+
+// Data method in waste transfer journey
+router.post('/select-method-waste', function(request, response) {
+
+	var dataWasteTransfer = request.session.data['wasteData']
+	if (dataWasteTransfer == "measurement"){
+		response.redirect("data-entry/iteration-1/waste/select-method-measurement.html")
+	} else if (dataWasteTransfer == "calculation"){
+		response.redirect("data-entry/iteration-1/waste/select-method-calculation.html")
+	} else if (dataWasteTransfer == "estimated"){
+		response.redirect("data-entry/iteration-1/waste/check-answers.html")
+	}
+})
 
 // PUBLIC WEBSITE
 // Search type redirect - initial design

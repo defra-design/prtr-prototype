@@ -1,0 +1,288 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of waste
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.wasteType) %}
+              {% if ( data["wasteType"] == "hazardous") %}
+                Hazardous
+              {% elseif ( data["wasteType"] == "nonhazardous") %}
+                Non-hazardous
+              {% endif %}
+            {% else %}
+              Hazardous
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="type.html">Change<span class="govuk-visually-hidden"> type of waste</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Was it transferred overseas?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.wasteMovement) %}
+              {% if ( data["wasteMovement"] == "inUK") %}
+                No, it was transferred within the UK
+              {% elseif ( data["wasteMovement"] == "overseas") %}
+                Yes, it was transferred overseas
+              {% endif %}
+            {% else %}
+              Yes, it was transferred overseas
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="movement.html">Change<span class="govuk-visually-hidden"> if the waste was transferred overseas</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Transport company
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Renova Miljo<br/>
+            AB Box 36<br/>
+            Gothenburg<br/>
+            40120<br/>
+            Sweden
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="transport-company-confirm.html">Change<span class="govuk-visually-hidden"> the transport company used</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Transfer site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Marieholmsgatan<br/>
+            Gothenburg<br/>
+            415 20<br/>
+            Sweden
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="overseas-site-confirm.html">Change<span class="govuk-visually-hidden"> the site the waste went to</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Treatment
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.wasteTreatment) %}
+              {{ data['wasteTreatment'] | capitalize }}
+            {% else %}
+              Recovery
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="movement.html">Change<span class="govuk-visually-hidden"> if the waste was transferred overseas</span></a>
+          </dd>
+        </div>
+        
+        
+        {% if ( data["wasteTreatment"] == "disposal") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disposal amount
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data.wasteDisposalAmount) %}
+                {{ data['wasteDisposalAmount'] }} tonnes
+              {% else %}
+                100,000 tonnes
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="amount-disposal.html">Change<span class="govuk-visually-hidden"> disposal amount</span></a>
+            </dd>
+          </div>
+          {% if ( data["higherAmountWaste"] == "correct") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Amount is significantly higher than 2025
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes, this is correct
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="amount-higher.html">Change<span class="govuk-visually-hidden"> amount is significantly lower than 2025</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reason for the increase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if (data.reasonHigherWaste) %}
+                  {{ data['reasonHigherWaste'] }}
+                {% else %}
+                  Decommissioned and dismantled a furnace
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="amount-higher-disposal.html">Change<span class="govuk-visually-hidden"> reason amount is significantly higher than 2025</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+
+        {% if ( data["wasteTreatment"] == "recovery") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Recovery amount
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data.wasteRecoveryAmount) %}
+                {{ data['wasteRecoveryAmount'] }} tonnes
+              {% else %}
+                100,000 tonnes
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="amount-recovery.html">Change<span class="govuk-visually-hidden"> recovery amount</span></a>
+            </dd>
+          </div>
+          {% if ( data["higherAmountWasteRecovery"] == "correct") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Amount is significantly higher than 2025
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes, this is correct
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="amount-higher-recovery.html">Change<span class="govuk-visually-hidden"> amount is significantly higher than 2025</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Reason for the increase
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if (data.reasonHigherWasteRecovery) %}
+                  {{ data['reasonHigherWasteRecovery'] }}
+                {% else %}
+                  Decommissioned and dismantled a furnace
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="amount-higher-recovery.html">Change<span class="govuk-visually-hidden"> reason amount is significantly higher than 2025</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+        
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How did you obtain this data?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.wasteData) %}
+              {% if ( data["wasteData"] == "measurement") %}
+                Measured
+              {% elseif ( data["wasteData"] == "calculation") %}
+                Calculated
+              {% elseif ( data["wasteData"] == "estimated") %}
+                Estimated
+              {% endif %}
+            {% else %}
+              Estimated
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obtain-data.html">Change<span class="govuk-visually-hidden"> how you obtained this data</span></a>
+          </dd>
+        </div>
+        {% if ( data["wasteData"] == "measurement" or data["wasteData"] == "calculation") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Method of {{ data['wasteData'] }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if ( data["wasteData"] == "measurement") %}
+                {{ data['wasteMethod'] }}
+              {% elseif ( data["wasteData"] == "calculation") %}
+                {{ data['wasteMethodC'] }}
+              {% else %}
+                C-PER
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if ( data["wasteData"] == "measurement") %}
+                <a class="govuk-link" href="select-method-measurement.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
+              {% elseif ( data["wasteData"] == "calculation") %}
+                <a class="govuk-link" href="select-method-calculation.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
+              {% endif %}
+            </dd>
+          </div>
+        {% endif %}
+        {% if ( data["wasteData"] == "measurement") %}
+          {% if ( data["wasteMethod"] == "M-INT") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                ISO or CEN designation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['MINTDesignationWaste'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if ( data["wasteData"] == "calculation") %}
+          {% if ( data["wasteMethodC"] == "C-INT") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                ISO or CEN designation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['CINTDesignationWaste'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+      </dl>
+        
+        <form class="form" action="../report?wasteAdded=yes" method="post">
+          {{ govukButton({
+            text: "Confirm"
+          }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
