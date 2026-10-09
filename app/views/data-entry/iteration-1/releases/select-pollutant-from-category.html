@@ -1,0 +1,112 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Which pollutant was released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="amount" method="post">
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  Which pollutant was released to {{ data['releaseMedium'] }}?
+                </h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                {% if ( data["pollutantCategory"] == "Chlorinated organic substances") %}
+                  {% for pollutant in data['releaseCatChlor'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+          
+                {% elseif ( data["pollutantCategory"] == "Greenhouse gases") %}
+                  {% for pollutant in data['releaseCatGreen'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+
+                {% elseif ( data["pollutantCategory"] == "Heavy metals") %}
+                  {% for pollutant in data['releaseCatMetals'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+
+                {% elseif ( data["pollutantCategory"] == "Inorganic substances") %}
+                  {% for pollutant in data['releaseCatInorg'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+
+                {% elseif ( data["pollutantCategory"] == "Other gases") %}
+                  {% for pollutant in data['releaseCatOthGas'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+
+                {% elseif ( data["pollutantCategory"] == "Other organic substances") %}
+                  {% for pollutant in data['releaseCatOthOrg'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+
+                {% elseif ( data["pollutantCategory"] == "Pesticides") %}
+                  {% for pollutant in data['releaseCatPest'] %}
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                        {{ pollutant['name'] }}
+                      </label>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+        
+              </div>
+            </fieldset>
+          </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

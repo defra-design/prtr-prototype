@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What was the total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+  What was the total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -21,7 +21,7 @@
             <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--xl" for="pollutant-amount">
-                What was the total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }}?
+                What was the total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }}?
               </label>
             </h1>
             <div id="amount-hint" class="govuk-hint">

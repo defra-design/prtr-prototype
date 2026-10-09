@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Which pollutant was released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+  What was the category of the pollutant released to {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -16,41 +16,41 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
-      <form class="form" action="amount" method="post">
+      <form class="form" action="select-pollutant-from-category" method="post">
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                 <h1 class="govuk-fieldset__heading">
-                  Which pollutant was released to {{ data['releaseMedium'] }}?
+                  What was the category of the pollutant released to {{ data['releaseMedium'] }}?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 {% if ( data["releaseMedium"] == "air") %}
-                  {% for pollutant in data['releaseAirFull'] %}
+                  {% for category in data['releaseAirCat'] %}
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
-                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
-                        {{ pollutant['name'] }}
+                      <input class="govuk-radios__input" id="category{{ category['id'] }}" name="pollutantCategory" type="radio" value="{{ category['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="category{{ category['id'] }}">
+                        {{ category['name'] }}
                       </label>
                     </div>
                   {% endfor %}
           
                 {% elseif ( data["releaseMedium"] == "land") %}
-                  {% for pollutant in data['releaseLandFull'] %}
+                  {% for category in data['releaseLandCat'] %}
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
-                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
-                        {{ pollutant['name'] }}
+                      <input class="govuk-radios__input" id="category{{ category['id'] }}" name="pollutantCategory" type="radio" value="{{ category['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="category{{ category['id'] }}">
+                        {{ category['name'] }}
                       </label>
                     </div>
                   {% endfor %}
 
                 {% elseif ( data["releaseMedium"] == "water") %}
-                  {% for pollutant in data['releaseWaterFull'] %}
+                  {% for category in data['releaseWaterCat'] %}
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutant" type="radio" value="{{ pollutant['name'] }}">
-                      <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
-                        {{ pollutant['name'] }}
+                      <input class="govuk-radios__input" id="category{{ category['id'] }}" name="pollutantCategory" type="radio" value="{{ category['name'] }}">
+                      <label class="govuk-label govuk-radios__label" for="category{{ category['id'] }}">
+                        {{ category['name'] }}
                       </label>
                     </div>
                   {% endfor %}
