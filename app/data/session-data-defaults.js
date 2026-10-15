@@ -391,21 +391,6 @@ module.exports = {
 
 "releaseWaterCat": [
   {
-  "name": "Heavy metals",
-  "id": 1
-  },
-  {
-  "name": "Inorganic substances",
-  "id": 2
-  },
-  {
-  "name": "Other organic substances",
-  "id": 3
-  }
-],
-
-"releaseWaterCat": [
-  {
   "name": "Chlorinated organic substances",
   "id": 1
   },
