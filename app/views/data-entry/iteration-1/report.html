@@ -170,9 +170,9 @@
                     </td>
                     <td class="govuk-table__cell">
                       {% if ( data["wasteTreatment"] == "disposal") %}
-                        {{ data['wasteDisposalAmount'] }} tonnes
+                        {{ data['wasteDisposalAmount'] | formatNumber }} tonnes
                       {% elseif ( data["wasteTreatment"] == "recovery") %}
-                        {{ data['wasteRecoveryAmount'] }} tonnes
+                        {{ data['wasteRecoveryAmount'] | formatNumber }} tonnes
                       {% endif %}
                     </td>
                     <td class="govuk-table__cell govuk-!-text-align-right">
@@ -219,10 +219,10 @@
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">  confidentiality request details</span></a>
+                      <a class="govuk-link" href="confidentiality/check-answers.html">Change<span class="govuk-visually-hidden">  confidentiality request details</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> confidentiality request</span></a>
+                      <a class="govuk-link" href="confidentiality/remove">Delete<span class="govuk-visually-hidden"> confidentiality request</span></a>
                     </li>
                   </ul>
                 </dd>

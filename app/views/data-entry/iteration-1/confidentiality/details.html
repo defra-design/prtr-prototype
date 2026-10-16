@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Details of confidentiality request - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Details of confidentiality request
+      </h1>
+      <p>Give more detail about your request for confidentiality. You should explain:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>what specific data or information you would like to be kept confidential</li>
+        <li>if you selected multiple reasons for a confidentiality request, which reason relates to each piece of data</li>
+        <li>why this information should not be made public</li>
+      </ul>
+
+      <p>Your regulator will review your request. They may contact you for more information before making a decision.</p>
+
+      <form class="form" action="check-answers" method="post">
+
+        {{ govukTextarea({
+          name: "confidentialDetail",
+          id: "confidential-detail",
+          label: {
+            text: "Explain confidentiality request",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

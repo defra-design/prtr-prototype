@@ -21,7 +21,7 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
               <h1 class="govuk-fieldset__heading">
-                Was any of the {{ data['pollutantTransferAmount'] }}kg released accidentally?
+                Was any of the {{ data['pollutantTransferAmount'] | formatNumber}}kg released accidentally?
               </h1>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">

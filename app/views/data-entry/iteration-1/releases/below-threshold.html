@@ -19,7 +19,7 @@
       <h1 class="govuk-heading-xl">
         The total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }} is below the threshold
       </h1>
-      <p>You entered {{ data['pollutantAmount'] }}kg</p>
+      <p>You entered {{ data['pollutantAmount'] | formatNumber }}kg</p>
 
       <form class="form" action="/below-threshold" method="post">
 

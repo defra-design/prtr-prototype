@@ -1,0 +1,233 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of release
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.releaseMedium2) %}
+              {% if ( data["releaseMedium2"] == "air") %}
+                Release to air
+              {% elseif ( data["releaseMedium2"] == "water") %}
+                Release to water
+              {% elseif ( data["releaseMedium2"] == "land") %}
+                Release to land
+              {% endif %}
+            {% else %}
+              Release to air
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="medium.html">Change<span class="govuk-visually-hidden"> type of release</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of pollutant
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.pollutant2) %}
+              {{ data['pollutant2'] }}
+            {% else %}
+              Carbon dioxide (CO2)
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="select-pollutant.html">Change<span class="govuk-visually-hidden"> name of pollutant</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount released
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.pollutantAmount2) %}
+              {{ data['pollutantAmount2'] | formatNumber }} kg
+            {% else %}
+              145 kg
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="amount.html">Change<span class="govuk-visually-hidden"> amount released</span></a>
+          </dd>
+        </div>
+        {% if ( data["belowThreshold2"] == "correct") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount is below threshold
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes, this is correct
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="below-threshold.html">Change<span class="govuk-visually-hidden"> amount is below threshold</span></a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if ( data["lowerAmount2"] == "correct") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Amount is significantly lower than 2025
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes, this is correct
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="amount-lower.html">Change<span class="govuk-visually-hidden"> amount is significantly lower than 2025</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reason for the decrease
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.reasonLower2) %}
+              {{ data['reasonLower2'] }}
+            {% else %}
+              The process creating this pollutant was stopped for 2026
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="amount-lower.html">Change<span class="govuk-visually-hidden"> reason amount is significantly lower than 2025</span></a>
+          </dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Was any of the amount released accidentally?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.accidentalRelease2) %}
+              {{ data['accidentalRelease2'] }}
+            {% else %}
+              No
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="accidental.html">Change<span class="govuk-visually-hidden"> if any of the amount was released accidentally</span></a>
+          </dd>
+        </div>
+        {% if ( data["accidentalRelease2"] == "Yes") %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Amount released accidentally
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.pollutantAccidentalAmount2) %}
+              {{ data['pollutantAccidentalAmount2'] | formatNumber }} kg
+            {% else %}
+              12 kg
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="accidental.html">Change<span class="govuk-visually-hidden"> the amount was released accidentally</span></a>
+          </dd>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            How did you obtain this data?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.pollutantData2) %}
+              {% if ( data["pollutantData2"] == "measurement") %}
+                Measured
+              {% elseif ( data["pollutantData2"] == "calculation") %}
+                Calculated
+              {% elseif ( data["pollutantData2"] == "estimated") %}
+                Estimated
+              {% endif %}
+            {% else %}
+              Estimated
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="obtain-data.html">Change<span class="govuk-visually-hidden"> how you obtained this data</span></a>
+          </dd>
+        </div>
+        {% if ( data["pollutantData2"] == "measurement" or data["pollutantData"] == "calculation") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Method of {{ data['pollutantData2'] }}
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if ( data["pollutantData2"] == "measurement") %}
+                {{ data['pollutantMethod2'] }}
+              {% elseif ( data["pollutantData2"] == "calculation") %}
+                {{ data['pollutantMethodC2'] }}
+              {% else %}
+                C-PER
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if ( data["pollutantData2"] == "measurement") %}
+                <a class="govuk-link" href="select-method-measurement.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
+              {% elseif ( data["pollutantData2"] == "calculation") %}
+                <a class="govuk-link" href="select-method-calculation.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
+              {% endif %}
+            </dd>
+          </div>
+        {% endif %}
+        {% if ( data["pollutantData2"] == "measurement") %}
+          {% if ( data["pollutantMethod2"] == "M-INT") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                ISO or CEN designation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['MINTDesignation2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if ( data["pollutantData2"] == "calculation") %}
+          {% if ( data["pollutantMethodC2"] == "C-INT") %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                ISO or CEN designation
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['CINTDesignation2'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>
+              </dd>
+            </div>
+          {% endif %}
+        {% endif %}
+      </dl>
+        
+        <form class="form" action="../report?releaseAdded=yes" method="post">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

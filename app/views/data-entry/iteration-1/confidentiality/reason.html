@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Select reasons for confidentiality request – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="details" method="post">
+        <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+        {{ govukCheckboxes({
+          name: "confidentialReason",
+          fieldset: {
+            legend: {
+              text: "Select reasons for confidentiality request",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "If you are requesting confidentiality for multiple pieces of data, select all reasons that apply "
+          },
+          items: [
+            {
+              value: "The confidentiality of the proceedings of public authorities, where such confidentiality is provided for by law",
+              text: "The confidentiality of the proceedings of public authorities, where such confidentiality is provided for by law"
+            },
+            {
+              value: "International relations, public security or national defence",
+              text: "International relations, public security or national defence"
+            },
+            {
+              value: "The course of justice, the ability of any person to receive a fair trial or the ability of a public authority to conduct an enquiry of a criminal or disciplinary nature",
+              text: "The course of justice, the ability of any person to receive a fair trial or the ability of a public authority to conduct an enquiry of a criminal or disciplinary nature"
+            },
+            {
+              value: "The confidentiality of commercial or industrial information where such confidentiality is provided for by national or Community law to protect a legitimate economic interest, including the public interest in maintaining statistical confidentiality and tax secrecy",
+              text: "The confidentiality of commercial or industrial information where such confidentiality is provided for by national or Community law to protect a legitimate economic interest, including the public interest in maintaining statistical confidentiality and tax secrecy"
+            },
+            {
+              value: "Intellectual property rights",
+              text: "Intellectual property rights"
+            },
+            {
+              value: "The confidentiality of personal data and/or files relating to a natural person where that person has not consented to the disclosure of the information to the public, where such confidentiality is provided for by national or Community law",
+              text: "The confidentiality of personal data and/or files relating to a natural person where that person has not consented to the disclosure of the information to the public, where such confidentiality is provided for by national or Community law"
+            },
+            {
+              value: "The interests or protection of any person who supplied the information requested on a voluntary basis without being under, or capable of being put under, a legal obligation to do so, unless that person has consented to the release of the information concerned",
+              text: "The interests or protection of any person who supplied the information requested on a voluntary basis without being under, or capable of being put under, a legal obligation to do so, unless that person has consented to the release of the information concerned"
+            },
+            {
+              value: "The protection of the environment to which such information relates, such as the location of rare species",
+              text: "The protection of the environment to which such information relates, such as the location of rare species"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          <a class="govuk-link" href="facilities">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

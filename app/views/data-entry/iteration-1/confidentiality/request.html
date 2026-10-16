@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Request confidentiality - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Request confidentiality
+      </h1>
+      <p>You can request that any of the data or information you have provided is kept confidential. Confidential information will not be made public, but it will still be sent to your regulator for them to confirm it needs to be confidential.</p>
+
+      <p>You will be asked to provide a reason and explanation for your confidentiality request.</p>
+
+      <form class="form" action="/request-confidentiality" method="post">
+
+        {{ govukRadios({
+          name: "requestConf",
+          fieldset: {
+            legend: {
+              text: "Do you want to request confidentiality on any of the data you have provided?
+",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

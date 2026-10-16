@@ -1,0 +1,213 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Which pollutant was released to {{ data['releaseMedium2'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <form class="form" action="amount" method="post">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="country">
+              Which pollutant was released to {{ data['releaseMedium2'] }}?
+            </label>
+          </h1>
+          {% if ( data["releaseMedium2"] == "air") %}
+          <select class="govuk-select" id="select-pollutant-air" name="pollutant2"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+              <option value="">Select an option</option>
+              <option value="1,1,1-trichloroethane">1,1,1-trichloroethane</option>
+              <option value="1,1,2,2-tetrachloroethane">1,1,2,2-tetrachloroethane</option>
+              <option value="1,2-dichloroethane (DCE)">1,2-dichloroethane (DCE)</option>
+              <option value="Ammonia (NH3)">Ammonia (NH3)</option>
+              <option value="Anthracene">Anthracene</option>
+              <option value="Arsenic and compounds (as As)">Arsenic and compounds (as As)</option>
+              <option value="Asbestos">Asbestos</option>
+              <option value="Benzene">Benzene</option>
+              <option value="Benzo(g,h,i)perylene">Benzo(g,h,i)perylene</option>
+              <option value="Brominated diphenylethers (PBDE)">Brominated diphenylethers (PBDE)</option>
+              <option value="Cadmium and compounds (as Cd)">Cadmium and compounds (as Cd)</option>
+              <option value="Carbon dioxide (CO2)">Carbon dioxide (CO2)</option>
+              <option value="Carbon dioxide (CO2) excluding biomass">Carbon dioxide (CO2) excluding biomass</option>
+              <option value="Carbon monoxide (CO)">Carbon monoxide (CO)</option>
+              <option value="Chlorides (as total Cl)">Chlorides (as total Cl)</option>
+              <option value="Chloro-alkanes, C10-C13">Chloro-alkanes, C10-C13</option>
+              <option value="Chlorine and inorganic compounds (as HCl)">Chlorine and inorganic compounds (as HCl)</option>
+              <option value="Chlorofluorocarbons (CFCs)">Chlorofluorocarbons (CFCs)</option>
+              <option value="Chromium and compounds (as Cr)">Chromium and compounds (as Cr)</option>
+              <option value="Copper and compounds (as Cu)">Copper and compounds (as Cu)</option>
+              <option value="Cyanides (as total CN)">Cyanides (as total CN)</option>
+              <option value="Dichloromethane (DCM)">Dichloromethane (DCM)</option>
+              <option value="Di-(2-ethylhexyl) Phthalate (DEHP)">Di-(2-ethylhexyl) Phthalate (DEHP)</option>
+              <option value="Dioxins And Furans- as I-TEQ">Dioxins And Furans- as I-TEQ</option>
+              <option value="Ethyl benzene">Ethyl benzene</option>
+              <option value="Ethylene oxide">Ethylene oxide</option>
+              <option value="Fluoranthene">Fluoranthene</option>
+              <option value="Fluorides (as total F)">Fluorides (as total F)</option>
+              <option value="Fluorine and inorganic compounds (as HF)">Fluorine and inorganic compounds (as HF)</option>
+              <option value="Halogenated organic compounds (as AOX)">Halogenated organic compounds (as AOX)</option>
+              <option value="Halons">Halons</option>
+              <option value="Hexabromobiphenyl">Hexabromobiphenyl</option>
+              <option value="Hexachlorobenzene (HCB)">Hexachlorobenzene (HCB)</option>
+              <option value="Hexachlorobutadiene (HCBD)">Hexachlorobutadiene (HCBD)</option>
+              <option value="Hydrochlorofluorocarbons (HCFCs)">Hydrochlorofluorocarbons (HCFCs)</option>
+              <option value="Hydro-fluorocarbons (HFCs)">Hydro-fluorocarbons (HFCs)</option>
+              <option value="Hydrogen cyanide (HCN)">Hydrogen cyanide (HCN)</option>
+              <option value="Lead and compounds (as Pb)">Lead and compounds (as Pb)</option>
+              <option value="Methane (CH4)">Methane (CH4)</option>
+              <option value="Mercury and compounds (as Hg)">Mercury and compounds (as Hg)</option>
+              <option value="Naphthalene">Naphthalene</option>
+              <option value="Nickel and compounds (as Ni)">Nickel and compounds (as Ni)</option>
+              <option value="Nitrogen oxides (NOx/NO2)">Nitrogen oxides (NOx/NO2)</option>
+              <option value="Nitrous oxide (N2O)">Nitrous oxide (N2O)</option>
+              <option value="Non-methane volatile organic compounds (NMVOC)">Non-methane volatile organic compounds (NMVOC)</option>
+              <option value="Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)">Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)</option>
+              <option value="Octylphenols and Octylphenol ethoxylates">Octylphenols and Octylphenol ethoxylates</option>
+              <option value="Organotin compounds(as total Sn)">Organotin compounds(as total Sn)</option>
+              <option value="Particulate matter (PM10)">Particulate matter (PM10)</option>
+              <option value="Pentachlorobenzene">Pentachlorobenzene</option>
+              <option value="Pentachlorophenol (PCP)">Pentachlorophenol (PCP)</option>
+              <option value="Perfluorocarbons (PFCs)">Perfluorocarbons (PFCs)</option>
+              <option value="Phenols (as total C)">Phenols (as total C)</option>
+              <option value="Polycyclic aromatic hydrocarbons (PAHs)">Polycyclic aromatic hydrocarbons (PAHs)</option>
+              <option value="Polychlorinated biphenyls (PCBs)">Polychlorinated biphenyls (PCBs)</option>
+              <option value="Sulphur hexafluoride (SF6)">Sulphur hexafluoride (SF6)</option>
+              <option value="Sulphur oxides (SOx/SO2)">Sulphur oxides (SOx/SO2)</option>
+              <option value="Tetrachloroethylene (PER)">Tetrachloroethylene (PER)</option>
+              <option value="Tetrachloromethane (TCM)">Tetrachloromethane (TCM)</option>
+              <option value="Toluene">Toluene</option>
+              <option value="Total nitrogen">Total nitrogen</option>
+              <option value="Total organic carbon (TOC) (as total C or COD/3)">Total organic carbon (TOC) (as total C or COD/3)</option>
+              <option value="Total phosphorus">Total phosphorus</option>
+              <option value="Trichlorobenzenes (TCBs) (all isomers)">Trichlorobenzenes (TCBs) (all isomers)</option>
+              <option value="Trichloroethylene">Trichloroethylene</option>
+              <option value="Trichloromethane">Trichloromethane</option>
+              <option value="Vinyl chloride">Vinyl chloride</option>
+              <option value="Xylenes">Xylenes</option>
+              <option value="Zinc and compounds (as Zn)">Zinc and compounds (as Zn)</option>
+          </select>
+
+          {% elseif ( data["releaseMedium2"] == "land") %}
+            <select class="govuk-select" id="select-pollutant-land" name="pollutant2"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+              <option value="">Select an option</option>
+              <option value="Anthracene">Anthracene</option>
+              <option value="Benzene">Benzene</option>
+              <option value="Benzo(g,h,i)perylene">Benzo(g,h,i)perylene</option>
+              <option value="Di-(2-ethylhexyl) Phthalate (DEHP)">Di-(2-ethylhexyl) Phthalate (DEHP)</option>
+              <option value="Ethyl benzene">Ethyl benzene</option>
+              <option value="Ethylene oxide">Ethylene oxide</option>
+              <option value="Fluoranthene">Fluoranthene</option>
+              <option value="Naphthalene">Naphthalene</option>
+              <option value="Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)">Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)</option>
+              <option value="Octylphenols and Octylphenol ethoxylates">Octylphenols and Octylphenol ethoxylates</option>
+              <option value="Organotin compounds(as total Sn)">Organotin compounds(as total Sn)</option>
+              <option value="Phenols (as total C)">Phenols (as total C)</option>
+              <option value="Polycyclic aromatic hydrocarbons (PAHs)">Polycyclic aromatic hydrocarbons (PAHs)</option>
+              <option value="Toluene">Toluene</option>
+              <option value="Total organic carbon (TOC) (as total C or COD/3)">Total organic carbon (TOC) (as total C or COD/3)</option>
+              <option value="Xylenes">Xylenes</option>
+            </select>
+          {% elseif ( data["releaseMedium2"] == "water") %}
+            <select class="govuk-select" id="select-pollutant-water" name="pollutant2"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+              <option value="">Select an option</option>
+              <option value="1,1,1-trichloroethane">1,1,1-trichloroethane</option>
+              <option value="1,1,2,2-tetrachloroethane">1,1,2,2-tetrachloroethane</option>
+              <option value="1,2,3,4,5,6-hexachlorocyclohexane(HCH)">1,2,3,4,5,6-hexachlorocyclohexane(HCH)</option>
+              <option value="1,2-dichloroethane (DCE)">1,2-dichloroethane (DCE)</option>
+              <option value="Alachlor">Alachlor</option>
+              <option value="Aldrin">Aldrin</option>
+              <option value="Anthracene">Anthracene</option>
+              <option value="Arsenic and compounds (as As)">Arsenic and compounds (as As)</option>
+              <option value="Asbestos">Asbestos</option>
+              <option value="Atrazine">Atrazine</option>
+              <option value="Benzene">Benzene</option>
+              <option value="Benzo(g,h,i)perylene">Benzo(g,h,i)perylene</option>
+              <option value="Brominated diphenylethers (PBDE)">Brominated diphenylethers (PBDE)</option>
+              <option value="Cadmium and compounds (as Cd)">Cadmium and compounds (as Cd)</option>
+              <option value="Chlordane">Chlordane</option>
+              <option value="Chlordecone">Chlordecone</option>
+              <option value="Chloro-alkanes, C10-C13">Chloro-alkanes, C10-C13</option>
+              <option value="Chlorfenvinphos">Chlorfenvinphos</option>
+              <option value="Chlorides (as total Cl)">Chlorides (as total Cl)</option>
+              <option value="Chlorpyrifos">Chlorpyrifos</option>
+              <option value="Chromium and compounds (as Cr)">Chromium and compounds (as Cr)</option>
+              <option value="Copper and compounds (as Cu)">Copper and compounds (as Cu)</option>
+              <option value="Cyanides (as total CN)">Cyanides (as total CN)</option>
+              <option value="DDT">DDT</option>
+              <option value="Di-(2-ethylhexyl) Phthalate (DEHP)">Di-(2-ethylhexyl) Phthalate (DEHP)</option>
+              <option value="Dichloromethane (DCM)">Dichloromethane (DCM)</option>
+              <option value="Dieldrin">Dieldrin</option>
+              <option value="Diuron">Diuron</option>
+              <option value="Dioxins And Furans- as I-TEQ">Dioxins And Furans- as I-TEQ</option>
+              <option value="Endosulphan">Endosulphan</option>
+              <option value="Endrin">Endrin</option>
+              <option value="Ethyl benzene">Ethyl benzene</option>
+              <option value="Ethylene oxide">Ethylene oxide</option>
+              <option value="Fluoranthene">Fluoranthene</option>
+              <option value="Fluorides (as total F)">Fluorides (as total F)</option>
+              <option value="Halogenated organic compounds (as AOX)">Halogenated organic compounds (as AOX)</option>
+              <option value="Heptachlor">Heptachlor</option>
+              <option value="Hexabromobiphenyl">Hexabromobiphenyl</option>
+              <option value="Hexachlorobenzene (HCB)">Hexachlorobenzene (HCB)</option>
+              <option value="Hexachlorobutadiene (HCBD)">Hexachlorobutadiene (HCBD)</option>
+              <option value="Isodrin">Isodrin</option>
+              <option value="Isoproturon">Isoproturon</option>
+              <option value="Lead and compounds (as Pb)">Lead and compounds (as Pb)</option>
+              <option value="Lindane">Lindane</option>
+              <option value="Mercury and compounds (as Hg)">Mercury and compounds (as Hg)</option>
+              <option value="Mirex">Mirex</option>
+              <option value="Naphthalene">Naphthalene</option>
+              <option value="Nickel and compounds (as Ni)">Nickel and compounds (as Ni)</option>
+              <option value="Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)">Nonylphenol and Nonylphenol ethoxylates (NP/NPEs)</option>
+              <option value="Octylphenols and Octylphenol ethoxylates">Octylphenols and Octylphenol ethoxylates</option>
+              <option value="Organotin compounds(as total Sn)">Organotin compounds(as total Sn)</option>
+              <option value="Particulate matter (PM10)">Particulate matter (PM10)</option>
+              <option value="Pentachlorobenzene">Pentachlorobenzene</option>
+              <option value="Pentachlorophenol (PCP)">Pentachlorophenol (PCP)</option>
+              <option value="Phenols (as total C)">Phenols (as total C)</option>
+              <option value="Polycyclic aromatic hydrocarbons (PAHs)">Polycyclic aromatic hydrocarbons (PAHs)</option>
+              <option value="Polychlorinated biphenyls (PCBs)">Polychlorinated biphenyls (PCBs)</option>
+              <option value="Simazine">Simazine</option>
+              <option value="Tetrachloroethylene (PER)">Tetrachloroethylene (PER)</option>
+              <option value="Tetrachloromethane (TCM)">Tetrachloromethane (TCM)</option>
+              <option value="Toluene">Toluene</option>
+              <option value="Toxaphene">Toxaphene</option>
+              <option value="Total nitrogen">Total nitrogen</option>
+              <option value="Total organic carbon (TOC) (as total C or COD/3)">Total organic carbon (TOC) (as total C or COD/3)</option>
+              <option value="Total phosphorus">Total phosphorus</option>
+              <option value="Tributyltin and compounds">Tributyltin and compounds</option>
+              <option value="Trichlorobenzenes (TCBs) (all isomers)">Trichlorobenzenes (TCBs) (all isomers)</option>
+              <option value="Trichloroethylene">Trichloroethylene</option>
+              <option value="Trichloromethane">Trichloromethane</option>
+              <option value="Trifluralin">Trifluralin</option>
+              <option value="Triphenyltin and compounds">Triphenyltin and compounds</option>
+              <option value="Vinyl chloride">Vinyl chloride</option>
+              <option value="Xylenes">Xylenes</option>
+              <option value="Zinc and compounds (as Zn)">Zinc and compounds (as Zn)</option>
+            </select>
+          {% endif %}
+        </div>
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

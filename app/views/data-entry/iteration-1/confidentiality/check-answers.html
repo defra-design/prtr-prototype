@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check confidentiality request – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+      <h1 class="govuk-heading-xl">
+        Check confidentiality request
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Request confidentiality
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.requestConf) %}
+              {{ data['requestConf'] }}
+            {% else %}
+              Yes
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="medium.html">Change<span class="govuk-visually-hidden"> type of release</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reason(s)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.confidentialReason) %}
+              <ul class="govuk-list govuk-list--bullet">
+                {% for item in data['confidentialReason'] %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Intellectual property rights</li>
+                <li>The protection of the environment to which such information relates, such as the location of rare species</li>
+              </ul>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="select-pollutant.html">Change<span class="govuk-visually-hidden"> name of pollutant</span></a>
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Details of request
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.confidentialDetail) %}
+              {{ data['confidentialDetail'] }}
+            {% else %}
+              Details of the request would be shown here
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="details.html">Change<span class="govuk-visually-hidden"> details of the request</span></a>
+          </dd>
+        </div>
+      </dl>
+        
+        <form class="form" action="../report?confAdded=yes" method="post">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

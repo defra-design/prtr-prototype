@@ -42,7 +42,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.pollutantTransferAmount) %}
-              {{ data['pollutantTransferAmount'] }} kg
+              {{ data['pollutantTransferAmount'] | formatNumber }} kg
             {% else %}
               145 kg
             {% endif %}
@@ -101,7 +101,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.pollutantTransferAccidentalAmount) %}
-              {{ data['pollutantTransferAccidentalAmount'] }} kg
+              {{ data['pollutantTransferAccidentalAmount'] | formatNumber }} kg
             {% else %}
               12 kg
             {% endif %}

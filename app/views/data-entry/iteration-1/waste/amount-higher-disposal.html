@@ -19,7 +19,7 @@
       <h1 class="govuk-heading-xl">
         The disposal amount of hazardous waste going overseas is significantly higher than 2025
       </h1>
-      <p>In 2025, you reported the amount of hazardous waste transferred to the same overseas company for disposal was 100 tonnes, but for 2026 you have entered {{ data['wasteDisposalAmount'] }} tonnes</p>
+      <p>In 2025, you reported the amount of hazardous waste transferred to the same overseas company for disposal was 100 tonnes, but for 2026 you have entered {{ data['wasteDisposalAmount'] | formatNumber }} tonnes</p>
 
       <form class="form" action="obtain-data" method="post">
         {% set higherReason %}

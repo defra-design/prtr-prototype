@@ -171,6 +171,17 @@ router.post('/select-method-waste', function(request, response) {
 	}
 })
 
+// Requesting confidentiality
+router.post('/request-confidentiality', function(request, response) {
+
+	var requestingConf = request.session.data['requestConf']
+	if (requestingConf == "Yes"){
+		response.redirect("data-entry/iteration-1/confidentiality/reason")
+	} else if (requestingConf == "No"){
+		response.redirect("data-entry/iteration-1/report")
+	}
+})
+
 // PUBLIC WEBSITE
 // Search type redirect - initial design
 router.post('/search-type', function(request, response) {
