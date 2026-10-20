@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Celsa Swansea Scrap Yard – {{ serviceName }} – GOV.UK Prototype Kit
+  {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -14,7 +14,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data['facility-name'] }} report
+        {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report
       </h1>
 
       {{ govukSummaryList({
@@ -50,10 +50,10 @@
             Pollutant releases
           </h2>
           <div class="govuk-summary-card__actions">
-            {% if ( data["releaseAdded"] == "yes") %}
+            {% if ( data["releaseAdded"] == "yes") and ( data["release2Added"] == "yes") %}
+              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+            {% elif ( data["releaseAdded"] == "yes") %}
               <a class="govuk-link" href="releases2/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
-            {% elseif ( data["releaseAdded"] == "yes") and ( data["release2Added"] == "yes") %}
-              <a href="#">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
             {% else %}
               <a class="govuk-link" href="releases/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
             {% endif %}
@@ -139,10 +139,10 @@
             Pollutant transfers to wastewater
           </h2>
           <div class="govuk-summary-card__actions">
-            {% if ( data["transferAdded"] == "yes") %}
+            {% if ( data["transferAdded"] == "yes") and ( data["transfer2Added"] == "yes") %}
+              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+            {% elif ( data["transferAdded"] == "yes") %}
               <a class="govuk-link" href="transfers2/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
-            {% elseif ( data["transferAdded"] == "yes") and ( data["transfer2Added"] == "yes") %}
-              <a href="#">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
             {% else %}
               <a class="govuk-link" href="transfers/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
             {% endif %}
@@ -200,7 +200,14 @@
             Waste transfers
           </h2>
           <div class="govuk-summary-card__actions">
-            <a class="govuk-link" href="waste/type">Add<span class="govuk-visually-hidden"> waste transfers</span></a>
+            
+            {% if ( data["wasteAdded"] == "yes") and ( data["waste2Added"] == "yes") %}
+              <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> waste transfers</span></a>
+            {% elif ( data["wasteAdded"] == "yes") %}
+              <a class="govuk-link" href="waste2/type">Add<span class="govuk-visually-hidden"> waste transfers</span></a>
+            {% else %} 
+              <a class="govuk-link" href="waste/type">Add<span class="govuk-visually-hidden"> waste transfers</span></a>
+            {% endif %}
           </div>
         </div>
         <div class="govuk-summary-card__content">

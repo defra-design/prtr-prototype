@@ -18,7 +18,7 @@
 
         <form class="form" action="amount-higher" method="post">
           <div class="govuk-form-group">
-            <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+            <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
             <h1 class="govuk-label-wrapper">
               <label class="govuk-label govuk-label--xl" for="pollutant-amount">
                 Enter the recovery amount

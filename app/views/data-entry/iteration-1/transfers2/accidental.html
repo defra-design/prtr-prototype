@@ -19,7 +19,7 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-              <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
+              <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
               <h1 class="govuk-fieldset__heading">
                 Was any of the {{ data['pollutantTransferAmount2'] | formatNumber}}kg released accidentally?
               </h1>
