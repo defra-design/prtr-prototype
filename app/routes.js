@@ -79,6 +79,18 @@ router.post('/select-method-release', function(request, response) {
 	}
 })
 
+router.post('/select-method-release2', function(request, response) {
+
+	var dataRelease2 = request.session.data['pollutantData2']
+	if (dataRelease2 == "measurement"){
+		response.redirect("data-entry/iteration-1/releases2/select-method-measurement.html")
+	} else if (dataRelease2 == "calculation"){
+		response.redirect("data-entry/iteration-1/releases2/select-method-calculation.html")
+	} else if (dataRelease2 == "estimated"){
+		response.redirect("data-entry/iteration-1/releases2/check-answers.html")
+	}
+})
+
 // Significantly higher redirect in pollutant transfers journey
 router.post('/higher-amount', function(request, response) {
 
@@ -103,6 +115,18 @@ router.post('/select-method-transfer', function(request, response) {
 	}
 })
 
+router.post('/select-method-transfer2', function(request, response) {
+
+	var dataTransfer2 = request.session.data['pollutantTransferData2']
+	if (dataTransfer2 == "measurement"){
+		response.redirect("data-entry/iteration-1/transfers2/select-method-measurement.html")
+	} else if (dataTransfer2 == "calculation"){
+		response.redirect("data-entry/iteration-1/transfers2/select-method-calculation.html")
+	} else if (dataTransfer2 == "estimated"){
+		response.redirect("data-entry/iteration-1/transfers2/check-answers.html")
+	}
+})
+
 // Waste type haz/nonhaz in waste transfer journey
 router.post('/waste-type', function(request, response) {
 
@@ -111,6 +135,16 @@ router.post('/waste-type', function(request, response) {
 		response.redirect("data-entry/iteration-1/waste/movement.html")
 	} else if (dataWasteType == "nonhazardous"){
 		response.redirect("data-entry/iteration-1/waste/treatment.html")
+	}
+})
+
+router.post('/waste-type2', function(request, response) {
+
+	var dataWasteType2 = request.session.data['wasteType2']
+	if (dataWasteType2 == "hazardous"){
+		response.redirect("data-entry/iteration-1/waste2/movement.html")
+	} else if (dataWasteType2 == "nonhazardous"){
+		response.redirect("data-entry/iteration-1/waste2/treatment.html")
 	}
 })
 
@@ -125,6 +159,16 @@ router.post('/waste-movement', function(request, response) {
 	}
 })
 
+router.post('/waste-movement2', function(request, response) {
+
+	var dataWasteMove2 = request.session.data['wasteMovement2']
+	if (dataWasteMove2 == "inUK"){
+		response.redirect("data-entry/iteration-1/waste2/treatment.html")
+	} else if (dataWasteMove2 == "overseas"){
+		response.redirect("data-entry/iteration-1/waste2/transport-company-confirm.html")
+	}
+})
+
 // Confirm transport company (1 option) in overseas hazardous waste transfer journey
 router.post('/confirm-transport-company', function(request, response) {
 
@@ -133,6 +177,16 @@ router.post('/confirm-transport-company', function(request, response) {
 		response.redirect("data-entry/iteration-1/waste/overseas-site-confirm.html")
 	} else if (confirmTransport == "no"){
 		response.redirect("data-entry/iteration-1/waste/transport-company-enter.html")
+	}
+})
+
+router.post('/confirm-transport-company2', function(request, response) {
+
+	var confirmTransport2 = request.session.data['confimTransportCompany2']
+	if (confirmTransport2 == "confirm"){
+		response.redirect("data-entry/iteration-1/waste2/overseas-site-confirm.html")
+	} else if (confirmTransport2 == "no"){
+		response.redirect("data-entry/iteration-1/waste2/transport-company-enter.html")
 	}
 })
 
@@ -147,6 +201,16 @@ router.post('/confirm-dump-site', function(request, response) {
 	}
 })
 
+router.post('/confirm-dump-site2', function(request, response) {
+
+	var confirmDumpSite2 = request.session.data['confimSite2']
+	if (confirmDumpSite2 == "confirm"){
+		response.redirect("data-entry/iteration-1/waste2/treatment.html")
+	} else if (confirmDumpSite2 == "no"){
+		response.redirect("data-entry/iteration-1/waste2/overseas-site-enter.html")
+	}
+})
+
 // Select treatment in waste transfer journey
 router.post('/treatment-redirect', function(request, response) {
 
@@ -155,6 +219,16 @@ router.post('/treatment-redirect', function(request, response) {
 		response.redirect("data-entry/iteration-1/waste/amount-disposal.html")
 	} else if (treatmentWaste == "recovery"){
 		response.redirect("data-entry/iteration-1/waste/amount-recovery.html")
+	}
+})
+
+router.post('/treatment-redirect2', function(request, response) {
+
+	var treatmentWaste2 = request.session.data['wasteTreatment2']
+	if (treatmentWaste2 == "disposal"){
+		response.redirect("data-entry/iteration-1/waste2/amount-disposal.html")
+	} else if (treatmentWaste2 == "recovery"){
+		response.redirect("data-entry/iteration-1/waste2/amount-recovery.html")
 	}
 })
 
@@ -168,6 +242,18 @@ router.post('/select-method-waste', function(request, response) {
 		response.redirect("data-entry/iteration-1/waste/select-method-calculation.html")
 	} else if (dataWasteTransfer == "estimated"){
 		response.redirect("data-entry/iteration-1/waste/check-answers.html")
+	}
+})
+
+router.post('/select-method-waste2', function(request, response) {
+
+	var dataWasteTransfer2 = request.session.data['wasteData2']
+	if (dataWasteTransfer2 == "measurement"){
+		response.redirect("data-entry/iteration-1/waste2/select-method-measurement.html")
+	} else if (dataWasteTransfer2 == "calculation"){
+		response.redirect("data-entry/iteration-1/waste2/select-method-calculation.html")
+	} else if (dataWasteTransfer2 == "estimated"){
+		response.redirect("data-entry/iteration-1/waste2/check-answers.html")
 	}
 })
 

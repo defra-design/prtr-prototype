@@ -50,45 +50,79 @@
             Pollutant releases
           </h2>
           <div class="govuk-summary-card__actions">
-            <a class="govuk-link" href="releases/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+            {% if ( data["releaseAdded"] == "yes") %}
+              <a class="govuk-link" href="releases2/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+            {% elseif ( data["releaseAdded"] == "yes") and ( data["release2Added"] == "yes") %}
+              <a href="#">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+            {% else %}
+              <a class="govuk-link" href="releases/medium">Add<span class="govuk-visually-hidden"> pollutant releases</span></a>
+            {% endif %}
           </div>
         </div>
         <div class="govuk-summary-card__content">
-          {% if ( data["releaseAdded"] == "yes") %}
+          {% if ( data["releaseAdded"] == "yes") or ( data["release2Added"] == "yes") %}
               <table class="govuk-table">
                 <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Pollutant releases already added</caption>
                 <thead class="govuk-table__head">
                   <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header">Release type</th>
+                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Release type</th>
                     <th scope="col" class="govuk-table__header govuk-!-width-one-half">Pollutant</th>
-                    <th scope="col" class="govuk-table__header govuk-!-text-align-right">Actions</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right govuk-!-width-one-quarter">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                      {% if ( data["releaseMedium"] == "air") %}
-                        Released to air
-                      {% elseif ( data["releaseMedium"] == "water") %}
-                        Released to water
-                      {% elseif ( data["releaseMedium"] == "land") %}
-                        Released to land
-                      {% endif %}
-                    </td>
-                    <td class="govuk-table__cell">
-                      {{ data['pollutant'] | capitalize }}
-                    </td>
-                    <td class="govuk-table__cell govuk-!-text-align-right">
-                      <ul class="govuk-summary-list__actions-list">
-                        <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="releases/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
-                        </li>
-                        <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
+                  {% if ( data["releaseAdded"] == "yes") %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                        {% if ( data["releaseMedium"] == "air") %}
+                          Released to air
+                        {% elseif ( data["releaseMedium"] == "water") %}
+                          Released to water
+                        {% elseif ( data["releaseMedium"] == "land") %}
+                          Released to land
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {{ data['pollutant'] | capitalize }}
+                      </td>
+                      <td class="govuk-table__cell govuk-!-text-align-right">
+                        <ul class="govuk-summary-list__actions-list">
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="releases/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
+                          </li>
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  {% endif %}
+                  {% if ( data["release2Added"] == "yes") %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                        {% if ( data["releaseMedium2"] == "air") %}
+                          Released to air
+                        {% elseif ( data["releaseMedium2"] == "water") %}
+                          Released to water
+                        {% elseif ( data["releaseMedium2"] == "land") %}
+                          Released to land
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {{ data['pollutant2'] | capitalize }}
+                      </td>
+                      <td class="govuk-table__cell govuk-!-text-align-right">
+                        <ul class="govuk-summary-list__actions-list">
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="releases2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release details</span></a>
+                          </li>
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release</span></a>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  {% endif %}
                 </tbody>
               </table>
             {% else %}
@@ -105,33 +139,58 @@
             Pollutant transfers to wastewater
           </h2>
           <div class="govuk-summary-card__actions">
-            <a class="govuk-link" href="transfers/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+            {% if ( data["transferAdded"] == "yes") %}
+              <a class="govuk-link" href="transfers2/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+            {% elseif ( data["transferAdded"] == "yes") and ( data["transfer2Added"] == "yes") %}
+              <a href="#">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+            {% else %}
+              <a class="govuk-link" href="transfers/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+            {% endif %}
           </div>
         </div>
         <div class="govuk-summary-card__content">
-          {% if ( data["transferAdded"] == "yes") %}
+          {% if ( data["transferAdded"] == "yes") or ( data["transfer2Added"] == "yes") %}
             <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  {{ data['pollutantTransfer'] | capitalize }}
-                </dt>
-                <dd class="govuk-summary-list__actions">
-                  <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="transfers/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
-                    </li>
-                    <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
-                    </li>
-                  </ul>
-                </dd>
-              </div>
+              {% if ( data["transferAdded"] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['pollutantTransfer'] | capitalize }}
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                    <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="transfers/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
+                      </li>
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              {% endif %}
+              {% if ( data["transfer2Added"] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    {{ data['pollutantTransfer2'] | capitalize }}
+                  </dt>
+                  <dd class="govuk-summary-list__actions">
+                    <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="transfers2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer details</span></a>
+                      </li>
+                      <li class="govuk-summary-list__actions-list-item">
+                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer</span></a>
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+              {% endif %}
             </dl>   
-            {% else %}
-              <p class="govuk-!-margin-bottom-0">
-                You have not added any pollutant transfers to wastewater
-              </p>
-            {% endif %}
+          {% else %}
+            <p class="govuk-!-margin-bottom-0">
+              You have not added any pollutant transfers to wastewater
+            </p>
+          {% endif %}
         </div>
       </div>
 
@@ -145,7 +204,7 @@
           </div>
         </div>
         <div class="govuk-summary-card__content">
-          {% if ( data["wasteAdded"] == "yes") %}
+          {% if ( data["wasteAdded"] == "yes") or ( data["waste2Added"] == "yes") %}
               <table class="govuk-table">
                 <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Waste transfers already added</caption>
                 <thead class="govuk-table__head">
@@ -153,39 +212,72 @@
                     <th scope="col" class="govuk-table__header">Type</th>
                     <th scope="col" class="govuk-table__header">Treatment</th>
                     <th scope="col" class="govuk-table__header">Amount</th>
-                    <th scope="col" class="govuk-table__header govuk-!-text-align-right">Actions</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right govuk-!-width-one-quarter">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">
-                      {% if ( data["wasteType"] == "hazardous") %}
-                        Hazardous
-                      {% elseif ( data["wasteType"] == "nonhazardous") %}
-                        Non-hazardous
-                      {% endif %}
-                    </td>
-                    <td class="govuk-table__cell">
-                      {{ data['wasteTreatment'] | capitalize }}
-                    </td>
-                    <td class="govuk-table__cell">
-                      {% if ( data["wasteTreatment"] == "disposal") %}
-                        {{ data['wasteDisposalAmount'] | formatNumber }} tonnes
-                      {% elseif ( data["wasteTreatment"] == "recovery") %}
-                        {{ data['wasteRecoveryAmount'] | formatNumber }} tonnes
-                      {% endif %}
-                    </td>
-                    <td class="govuk-table__cell govuk-!-text-align-right">
-                      <ul class="govuk-summary-list__actions-list">
-                        <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="waste/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
-                        </li>
-                        <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
-                        </li>
-                      </ul>
-                    </td>
-                  </tr>
+                  {% if ( data["wasteAdded"] == "yes") %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                        {% if ( data["wasteType"] == "hazardous") %}
+                          Hazardous
+                        {% elseif ( data["wasteType"] == "nonhazardous") %}
+                          Non-hazardous
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {{ data['wasteTreatment'] | capitalize }}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {% if ( data["wasteTreatment"] == "disposal") %}
+                          {{ data['wasteDisposalAmount'] | formatNumber }} tonnes
+                        {% elseif ( data["wasteTreatment"] == "recovery") %}
+                          {{ data['wasteRecoveryAmount'] | formatNumber }} tonnes
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell govuk-!-text-align-right">
+                        <ul class="govuk-summary-list__actions-list">
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="waste/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
+                          </li>
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  {% endif %}
+                  {% if ( data["waste2Added"] == "yes") %}
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">
+                        {% if ( data["wasteType2"] == "hazardous") %}
+                          Hazardous
+                        {% elseif ( data["wasteType2"] == "nonhazardous") %}
+                          Non-hazardous
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {{ data['wasteTreatment2'] | capitalize }}
+                      </td>
+                      <td class="govuk-table__cell">
+                        {% if ( data["wasteTreatment2"] == "disposal") %}
+                          {{ data['wasteDisposalAmount2'] | formatNumber }} tonnes
+                        {% elseif ( data["wasteTreatment2"] == "recovery") %}
+                          {{ data['wasteRecoveryAmount2'] | formatNumber }} tonnes
+                        {% endif %}
+                      </td>
+                      <td class="govuk-table__cell govuk-!-text-align-right">
+                        <ul class="govuk-summary-list__actions-list">
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="waste2/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
+                          </li>
+                          <li class="govuk-summary-list__actions-list-item">
+                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  {% endif %}
                 </tbody>
               </table>
             {% else %}

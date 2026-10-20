@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Which pollutant was released to air? – {{ serviceName }} – GOV.UK Prototype Kit
+  Which pollutant was transferred to wastewater? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,34 +17,26 @@
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">{{ data['facility-name'] }}</span>
       <form class="form" action="amount" method="post">
-          {{ govukRadios({
-            name: "pollutantTransfer",
-            fieldset: {
-              legend: {
-                text: "Which pollutant was transferred to wastewater?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            items: [
-              {
-                value: "aldrin",
-                text: "Aldrin"
-              },
-              {
-                value: "altrazine",
-                text: "Altrazine"
-              },
-              {
-                value: "diuron",
-                text: "Diuron"
-              },
-              {
-                value: "endosulphan",
-                text: "Endosulphan"
-              }
-            ]
-          }) }}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Which pollutant was transferred to wastewater?
+              </h1>
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              {% for pollutant in data['releaseWaterFull'] %}
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="pollutant{{ pollutant['id'] }}" name="pollutantTransfer" type="radio" value="{{ pollutant['name'] }}">
+                  <label class="govuk-label govuk-radios__label" for="pollutant{{ pollutant['id'] }}">
+                    {{ pollutant['name'] }}
+                  </label>
+                </div>
+              {% endfor %}
+            </div>
+          </fieldset>
+        </div>
+          
 
         {{ govukButton({
           text: "Continue"

@@ -166,7 +166,7 @@
             <a class="govuk-link" href="obtain-data.html">Change<span class="govuk-visually-hidden"> how you obtained this data</span></a>
           </dd>
         </div>
-        {% if ( data["pollutantData2"] == "measurement" or data["pollutantData"] == "calculation") %}
+        {% if ( data["pollutantData2"] == "measurement" or data["pollutantData2"] == "calculation") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Method of {{ data['pollutantData2'] }}
@@ -221,7 +221,7 @@
         {% endif %}
       </dl>
         
-        <form class="form" action="../report?releaseAdded=yes" method="post">
+        <form class="form" action="../report?release2Added=yes" method="post">
           {{ govukButton({
             text: "Continue"
           }) }}
