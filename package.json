@@ -8,6 +8,7 @@
     "@govuk-prototype-kit/common-templates": "3.0.1",
     "@ministryofjustice/frontend": "11.1.0",
     "@x-govuk/govuk-prototype-components": "^6.0.0",
+    "@x-govuk/govuk-prototype-filters": "^2.2.1",
     "govuk-frontend": "6.6.0",
     "govuk-prototype-kit": "14.0.1",
     "notifications-node-client": "8.5.0"
