@@ -1,6 +1,14 @@
 module.exports = {
 
-// DATA ENTRY 
+// DATA ENTRY
+'releaseAdded': 'No',
+'release2Added': 'No',
+'transferAdded': 'No',
+'transfer2Added': 'No',
+'wasteAdded': 'No',
+'waste2Added': 'No',
+'confAdded': 'No',
+
 "releaseAirCat": [
   {
   "name": "Chlorinated organic substances",

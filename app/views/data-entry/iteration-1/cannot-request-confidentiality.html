@@ -1,0 +1,27 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You cannot request confidentiality yet – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
+      <h1 class="govuk-heading-xl">
+        You cannot request confidentiality yet
+      </h1>
+
+      <p>
+        You must report on at least 1 item to request confidentiality.
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

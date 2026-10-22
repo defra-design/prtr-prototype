@@ -13,13 +13,56 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
-      <h1 class="govuk-heading-xl">
-        You cannot submit this report yet
-      </h1>
+      {% if ( data["releaseAdded"] == "No") and ( data["transferAdded"] == "No") and ( data["wasteAdded"] == "No") %}
+        <h1 class="govuk-heading-xl">
+          You cannot submit this report yet
+        </h1>
+        <p>You must report on at least 1 item.</p>
+        <p><a class="govuk-link" href="report">Return to reporting</a></p>
+      {% else %}
+        <h1 class="govuk-heading-xl">
+          Confirm you want to submit this report
+        </h1>
+        {% if ( data["releaseAdded"] == "No") %}
+          <p>You have not added any pollutant releases.</p>
+        {% endif %}
+        {% if ( data["transferAdded"] == "No") %}
+          <p>You have not added any pollutant transfers to wastewater.</p>
+        {% endif %}
+        {% if ( data["wasteAdded"] == "No") %}
+          <p>You have not added any waste transfers.</p>
+        {% endif %}
+        <p>Once submitted, you will not be able to change the data reported.</p>
+        {{ govukRadios({
+          name: "submitReport",
+          fieldset: {
+            legend: {
+              text: "Are you sure you have finished entering all data and are ready to submit this report for review?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, submit this report",
+              conditional: {
+                html: higherReason
+              }
+            },
+            {
+              value: "no",
+              text: "No, I need to return to reporting"
+            }
+          ]
+        }) }}
 
-      <p>
-        You must report on at least 1 item.
-      </p>
+        {{ govukButton({
+          text: "Confirm"
+        }) }}
+      {% endif %}
+
+
+    
 
     </div>
   </div>

@@ -304,7 +304,11 @@
 
           {% else %}
             <div class="govuk-summary-card__actions">
-              <a class="govuk-link" href="confidentiality/request">Create request<span class="govuk-visually-hidden"> for confidentiality</span></a>
+              {% if ( data["releaseAdded"] == "No") and ( data["transferAdded"] == "No") and ( data["wasteAdded"] == "No") %}
+                <a class="govuk-link" href="cannot-request-confidentiality.html">Create request<span class="govuk-visually-hidden"> for confidentiality</span></a>
+              {% else %}
+                <a class="govuk-link" href="confidentiality/request">Create request<span class="govuk-visually-hidden"> for confidentiality</span></a>
+              {% endif %}
             </div>
           {% endif %}
         </div>
