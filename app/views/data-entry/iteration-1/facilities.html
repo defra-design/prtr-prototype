@@ -21,68 +21,34 @@
       </h1>
 
       <ul class="govuk-task-list">
+        
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            Celsa Manufacturing (UK) Limited, Section Mill
-            <div id="facility-1-hint" class="govuk-task-list__hint">
-              You will be contacted when this facility has been removed from your list
-            </div>
-          </div>
-          <div class="govuk-task-list__status" id="facility-1-status">
-            <strong class="govuk-tag govuk-tag--red">
-              Wrong assignment
-            </strong>
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
-          </div>
-          <div class="govuk-task-list__status" id="facility-2-status">
-            <strong class="govuk-tag govuk-tag--blue">
-              Zero return sent
-            </strong>
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-3-status">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-1-status">
               Celsa Manufacturing UK Ltd, Cardiff Rod And Bar Mill
             </a>
           </div>
-          <div class="govuk-task-list__status" id="facility-3-status">
-            <strong class="govuk-tag govuk-tag--yellow">
-              Return in progress
-            </strong>
+          <div class="govuk-task-list__status" id="facility-1-status">
+            Not started
           </div>
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            Celsa Cardiff Scrap Yard
-          </div>
-          <div class="govuk-task-list__status" id="facility-4-status">
-            <strong class="govuk-tag govuk-tag--green">
-              Return sent
-            </strong>
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            {% if ( data["CSSY"] == "zero") %}
+            {% if ( data["CSSY"] == "zero") or ( data["CSSY"] == "queried") %}
               Celsa Swansea Scrap Yard
             {% else %}
-              <a class="govuk-link govuk-task-list__link" href="your-facility?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-5-status">
+              <a class="govuk-link govuk-task-list__link" href="your-facility?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-2-status">
                 Celsa Swansea Scrap Yard
               </a>
             {% endif %}
           </div>
-          <div class="govuk-task-list__status" id="facility-5-status">
+          <div class="govuk-task-list__status" id="facility-2-status">
             {% if ( data["CSSY"] == "zero") %}
-              <strong class="govuk-tag govuk-tag--blue">
-                Zero return sent
+              <strong class="govuk-tag govuk-tag--blue" style="max-width:fit-content;">
+                Zero return submitted
               </strong>
             {% elseif ( data["CSSY"] == "queried") %}
-              <strong class="govuk-tag govuk-tag--red">
+              <strong class="govuk-tag govuk-tag--grey">
                 Wrong assignment
               </strong>
             {% else %}
@@ -97,4 +63,26 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "facilities-all-statuses",
+         text: "View all facility statuses"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

@@ -25,7 +25,7 @@
           </h1>
           {% if ( data["releaseMedium2"] == "air") %}
           <select class="govuk-select" id="select-pollutant-air" name="pollutant2"
-            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="true">
               <option value="">Select an option</option>
               <option value="1,1,1-trichloroethane">1,1,1-trichloroethane</option>
               <option value="1,1,2,2-tetrachloroethane">1,1,2,2-tetrachloroethane</option>
@@ -100,7 +100,7 @@
 
           {% elseif ( data["releaseMedium2"] == "land") %}
             <select class="govuk-select" id="select-pollutant-land" name="pollutant2"
-            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="true">
               <option value="">Select an option</option>
               <option value="Anthracene">Anthracene</option>
               <option value="Benzene">Benzene</option>
@@ -121,7 +121,7 @@
             </select>
           {% elseif ( data["releaseMedium2"] == "water") %}
             <select class="govuk-select" id="select-pollutant-water" name="pollutant2"
-            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="true">
               <option value="">Select an option</option>
               <option value="1,1,1-trichloroethane">1,1,1-trichloroethane</option>
               <option value="1,1,2,2-tetrachloroethane">1,1,2,2-tetrachloroethane</option>
@@ -201,13 +201,41 @@
           {% endif %}
         </div>
         
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="../report.html">Cancel</a>
+        </div>
 
       </form>
 
     </div>
   </div>
 
+{% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "select-pollutant-category",
+         text: "Select pollutant by category"
+       },
+       {
+         href: "select-pollutant",
+         text: "Select pollutant from full list"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

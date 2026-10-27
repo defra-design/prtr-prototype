@@ -40,56 +40,58 @@
             <a class="govuk-link" href="type.html">Change<span class="govuk-visually-hidden"> type of waste</span></a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Was it transferred overseas?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if (data.wasteMovement) %}
-              {% if ( data["wasteMovement"] == "inUK") %}
-                No, it was transferred within the UK
-              {% elseif ( data["wasteMovement"] == "overseas") %}
+        {% if ( data["wasteType"] == "hazardous") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Was it transferred overseas?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data.wasteMovement) %}
+                {% if ( data["wasteMovement"] == "inUK") %}
+                  No, it was transferred within the UK
+                {% elseif ( data["wasteMovement"] == "overseas") %}
+                  Yes, it was transferred overseas
+                {% endif %}
+              {% else %}
                 Yes, it was transferred overseas
               {% endif %}
-            {% else %}
-              Yes, it was transferred overseas
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="movement.html">Change<span class="govuk-visually-hidden"> if the waste was transferred overseas</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Transport company
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Renova Miljo<br/>
-            AB Box 36<br/>
-            Gothenburg<br/>
-            40120<br/>
-            Sweden
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="transport-company-confirm.html">Change<span class="govuk-visually-hidden"> the transport company used</span></a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Transfer site
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Marieholmsgatan<br/>
-            Gothenburg<br/>
-            415 20<br/>
-            Sweden
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="overseas-site-confirm.html">Change<span class="govuk-visually-hidden"> the site the waste went to</span></a>
-          </dd>
-        </div>
-
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="movement.html">Change<span class="govuk-visually-hidden"> if the waste was transferred overseas</span></a>
+            </dd>
+          </div>
+        {% endif %}
+        {% if ( data["wasteType"] == "hazardous") and ( data["wasteMovement"] == "overseas") %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Transport company
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Renova Miljo<br/>
+              AB Box 36<br/>
+              Gothenburg<br/>
+              40120<br/>
+              Sweden
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="transport-company-confirm.html">Change<span class="govuk-visually-hidden"> the transport company used</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Transfer site
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Marieholmsgatan<br/>
+              Gothenburg<br/>
+              415 20<br/>
+              Sweden
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="overseas-site-confirm.html">Change<span class="govuk-visually-hidden"> the site the waste went to</span></a>
+            </dd>
+          </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Treatment

@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Facilities you are responsible for - {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Facilities you are responsible for
+      </h1>
+
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Manufacturing (UK) Limited, Section Mill
+            <div id="facility-1-hint" class="govuk-task-list__hint">
+              You will be contacted when this facility has been removed from your list
+            </div>
+          </div>
+          <div class="govuk-task-list__status" id="facility-1-status">
+            <strong class="govuk-tag govuk-tag--grey">
+              Wrong assignment
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Manufacturing (UK) Limited, Tremorfa Melt Shop
+          </div>
+          <div class="govuk-task-list__status" id="facility-2-status">
+            <strong class="govuk-tag govuk-tag--blue" style="max-width:fit-content;">
+              Zero return submitted
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="facility-3-status">
+              Celsa Manufacturing UK Ltd, Cardiff Rod And Bar Mill
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-3-status">
+            <strong class="govuk-tag govuk-tag--yellow">
+              Return in progress
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            Celsa Cardiff Scrap Yard
+          </div>
+          <div class="govuk-task-list__status" id="facility-4-status">
+            <strong class="govuk-tag govuk-tag--blue">
+              Return submitted
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            <a class="govuk-link govuk-task-list__link" href="" aria-describedby="facility-5-status">
+              Celsa Newport Scrap Yard
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-5-status">
+            <strong class="govuk-tag govuk-tag--red">
+              Return rejected
+            </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            {% if ( data["CSSY"] == "zero") %}
+              Celsa Swansea Scrap Yard
+            {% else %}
+              <a class="govuk-link govuk-task-list__link" href="your-facility?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-6-status">
+                Celsa Swansea Scrap Yard
+              </a>
+            {% endif %}
+          </div>
+          <div class="govuk-task-list__status" id="facility-6-status">
+            {% if ( data["CSSY"] == "zero") %}
+              <strong class="govuk-tag govuk-tag--blue" style="max-width:fit-content;">
+                Zero return submitted
+              </strong>
+            {% elseif ( data["CSSY"] == "queried") %}
+              <strong class="govuk-tag govuk-tag--grey">
+                Wrong assignment
+              </strong>
+            {% else %}
+              Not started
+            {% endif %}
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
+            <a class="govuk-link govuk-task-list__link" href="" aria-describedby="facility-5-status">
+              Celsa Wrexham Scrap Yard
+            </a>
+          </div>
+          <div class="govuk-task-list__status" id="facility-5-status">
+            <strong class="govuk-tag govuk-tag--green">
+              Return approved
+            </strong>
+          </div>
+        </li>
+      </ul>
+
+      <p><a href="missing-facility">Is there a facility missing?</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

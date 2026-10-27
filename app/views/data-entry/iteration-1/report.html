@@ -4,10 +4,6 @@
   {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block containerStart %}
-
-{% endblock %}
-
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -142,9 +138,9 @@
             {% if ( data["transferAdded"] == "yes") and ( data["transfer2Added"] == "yes") %}
               <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
             {% elif ( data["transferAdded"] == "yes") %}
-              <a class="govuk-link" href="transfers2/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+              <a class="govuk-link" href="transfers2/enter-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
             {% else %}
-              <a class="govuk-link" href="transfers/select-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
+              <a class="govuk-link" href="transfers/enter-pollutant">Add<span class="govuk-visually-hidden"> pollutant transfers to wastewater</span></a>
             {% endif %}
           </div>
         </div>

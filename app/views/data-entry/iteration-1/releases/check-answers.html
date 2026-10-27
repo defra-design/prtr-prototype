@@ -222,9 +222,12 @@
       </dl>
         
         <form class="form" action="../report?releaseAdded=yes" method="post">
-          {{ govukButton({
-            text: "Continue"
-          }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+            <a class="govuk-link" href="../report.html">Cancel</a>
+          </div>
         </form>
 
     </div>

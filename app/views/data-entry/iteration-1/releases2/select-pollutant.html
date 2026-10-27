@@ -60,9 +60,12 @@
             </fieldset>
           </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="../report.html">Cancel</a>
+        </div>
 
       </form>
 
@@ -75,11 +78,12 @@
    meta: {
      items: [
        {
-         href: "enter-pollutant",
-         text: "Enter pollutant name"
-       },{
          href: "select-pollutant-category",
-         text: "Select by category"
+         text: "Select pollutant by category"
+       },
+       {
+         href: "enter-pollutant",
+         text: "Enter name of pollutant"
        },
        {
          href: "/manage-prototype",

@@ -205,12 +205,12 @@
             How did you obtain this data?
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if (data.wasteData) %}
-              {% if ( data["wasteData"] == "measurement") %}
+            {% if (data.wasteData2) %}
+              {% if ( data["wasteData2"] == "measurement") %}
                 Measured
-              {% elseif ( data["wasteData"] == "calculation") %}
+              {% elseif ( data["wasteData2"] == "calculation") %}
                 Calculated
-              {% elseif ( data["wasteData"] == "estimated") %}
+              {% elseif ( data["wasteData2"] == "estimated") %}
                 Estimated
               {% endif %}
             {% else %}
@@ -221,37 +221,37 @@
             <a class="govuk-link" href="obtain-data.html">Change<span class="govuk-visually-hidden"> how you obtained this data</span></a>
           </dd>
         </div>
-        {% if ( data["wasteData"] == "measurement" or data["wasteData"] == "calculation") %}
+        {% if ( data["wasteData2"] == "measurement" or data["wasteData2"] == "calculation") %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Method of {{ data['wasteData'] }}
+              Method of {{ data['wasteData2'] }}
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if ( data["wasteData"] == "measurement") %}
-                {{ data['wasteMethod'] }}
-              {% elseif ( data["wasteData"] == "calculation") %}
-                {{ data['wasteMethodC'] }}
+              {% if ( data["wasteData2"] == "measurement") %}
+                {{ data['wasteMethod2'] }}
+              {% elseif ( data["wasteData2"] == "calculation") %}
+                {{ data['wasteMethodC2'] }}
               {% else %}
                 C-PER
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if ( data["wasteData"] == "measurement") %}
+              {% if ( data["wasteData2"] == "measurement") %}
                 <a class="govuk-link" href="select-method-measurement.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
-              {% elseif ( data["wasteData"] == "calculation") %}
+              {% elseif ( data["wasteData2"] == "calculation") %}
                 <a class="govuk-link" href="select-method-calculation.html">Change<span class="govuk-visually-hidden"> method of {{ data['pollutantData'] }}</span></a>
               {% endif %}
             </dd>
           </div>
         {% endif %}
-        {% if ( data["wasteData"] == "measurement") %}
-          {% if ( data["wasteMethod"] == "M-INT") %}
+        {% if ( data["wasteData2"] == "measurement") %}
+          {% if ( data["wasteMethod2"] == "M-INT") %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 ISO or CEN designation
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['MINTDesignationWaste'] }}
+                {{ data['MINTDesignationWaste2'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>
@@ -259,14 +259,14 @@
             </div>
           {% endif %}
         {% endif %}
-        {% if ( data["wasteData"] == "calculation") %}
-          {% if ( data["wasteMethodC"] == "C-INT") %}
+        {% if ( data["wasteData2"] == "calculation") %}
+          {% if ( data["wasteMethodC2"] == "C-INT") %}
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 ISO or CEN designation
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['CINTDesignationWaste'] }}
+                {{ data['CINTDesignationWaste2'] }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <a class="govuk-link" href="select-method.html">Change<span class="govuk-visually-hidden"> the ISO or CEN designation</span></a>

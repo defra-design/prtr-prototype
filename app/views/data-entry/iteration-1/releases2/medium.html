@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
-      <form class="form" action="select-pollutant" method="post">
+      <form class="form" action="enter-pollutant" method="post">
 
         {{ govukRadios({
           name: "releaseMedium2",
@@ -43,37 +43,16 @@
           ]
         }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="../report.html">Cancel</a>
+        </div>
 
       </form>
 
     </div>
   </div>
 
-{% endblock %}
-{% block govukFooter %}
- {{ govukFooter({
-   meta: {
-     items: [
-       {
-         href: "enter-pollutant",
-         text: "Enter pollutant name"
-       },{
-         href: "select-pollutant-category",
-         text: "Select by category"
-       },
-       {
-         href: "/manage-prototype",
-         text: "Manage your prototype"
-       },
-       {
-         href: "/manage-prototype/clear-data",
-         text: "Clear data"
-       }
-     ],
-     visuallyHiddenTitle: "Footer links"
-   }
- }) }}
 {% endblock %}
