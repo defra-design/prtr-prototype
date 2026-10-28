@@ -1,7 +1,11 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  You cannot submit this report yet – {{ serviceName }} – GOV.UK Prototype Kit
+  {% if ( data["releaseAdded"] == "No") and ( data["transferAdded"] == "No") and ( data["wasteAdded"] == "No") %}
+    You cannot submit this report yet – {{ serviceName }} – GOV.UK Prototype Kit
+  {% else %}
+    Confirm you want to submit this report – {{ serviceName }} – GOV.UK Prototype Kit
+  {% endif %}
 {% endblock %}
 
 {% block containerStart %}
@@ -33,32 +37,34 @@
           <p>You have not added any waste transfers.</p>
         {% endif %}
         <p>Once submitted, you will not be able to change the data reported.</p>
-        {{ govukRadios({
-          name: "submitReport",
-          fieldset: {
-            legend: {
-              text: "Are you sure you have finished entering all data and are ready to submit this report for review?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes, submit this report",
-              conditional: {
-                html: higherReason
+        <form class="form" action="/submit-return" method="post">
+          {{ govukRadios({
+            name: "submitReport",
+            fieldset: {
+              legend: {
+                text: "Are you sure you have finished entering all data and are ready to submit this report for review?",
+                classes: "govuk-fieldset__legend--m"
               }
             },
-            {
-              value: "no",
-              text: "No, I need to return to reporting"
-            }
-          ]
-        }) }}
+            items: [
+              {
+                value: "Yes",
+                text: "Yes, submit this report"
+              },
+              {
+                value: "No",
+                text: "No, I need to return to reporting"
+              }
+            ]
+          }) }}
 
-        {{ govukButton({
-          text: "Confirm"
-        }) }}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+            <a class="govuk-link" href="../report.html">Cancel</a>
+          </div>
+        </form>
       {% endif %}
 
 

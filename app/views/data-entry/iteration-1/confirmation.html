@@ -1,0 +1,32 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Return submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Return submitted
+        </h1>
+      </div>
+      <p class="govuk-body">Your PRTR return has been sent to your Regulator for review.</p>
+      <p class="govuk-body">Your Regulator will be in touch to let you know the data is approved or rejected.</p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+
+      <p><a href="facilities.html">Return to facilities</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

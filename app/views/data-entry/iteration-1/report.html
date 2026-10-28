@@ -61,9 +61,9 @@
                 <caption class="govuk-table__caption govuk-table__caption--m govuk-visually-hidden">Pollutant releases already added</caption>
                 <thead class="govuk-table__head">
                   <tr class="govuk-table__row">
-                    <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Release type</th>
-                    <th scope="col" class="govuk-table__header govuk-!-width-one-half">Pollutant</th>
-                    <th scope="col" class="govuk-table__header govuk-!-text-align-right govuk-!-width-one-quarter">Actions</th>
+                    <th scope="col" class="govuk-table__header" style="width:30%;">Release type</th>
+                    <th scope="col" class="govuk-table__header">Pollutant</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right" style="width:30%;">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">
@@ -87,7 +87,7 @@
                             <a class="govuk-link" href="releases/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
+                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
                           </li>
                         </ul>
                       </td>
@@ -113,7 +113,7 @@
                             <a class="govuk-link" href="releases2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release</span></a>
+                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release</span></a>
                           </li>
                         </ul>
                       </td>
@@ -158,7 +158,7 @@
                         <a class="govuk-link" href="transfers/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
                       </li>
                       <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
+                        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
                       </li>
                     </ul>
                   </dd>
@@ -175,7 +175,7 @@
                         <a class="govuk-link" href="transfers2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer details</span></a>
                       </li>
                       <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer</span></a>
+                        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer</span></a>
                       </li>
                     </ul>
                   </dd>
@@ -215,7 +215,7 @@
                     <th scope="col" class="govuk-table__header">Type</th>
                     <th scope="col" class="govuk-table__header">Treatment</th>
                     <th scope="col" class="govuk-table__header">Amount</th>
-                    <th scope="col" class="govuk-table__header govuk-!-text-align-right govuk-!-width-one-quarter">Actions</th>
+                    <th scope="col" class="govuk-table__header govuk-!-text-align-right" style="width:30%;">Actions</th>
                   </tr>
                 </thead>
                 <tbody class="govuk-table__body">
@@ -244,7 +244,7 @@
                             <a class="govuk-link" href="waste/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
+                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
                           </li>
                         </ul>
                       </td>
@@ -275,7 +275,7 @@
                             <a class="govuk-link" href="waste2/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> waste transfer</span></a>
+                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
                           </li>
                         </ul>
                       </td>
@@ -321,7 +321,7 @@
                       <a class="govuk-link" href="confidentiality/check-answers.html">Change<span class="govuk-visually-hidden">  confidentiality request details</span></a>
                     </li>
                     <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link" href="confidentiality/remove">Delete<span class="govuk-visually-hidden"> confidentiality request</span></a>
+                      <a class="govuk-link" href="confidentiality/remove">Remove<span class="govuk-visually-hidden"> confidentiality request</span></a>
                     </li>
                   </ul>
                 </dd>
@@ -338,7 +338,7 @@
       <div class="govuk-button-group">
         {{ govukButton({
           text: "Submit",
-          href: "cannot-submit"
+          href: "submit"
         }) }}
 
         <a class="govuk-link" href="facilities">Return to facilities</a>

@@ -268,6 +268,17 @@ router.post('/request-confidentiality', function(request, response) {
 	}
 })
 
+// Submit return
+router.post('/submit-return', function(request, response) {
+
+	var submitReturn = request.session.data['submitReport']
+	if (submitReturn == "Yes"){
+		response.redirect("data-entry/iteration-1/confirmation")
+	} else if (submitReturn == "No"){
+		response.redirect("data-entry/iteration-1/report")
+	}
+})
+
 // PUBLIC WEBSITE
 // Search type redirect - initial design
 router.post('/search-type', function(request, response) {
