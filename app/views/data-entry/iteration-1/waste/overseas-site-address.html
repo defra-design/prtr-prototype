@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is the address of the site the waste was transported to? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="treatment" method="post">
+        <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
+        {% call govukFieldset({
+          legend: {
+            text: "What is the address of the site the waste was transported to?",
+            classes: "govuk-fieldset__legend--xl",
+            isPageHeading: true
+          }
+        }) %}
+        <p>This address must be outside of the UK.</p>
+        {{ govukInput({
+            label: {
+              text: "Address line 1"
+            },
+            id: "site-address-line-1",
+            name: "siteaddressLine1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Town or city"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "site-address-town",
+            name: "siteaddressTown"
+          }) }}
+          
+          {{ govukInput({
+            label: {
+              text: "Postcode"
+            },
+            classes: "govuk-input--width-10",
+            id: "site-address-postcode",
+            name: "siteaddressPostcode"
+          }) }}
+
+          {{ xGovukAutocomplete({
+            id: "site-address-country",
+            name: "siteaddressCountry",
+            allowEmpty: false,
+            showNoOptionsFound: true,
+            label: {
+              text: "Country"
+            },
+            classes: "govuk-!-width-two-thirds",
+            items: [
+              { text: "Austria" },
+              { text: "Belgium" },
+              { text: "Bulgaria" },
+              { text: "Croatia" },
+              { text: "Republic of Cyprus" },
+              { text: "Czech Republic" },
+              { text: "Denmark" },
+              { text: "Estonia" },
+              { text: "Finland" },
+              { text: "France" },
+              { text: "Germany" },
+              { text: "Greece" },
+              { text: "Hungary" },
+              { text: "Ireland" },
+              { text: "Italy" },
+              { text: "Latvia" },
+              { text: "Lithuania" },
+              { text: "Luxembourg" },
+              { text: "Malta" },
+              { text: "Netherlands" },
+              { text: "Poland" },
+              { text: "Portugal" },
+              { text: "Romania" },
+              { text: "Slovakia" },
+              { text: "Slovenia" },
+              { text: "Spain" },
+              { text: "Sweden" }
+            ]
+          }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

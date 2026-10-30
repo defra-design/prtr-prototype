@@ -131,9 +131,9 @@ router.post('/select-method-transfer2', function(request, response) {
 router.post('/waste-type', function(request, response) {
 
 	var dataWasteType = request.session.data['wasteType']
-	if (dataWasteType == "hazardous"){
+	if (dataWasteType == "Hazardous"){
 		response.redirect("data-entry/iteration-1/waste/movement.html")
-	} else if (dataWasteType == "nonhazardous"){
+	} else if (dataWasteType == "Non-hazardous"){
 		response.redirect("data-entry/iteration-1/waste/treatment.html")
 	}
 })
@@ -141,9 +141,9 @@ router.post('/waste-type', function(request, response) {
 router.post('/waste-type2', function(request, response) {
 
 	var dataWasteType2 = request.session.data['wasteType2']
-	if (dataWasteType2 == "hazardous"){
+	if (dataWasteType2 == "Hazardous"){
 		response.redirect("data-entry/iteration-1/waste2/movement.html")
-	} else if (dataWasteType2 == "nonhazardous"){
+	} else if (dataWasteType2 == "Non-hazardous"){
 		response.redirect("data-entry/iteration-1/waste2/treatment.html")
 	}
 })
@@ -176,7 +176,7 @@ router.post('/confirm-transport-company', function(request, response) {
 	if (confirmTransport == "confirm"){
 		response.redirect("data-entry/iteration-1/waste/overseas-site-confirm.html")
 	} else if (confirmTransport == "no"){
-		response.redirect("data-entry/iteration-1/waste/transport-company-enter.html")
+		response.redirect("data-entry/iteration-1/waste/transport-company-address.html")
 	}
 })
 
@@ -186,7 +186,7 @@ router.post('/confirm-transport-company2', function(request, response) {
 	if (confirmTransport2 == "confirm"){
 		response.redirect("data-entry/iteration-1/waste2/overseas-site-confirm.html")
 	} else if (confirmTransport2 == "no"){
-		response.redirect("data-entry/iteration-1/waste2/transport-company-enter.html")
+		response.redirect("data-entry/iteration-1/waste2/transport-company-address.html")
 	}
 })
 
@@ -197,7 +197,7 @@ router.post('/confirm-dump-site', function(request, response) {
 	if (confirmDumpSite == "confirm"){
 		response.redirect("data-entry/iteration-1/waste/treatment.html")
 	} else if (confirmDumpSite == "no"){
-		response.redirect("data-entry/iteration-1/waste/overseas-site-enter.html")
+		response.redirect("data-entry/iteration-1/waste/overseas-site-address.html")
 	}
 })
 
@@ -207,28 +207,7 @@ router.post('/confirm-dump-site2', function(request, response) {
 	if (confirmDumpSite2 == "confirm"){
 		response.redirect("data-entry/iteration-1/waste2/treatment.html")
 	} else if (confirmDumpSite2 == "no"){
-		response.redirect("data-entry/iteration-1/waste2/overseas-site-enter.html")
-	}
-})
-
-// Select treatment in waste transfer journey
-router.post('/treatment-redirect', function(request, response) {
-
-	var treatmentWaste = request.session.data['wasteTreatment']
-	if (treatmentWaste == "disposal"){
-		response.redirect("data-entry/iteration-1/waste/amount-disposal.html")
-	} else if (treatmentWaste == "recovery"){
-		response.redirect("data-entry/iteration-1/waste/amount-recovery.html")
-	}
-})
-
-router.post('/treatment-redirect2', function(request, response) {
-
-	var treatmentWaste2 = request.session.data['wasteTreatment2']
-	if (treatmentWaste2 == "disposal"){
-		response.redirect("data-entry/iteration-1/waste2/amount-disposal.html")
-	} else if (treatmentWaste2 == "recovery"){
-		response.redirect("data-entry/iteration-1/waste2/amount-recovery.html")
+		response.redirect("data-entry/iteration-1/waste2/overseas-site-address.html")
 	}
 })
 

@@ -87,7 +87,7 @@
                             <a class="govuk-link" href="releases/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
+                            <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} release</span></a>
                           </li>
                         </ul>
                       </td>
@@ -113,7 +113,7 @@
                             <a class="govuk-link" href="releases2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release</span></a>
+                            <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> {{ data['pollutant2'] }} release</span></a>
                           </li>
                         </ul>
                       </td>
@@ -158,7 +158,7 @@
                         <a class="govuk-link" href="transfers/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer details</span></a>
                       </li>
                       <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
+                        <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> {{ data['pollutant'] }} transfer</span></a>
                       </li>
                     </ul>
                   </dd>
@@ -175,7 +175,7 @@
                         <a class="govuk-link" href="transfers2/check-answers.html">Change<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer details</span></a>
                       </li>
                       <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer</span></a>
+                        <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> {{ data['pollutantTransfer2'] }} transfer</span></a>
                       </li>
                     </ul>
                   </dd>
@@ -222,9 +222,9 @@
                   {% if ( data["wasteAdded"] == "yes") %}
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">
-                        {% if ( data["wasteType"] == "hazardous") %}
+                        {% if ( data["wasteType"] == "Hazardous") %}
                           Hazardous
-                        {% elseif ( data["wasteType"] == "nonhazardous") %}
+                        {% elseif ( data["wasteType"] == "Non-hazardous") %}
                           Non-hazardous
                         {% endif %}
                       </td>
@@ -232,10 +232,8 @@
                         {{ data['wasteTreatment'] | capitalize }}
                       </td>
                       <td class="govuk-table__cell">
-                        {% if ( data["wasteTreatment"] == "disposal") %}
-                          {{ data['wasteDisposalAmount'] | formatNumber }} tonnes
-                        {% elseif ( data["wasteTreatment"] == "recovery") %}
-                          {{ data['wasteRecoveryAmount'] | formatNumber }} tonnes
+                        {% if ( data["wasteAmount"] ) %}
+                          {{ data['wasteAmount'] | formatNumber }} tonnes
                         {% endif %}
                       </td>
                       <td class="govuk-table__cell govuk-!-text-align-right">
@@ -244,7 +242,7 @@
                             <a class="govuk-link" href="waste/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
+                            <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
                           </li>
                         </ul>
                       </td>
@@ -253,9 +251,9 @@
                   {% if ( data["waste2Added"] == "yes") %}
                     <tr class="govuk-table__row">
                       <td class="govuk-table__cell">
-                        {% if ( data["wasteType2"] == "hazardous") %}
+                        {% if ( data["wasteType2"] == "Hazardous") %}
                           Hazardous
-                        {% elseif ( data["wasteType2"] == "nonhazardous") %}
+                        {% elseif ( data["wasteType2"] == "Non-hazardous") %}
                           Non-hazardous
                         {% endif %}
                       </td>
@@ -263,10 +261,8 @@
                         {{ data['wasteTreatment2'] | capitalize }}
                       </td>
                       <td class="govuk-table__cell">
-                        {% if ( data["wasteTreatment2"] == "disposal") %}
-                          {{ data['wasteDisposalAmount2'] | formatNumber }} tonnes
-                        {% elseif ( data["wasteTreatment2"] == "recovery") %}
-                          {{ data['wasteRecoveryAmount2'] | formatNumber }} tonnes
+                        {% if ( data["wasteAmount2"] ) %}
+                          {{ data['wasteAmount2'] | formatNumber }} tonnes
                         {% endif %}
                       </td>
                       <td class="govuk-table__cell govuk-!-text-align-right">
@@ -275,7 +271,7 @@
                             <a class="govuk-link" href="waste2/check-answers.html">Change<span class="govuk-visually-hidden">  details</span></a>
                           </li>
                           <li class="govuk-summary-list__actions-list-item">
-                            <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
+                            <a class="govuk-link" href="remove.html">Remove<span class="govuk-visually-hidden"> waste transfer</span></a>
                           </li>
                         </ul>
                       </td>

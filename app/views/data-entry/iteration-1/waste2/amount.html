@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Enter the {{ data['wasteTreatment2'] }} amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="obtain-data" method="post">
+          <div class="govuk-form-group">
+            <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--xl" for="pollutant-amount">
+                Enter the {{ data['wasteTreatment2'] }} amount
+              </label>
+            </h1>
+            <div id="amount-hint" class="govuk-hint">
+              In 2025, you reported the amount of 
+              {{ data['wasteType2'] | lower }} 
+              waste transferred 
+              {% if ( data["wasteMovement2"] == "overseas" ) %}
+                to the same overseas company for 
+              {% else %}
+                within the UK for 
+              {% endif %}  
+              {{ data['wasteTreatment2'] }} was 100 tonnes.
+            </div>
+            <div class="govuk-input__wrapper">
+              <input class="govuk-input govuk-input--width-5" id="waste-disposal-amount" name="wasteAmount2" type="text" inputmode="decimal" aria-describedby="amount-hint">
+              <div class="govuk-input__suffix" aria-hidden="true">tonnes</div>
+            </div>
+          </div>
+
+          <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="../report.html">Cancel</a>
+        </div>
+
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "amount-higher",
+         text: "Amount was higher than last year"
+       },
+       {
+         href: "amount-lower",
+         text: "Amount was lower than last year"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}

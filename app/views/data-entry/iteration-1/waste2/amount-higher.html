@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  The disposal amount of hazardous waste going overseas is significantly higher than 2025 - {{ serviceName }} – GOV.UK Prototype Kit
+  The {{ data['wasteTreatment2'] }} amount is significantly higher than 2025 - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,15 +17,24 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        The disposal amount of hazardous waste going overseas is significantly higher than 2025
+        The {{ data['wasteTreatment2'] }} amount is significantly higher than 2025
       </h1>
-      <p>In 2025, you reported the amount of hazardous waste transferred to the same overseas company for disposal was 100 tonnes, but for 2026 you have entered {{ data['wasteDisposalAmount'] | formatNumber }} tonnes</p>
+      <p>In 2025, you reported the amount of 
+              {{ data['wasteType2'] | lower }} 
+              waste transferred 
+              {% if ( data["wasteMovement2"] == "overseas" ) %}
+                to the same overseas company for 
+              {% else %}
+                within the UK for 
+              {% endif %}  
+              {{ data['wasteTreatment2'] }} was 100 tonnes, but for 2026 you have entered 
+              {{ data['wasteAmount2'] | formatNumber }} tonnes.</p>
 
       <form class="form" action="obtain-data" method="post">
         {% set higherReason %}
           {{ govukTextarea({
             id: "reason-higher",
-            name: "reasonHigherWaste",
+            name: "reasonHigherWaste2",
             label: {
               text: "Enter an explanation for the significant increase",
               classes: "govuk-label--s"
@@ -33,7 +42,7 @@
           }) }}
           {% endset -%}
         {{ govukRadios({
-          name: "higherAmountWaste",
+          name: "higherAmountWaste2",
           fieldset: {
             legend: {
               text: "Are you sure this amount is correct?",
@@ -67,4 +76,25 @@
     </div>
   </div>
 
+{% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "amount-lower",
+         text: "Amount was lower than last year"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

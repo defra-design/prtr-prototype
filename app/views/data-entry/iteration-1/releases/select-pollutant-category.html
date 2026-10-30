@@ -73,3 +73,27 @@
   </div>
 
 {% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "enter-pollutant",
+         text: "Enter pollutant name"
+       },{
+         href: "select-pollutant",
+         text: "Select pollutant from full list"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
