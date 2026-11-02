@@ -1,0 +1,29 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Information submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Information submitted"
+      }) }}
+
+      <p>We will remove your email address from our list of Regulator contacts.</p>
+      <p>Thank you for your help with this process.</p>
+
+      <p>
+        <a href="#">
+          What did you think of this service?
+        </a> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">
+        {% if ( data["authority"] ) %}
+          {{ data['authority'] }}
+        {% else %}
+          Swansea City Council and Swansea Port Authority
+        {% endif %}
+      </span>
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you a Regulator for facilities in the 
+            {% if ( data["authority"] ) %}
+              {{ data['authority'] }}
+            {% else %}
+              Swansea City Council and Swansea Port Authority
+            {% endif %}
+             area?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No, I am not a Regulator
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="about-you.html">Change<span class="govuk-visually-hidden"> if you are a Regulator</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you able to tell us who the Regulators are for 
+            {% if ( data["authority"] ) %}
+              {{ data['authority'] }}
+            {% else %}
+              Swansea City Council and Swansea Port Authority
+            {% endif %}
+              area?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="not-regulator.html">Change<span class="govuk-visually-hidden"> if you know who the Regulators are</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number of Regulators
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.numberRegulators) %}
+              {{ data['numberRegulators'] }}
+            {% else %}
+              2
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="how-many-regulators.html">Change<span class="govuk-visually-hidden"> number of Regulators</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        About first Regulator
+      </h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.firstRegulatorName) %}
+              {{ data['firstRegulatorName'] }}
+            {% else %}
+              Name 1
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="first-regulator.html">Change<span class="govuk-visually-hidden"> first Regulator name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.firstRegulatorEmail) %}
+              {{ data['firstRegulatorEmail'] }}
+            {% else %}
+              Email 1
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="first-regulator.html">Change<span class="govuk-visually-hidden"> first Regulator email</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">
+        About second Regulator
+      </h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.secondRegulatorName) %}
+              {{ data['secondRegulatorName'] }}
+            {% else %}
+              Name 1
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="second-regulator.html">Change<span class="govuk-visually-hidden"> second Regulator name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if (data.secondRegulatorEmail) %}
+              {{ data['secondRegulatorEmail'] }}
+            {% else %}
+              Email 2
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="second-regulator.html">Change<span class="govuk-visually-hidden"> second Regulator email</span></a>
+          </dd>
+        </div>
+      </dl>
+        
+        
+        <form class="form" action="not-regulator-confirmation" method="post">
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+          </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

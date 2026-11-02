@@ -1,0 +1,99 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you a Regulator for facilities in the 
+            {% if ( data["authority"] ) %}
+              {{ data['authority'] }}
+            {% else %}
+              Swansea City Council and Swansea Port Authority
+            {% endif %}
+             area?
+          </dt>
+          <dd class="govuk-summary-list__value">
+          {% if ( data["aboutYou"] ) %}
+            {{ data['aboutYou'] }}
+          {% else %}
+            Yes
+          {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="about-you.html">Change<span class="govuk-visually-hidden"> if you are a Regulator</span></a>
+          </dd>
+        </div>
+        {% if ( data["aboutYou"] == "Yes" ) %}
+          
+        {% elseif ( data["aboutYou"] == "No, I am a Consultant working on behalf of a Regulator for this area" ) %}
+          </dl>
+          <h2 class="govuk-heading-l">
+            About the Regulator you work on behalf of
+          </h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if (data.regulatorRepresented) %}
+                  {{ data['regulatorRepresented'] }}
+                {% else %}
+                  Name of reg
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="consulting.html">Change<span class="govuk-visually-hidden"> Regulator name</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if (data.regulatorRepresentedEmail) %}
+                  {{ data['regulatorRepresentedEmail'] }}
+                {% else %}
+                  Email 1
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="consulting.html">Change<span class="govuk-visually-hidden"> Regulator email</span></a>
+              </dd>
+            </div>
+        {% endif %}
+      </dl>
+        
+        <form class="form" action="../report?releaseAdded=yes" method="post">
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+            <a class="govuk-link" href="../report.html">Cancel</a>
+          </div>
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

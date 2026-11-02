@@ -21,6 +21,32 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+// CONTACT COLLECTION
+// About you redirect
+router.post('/aboutYouRedirect', function(request, response) {
+
+	var yourRole = request.session.data['aboutYou']
+	if (yourRole == "Yes"){
+		response.redirect("contact-collection/iteration-1/using-consultant.html")
+	} else if (yourRole == "No, I am not a Regulator"){
+		response.redirect("contact-collection/iteration-1/not-regulator.html")
+	} else if (yourRole == "No, I am a Consultant working on behalf of a Regulator for this area"){
+		response.redirect("contact-collection/iteration-1/consulting.html")
+	}
+})
+
+// Do you know Regulators redirect
+router.post('/whoRedirect', function(request, response) {
+
+	var whoRegulators = request.session.data['whoAreRegulators']
+	if (whoRegulators == "Yes"){
+		response.redirect("contact-collection/iteration-1/how-many-regulators.html")
+	} else if (whoRegulators == "No"){
+		response.redirect("contact-collection/iteration-1/not-regulator-confirmation.html")
+	}
+})
+
+
 // DATA ENTRY
 // Are you responsible for this facility?
 router.post('/facilityConfirm', function(request, response) {

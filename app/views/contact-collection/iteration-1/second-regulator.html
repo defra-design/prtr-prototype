@@ -1,0 +1,48 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  About the second Regulator – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">About the second Regulator</h1>
+      <form class="form" action="check-answers-about-regulators" method="post">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--l" for="second-regulator-name">
+            Full name
+          </label>
+          <!-- <div id="second-regulator-name-hint" class="govuk-hint">
+            You will need to give us their names and email addresses in the next step. Maximum of 10?
+          </div> -->
+          <input class="govuk-input" id="second-regulator-name" name="secondRegulatorName" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--l" for="second-regulator-email">
+            Email address
+          </label>
+          <div id="second-regulator-email-hint" class="govuk-hint">
+            Enter their direct email, avoid entering a shared mailbox.
+          </div>
+          <input class="govuk-input" id="second-regulator-email" name="secondRegulatorEmail" type="text">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

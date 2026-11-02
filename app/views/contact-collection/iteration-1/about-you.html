@@ -1,0 +1,54 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+    About you – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          About you
+        </h1>
+        <p>We have you listed in our records as a Regulator for facilities in the 
+        {% if ( data["authority"] ) %}
+          {{ data['authority'] }}
+        {% else %}
+          Swansea City Council and Swansea Port Authority
+        {% endif %}
+         area.</p>
+        <form class="form" action="/aboutYouRedirect" method="post">
+          {{ govukRadios({
+            name: "aboutYou",
+            fieldset: {
+              legend: {
+                text: "Is this correct?",
+                classes: "govuk-fieldset__legend--s"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No, I am not a Regulator",
+                text: "No, I am not a Regulator"
+              },
+              {
+                value: "No, I am a Consultant working on behalf of a Regulator for this area",
+                text: "No, I am a Consultant working on behalf of a Regulator for this area"
+              }
+            ]
+          }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}
