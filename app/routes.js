@@ -46,6 +46,17 @@ router.post('/whoRedirect', function(request, response) {
 	}
 })
 
+// Using a consultant redirect
+router.post('/usingConsultantRedirect', function(request, response) {
+
+	var usingCons = request.session.data['regUsingConsultant']
+	if (usingCons == "Yes"){
+		response.redirect("contact-collection/iteration-1/your-consultant.html")
+	} else {
+		response.redirect("contact-collection/iteration-1/submit-prtr-data.html")
+	}
+})
+
 
 // DATA ENTRY
 // Are you responsible for this facility?

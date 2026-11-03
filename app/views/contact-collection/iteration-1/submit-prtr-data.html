@@ -1,0 +1,57 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Do you submit PRTR data on behalf of any of your facilities in the current data entry system? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="check-answers" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="reg-submitting-data-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Do you submit PRTR data on behalf of any of your facilities in the current data entry system?
+              </h1>
+            </legend>
+            <div id="reg-submitting-data-hint" class="govuk-hint">
+              <p>This is so we can give you access to submit a PRTR report for any of your facilities where someone within the facility will genuinely not be able to use the online service to submit their PRTR return.</p>
+            </div>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="reg-submitting-data" name="regSubmittingData" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="reg-submitting-data">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="reg-submitting-data-2" name="regSubmittingData" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="reg-submitting-data-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

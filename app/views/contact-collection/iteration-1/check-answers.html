@@ -43,7 +43,75 @@
           </dd>
         </div>
         {% if ( data["aboutYou"] == "Yes" ) %}
-          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will you be using a Consultant?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if (data.regUsingConsultant) %}
+                {{ data['regUsingConsultant'] }}
+              {% else %}
+                No
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="using-consultant.html">Change<span class="govuk-visually-hidden"> if you will be using a Consultant</span></a>
+            </dd>
+          </div>
+          {% if ( data["regUsingConsultant"] == "Yes" ) %}
+            </dl>
+            <h2 class="govuk-heading-l">
+              About the Consultant working on your behalf
+            </h2>
+
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Full name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {% if (data.regulatorRepresented) %}
+                    {{ data['regulatorRepresented'] }}
+                  {% else %}
+                    Name of reg
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="consulting.html">Change<span class="govuk-visually-hidden"> Regulator name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {% if (data.regulatorRepresentedEmail) %}
+                    {{ data['regulatorRepresentedEmail'] }}
+                  {% else %}
+                    Email 1
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="consulting.html">Change<span class="govuk-visually-hidden"> Regulator email</span></a>
+                </dd>
+              </div>
+          {% else %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Do you submit PRTR data on behalf of any of your facilities?
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {% if (data.regSubmittingData) %}
+                  {{ data['regSubmittingData'] }}
+                {% else %}
+                  No
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="submit-prtr-data.html">Change<span class="govuk-visually-hidden"> if you submit PRTR data on behalf of any of your facilities</span></a>
+              </dd>
+            </div>
+          {% endif %}
         {% elseif ( data["aboutYou"] == "No, I am a Consultant working on behalf of a Regulator for this area" ) %}
           </dl>
           <h2 class="govuk-heading-l">
@@ -82,14 +150,14 @@
               </dd>
             </div>
         {% endif %}
+        
       </dl>
         
-        <form class="form" action="../report?releaseAdded=yes" method="post">
+        <form class="form" action="" method="post">
           <div class="govuk-button-group">
             {{ govukButton({
-              text: "Continue"
+              text: "Confirm and continue"
             }) }}
-            <a class="govuk-link" href="../report.html">Cancel</a>
           </div>
         </form>
 
