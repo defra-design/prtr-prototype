@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  About people who submit PRTR data and which of your facilities they are responsible for  – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        About people who submit PRTR data and which of your facilities they are responsible for
+      </h1>
+
+      <p>
+        We need these details so we can give people with reporting responsibility access to the new service and link the correct facilities to them.
+      </p>
+      <p>
+        A facility can only be added to one responsible person.
+      </p>
+    
+      {% if ( data["first-operator"] == "added") %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              {{ data['firstOperatorName'] }}
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                {% if ( data["first-facility"] == "added") %}
+                  <a class="govuk-link" href="second-facility">Add facility<span class="govuk-visually-hidden"> for {{ data['firstOperatorName'] }}</span></a>
+                {% else %}
+                  <a class="govuk-link" href="first-facility">Add facility<span class="govuk-visually-hidden"> for {{ data['firstOperatorName'] }}</span></a>
+                {% endif %}
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="remove-person">Remove <span class="govuk-visually-hidden"> {{ data['firstOperatorName'] }}</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            {% if ( data["first-facility"] == "added") or ( data["second-facility"] == "added") %}
+              <dl class="govuk-summary-list">
+                {% if ( data["first-facility"] == "added") %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      {{ data['firstFacilityName'] }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="remove-facility">Remove<span class="govuk-visually-hidden"> {{ data['firstFacilityName'] }}</span></a>
+                    </dd>
+                  </div>
+                {% endif %}
+                {% if ( data["second-facility"] == "added") %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      {{ data['secondFacilityName'] }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="remove-facility">Remove<span class="govuk-visually-hidden"> {{ data['secondFacilityName'] }}</span></a>
+                    </dd>
+                  </div>
+                {% endif %}
+              </dl>
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">  
+                You have not added any facilities.
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% if ( data["second-operator"] == "added") %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              {{ data['secondOperatorName'] }}
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                {% if ( data["third-facility"] == "added") %}
+                  <a class="govuk-link" href="fourth-facility">Add facility<span class="govuk-visually-hidden"> for {{ data['secondOperatorName'] }}</span></a>
+                {% else %}
+                  <a class="govuk-link" href="third-facility">Add facility<span class="govuk-visually-hidden"> for {{ data['secondOperatorName'] }}</span></a>
+                {% endif %}
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove <span class="govuk-visually-hidden"> {{ data['secondOperatorName'] }}</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            {% if ( data["third-facility"] == "added") or ( data["fourth-facility"] == "added") %}
+              <dl class="govuk-summary-list">
+                {% if ( data["third-facility"] == "added") %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      {{ data['thirdFacilityName'] }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="remove-facility">Remove<span class="govuk-visually-hidden"> {{ data['firstFacilityName'] }}</span></a>
+                    </dd>
+                  </div>
+                {% endif %}
+                {% if ( data["fourth-facility"] == "added") %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      {{ data['fourthFacilityName'] }}
+                    </dt>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="remove-facility">Remove<span class="govuk-visually-hidden"> {{ data['secondFacilityName'] }}</span></a>
+                    </dd>
+                  </div>
+                {% endif %}
+              </dl>
+            {% else %}
+              <p class="govuk-!-margin-bottom-0">  
+                You have not added any facilities.
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <p>
+        {% if ( data["first-operator"] == "added") and ( data["second-operator"] == "added") %}
+          {{ govukButton({
+            text: "Add a responsible person",
+            classes: "govuk-button--secondary govuk-!-margin-bottom-2 govuk-!-margin-top-6",
+            href: "#"
+          }) }}
+        {% elseif ( data["first-operator"] == "added") %}
+          {{ govukButton({
+            text: "Add a responsible person",
+            classes: "govuk-button--secondary govuk-!-margin-bottom-2 govuk-!-margin-top-6",
+            href: "second-operator"
+          }) }}
+        {% else %}
+          {{ govukButton({
+            text: "Add a responsible person",
+            classes: "govuk-button--secondary govuk-!-margin-bottom-2 govuk-!-margin-top-6",
+            href: "first-operator"
+          }) }}
+        {% endif %}
+      </p>
+      <p>
+      {{ govukButton({
+        text: "Continue",
+        href: "submit"
+      }) }}
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

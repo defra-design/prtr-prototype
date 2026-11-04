@@ -15,27 +15,27 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">About the Regulator you work on behalf of</h1>
+      <h1 class="govuk-heading-xl">About the Consultant working on your behalf</h1>
       <p>This is to allow us to give your Consultant access to the new service, and any PRTR reports submitted by your Operators will be sent to your Consultant for review.</p>
       <p>Because you are using a Consultant, you will not be able to access the new service.</p>
       <form class="form" action="check-answers" method="post">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--l" for="regulator-represented">
+          <label class="govuk-label govuk-label--l" for="your-consultant">
             Full name
           </label>
           <!-- <div id="first-regulator-name-hint" class="govuk-hint">
             You will need to give us their names and email addresses in the next step. Maximum of 10?
           </div> -->
-          <input class="govuk-input" id="regulator-represented" name="regulatorRepresented" type="text">
+          <input class="govuk-input" id="your-consultant" name="yourConsultant" type="text">
         </div>
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--l" for="regulator-represented-email">
+          <label class="govuk-label govuk-label--l" for="your-consultant-email">
             Email address
           </label>
-          <div id="regulator-represented-email-hint" class="govuk-hint">
+          <div id="your-consultant-email-hint" class="govuk-hint">
             Enter their direct email, avoid entering a shared mailbox.
           </div>
-          <input class="govuk-input" id="regulator-represented-email" name="regulatorRepresentedEmail" type="text">
+          <input class="govuk-input" id="your-consultant-email" name="yourConsultantEmail" type="text">
         </div>
 
         {{ govukButton({

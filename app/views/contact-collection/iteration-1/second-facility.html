@@ -1,0 +1,58 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Details of facility {{ data['firstOperatorName'] }} will be reporting PRTR data for – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Details of facility {{ data['firstOperatorName'] }} will be reporting PRTR data for</h1>
+      <form class="form" action="operators?second-facility=added" method="post">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="second-facility-name">
+            Name of facility
+          </label>
+          <!-- <div id="second-facility-name-hint" class="govuk-hint">
+            You will need to give us their names and email addresses in the next step. Maximum of 10?
+          </div> -->
+          <input class="govuk-input" id="second-facility-name" name="secondFacilityName" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="second-facility-id">
+            National ID of facility
+          </label>
+          <!-- <div id="second-facility-id-hint" class="govuk-hint">
+            Enter their direct email, avoid entering a shared mailbox.
+          </div> -->
+          <input class="govuk-input govuk-!-width-one-half" id="second-operator-id" name="secondFacilityID" type="text">
+        </div>
+
+        {% call govukDetails({
+          summaryText: "The facility I need is not coming up"
+        }) %}
+          <p>If the facility is new, or became functional recently, it may not have been updated in the UK registry yet.</p>
+          <p>Email us on xxx with the name of the facility and we will let you know what detail we need to set up the facility for PRTR reporting.</p>
+        {% endcall %}
+        
+        <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        <a class="govuk-link" href="operators.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
