@@ -10,35 +10,8 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report
+        {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report for 2026
       </h1>
-
-      {{ govukSummaryList({
-        card: {
-          title: {
-            text: "Reporting year 2026"
-          }
-        },
-        rows: [
-          {
-            key: {
-              text: "Zero report"
-            },
-            value: {
-              text: "No, I need to report values for pollutants or waste"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "to a zero report for this facility"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
 
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
@@ -330,6 +303,12 @@
             {% endif %}
         </div>
       </div>
+
+      {% call govukDetails({
+        summaryText: "I do not have any data to report"
+      }) %}
+        If the facility has no has no pollutant releases, pollutant transfers or waster transfers that need to be reported for PRTR, you can <a href="zero-return.html">submit a zero return instead</a>
+      {% endcall %}
 
       <div class="govuk-button-group">
         {{ govukButton({

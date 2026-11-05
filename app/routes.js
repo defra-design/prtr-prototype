@@ -74,9 +74,9 @@ router.post('/facilityConfirm', function(request, response) {
 router.post('/zeroConfirm', function(request, response) {
 
 	var confirmZero = request.session.data['zeroReturn']
-	if (confirmZero == "yes"){
+	if (confirmZero == "no"){
 		response.redirect("data-entry/iteration-1/facilities.html?CSSY=zero")
-	} else if (confirmZero == "no"){
+	} else if (confirmZero == "yes"){
 		response.redirect("data-entry/iteration-1/report.html")
 	}
 })

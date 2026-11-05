@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Do you need to submit a zero return for this facility? – {{ serviceName }} – GOV.UK Prototype Kit
+  Did this facility produce any pollutants or waste that need to be reported for PRTR? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -22,24 +22,24 @@
           name: "zeroReturn",
           fieldset: {
             legend: {
-              text: "Do you need to submit a zero return for this facility?",
+              text: "Did this facility produce any pollutants or waste that need to be reported for PRTR?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
           },hint: {
-            text: "You should only submit a zero return if your facilitiy has not produced any pollutants or waste transfers required for PRTR reporting"
+            text: "You can submit a zero return if the facility has no pollutant releases, pollutant transfers or waster transfers that need to be reported for PRTR."
           },
           items: [
             {
               value: "yes",
-              text: "Yes, I need to submit a zero return",
-              hint: {
-                text: "Your Regulator will be notified that you have submitted a zero return"
-              }
+              text: "Yes, I need to report data for pollutants or waste"
             },
             {
               value: "no",
-              text: "No, I need to report values for pollutants or waste"
+              text: "No, I need to submit a zero return",
+              hint: {
+                text: "Your Regulator will be notified that you have submitted a zero return"
+              }
             }
           ]
         }) }}

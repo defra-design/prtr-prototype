@@ -1,5 +1,5 @@
 {
-  "serviceName": "Pollutant Release and Transfer data reporting",
+  "serviceName": "Report Pollutant Release and Transfer Register (PRTR) data",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {

@@ -23,6 +23,9 @@
               Which pollutant was released to {{ data['releaseMedium'] }}?
             </label>
           </h1>
+          <div id="select-pollutant-hint" class="govuk-hint">
+            Start typing the name of the pollutant, then select it from the list.
+          </div>
           {% if ( data["releaseMedium"] == "air") %}
           <select class="govuk-select" id="select-pollutant-air" name="pollutant"
             data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
