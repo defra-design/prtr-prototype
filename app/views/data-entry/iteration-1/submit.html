@@ -4,7 +4,7 @@
   {% if ( data["releaseAdded"] == "No") and ( data["transferAdded"] == "No") and ( data["wasteAdded"] == "No") %}
     You cannot submit this report yet – {{ serviceName }} – GOV.UK Prototype Kit
   {% else %}
-    Confirm you want to submit this report – {{ serviceName }} – GOV.UK Prototype Kit
+    Confirm you have entered all relevant data and are ready to submit this report for review – {{ serviceName }} – GOV.UK Prototype Kit
   {% endif %}
 {% endblock %}
 
@@ -24,8 +24,8 @@
         <p>You must submit data for at least one of the reporting categories: pollutant releases, pollutant transfers, or waste transfers.</p>
         <p><a class="govuk-link" href="report">Return to report summary</a></p>
       {% else %}
-        <h1 class="govuk-heading-xl">
-          Confirm you want to submit this report
+        <!--<h1 class="govuk-heading-xl">
+          Confirm you have entered all relevant data and are ready to submit this report for review
         </h1>
         <p>You have not added data for:</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -38,14 +38,15 @@
           {% if ( data["wasteAdded"] == "No") %}
             <li>waste transfers</li>
           {% endif %}
-        </ul>
+        </ul> -->
         <form class="form" action="/submit-return" method="post">
           {{ govukRadios({
             name: "submitReport",
             fieldset: {
               legend: {
-                text: "Are you sure you have entered all relevant data and are ready to submit this report for review?",
-                classes: "govuk-fieldset__legend--m"
+                text: "Confirm you have entered all relevant data and are ready to submit this report for review",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
               }
             },
             hint: {

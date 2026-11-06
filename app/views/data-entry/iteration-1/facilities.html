@@ -34,7 +34,7 @@
         </li>
         <li class="govuk-task-list__item govuk-task-list__item--with-link">
           <div class="govuk-task-list__name-and-hint govuk-!-width-two-thirds">
-            {% if ( data["CSSY"] == "zero") or ( data["CSSY"] == "queried") %}
+            {% if ( data["CSSY"] == "zero") or ( data["CSSY"] == "queried") or ( data["CSSY"] == "submitted") %}
               Celsa Swansea Scrap Yard
             {% else %}
               <a class="govuk-link govuk-task-list__link" href="your-facility?facility-name=Celsa Swansea Scrap Yard" aria-describedby="facility-2-status">
@@ -43,7 +43,11 @@
             {% endif %}
           </div>
           <div class="govuk-task-list__status" id="facility-2-status">
-            {% if ( data["CSSY"] == "zero") %}
+            {% if ( data["CSSY"] == "submitted") %}
+              <strong class="govuk-tag govuk-tag--blue" style="max-width:fit-content;">
+                Report submitted
+              </strong>
+            {% elseif ( data["CSSY"] == "zero") %}
               <strong class="govuk-tag govuk-tag--blue" style="max-width:fit-content;">
                 Zero return submitted
               </strong>

@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report – {{ serviceName }} – GOV.UK Prototype Kit
+  {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report for 2025 – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report for 2026
+        {{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }} report for 2025
       </h1>
 
       <div class="govuk-summary-card">
@@ -307,7 +307,7 @@
       {% call govukDetails({
         summaryText: "I do not have any data to report"
       }) %}
-        If the facility has no has no pollutant releases, pollutant transfers or waster transfers that need to be reported for PRTR, you can <a href="zero-return.html">submit a zero return instead</a>
+        If the facility has no pollutant releases, pollutant transfers or waste transfers that need to be reported for PRTR, you can <a href="zero-return.html">submit a zero return instead</a>
       {% endcall %}
 
       <div class="govuk-button-group">
