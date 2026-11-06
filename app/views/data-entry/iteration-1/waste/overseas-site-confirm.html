@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Did this company take the waste to the same site as you reported in 2025? - {{ serviceName }} – GOV.UK Prototype Kit
+  Did this company take the waste to the same site as 2024? - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,9 +17,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Did this company take the waste to the same site as you reported in 2025?
+        Did this company take the waste to the same site as 2024?
       </h1>
-      <p>In 2025, you reported the transport company took the waste to the following site:</p>
+      <p>In your 2024 report, you gave this site address:</p>
       <p>
         Marieholmsgatan<br/>
         Gothenburg<br/>
@@ -33,8 +33,8 @@
           name: "confimSite",
           fieldset: {
             legend: {
-              text: "Is this the site the waste was taken to in 2026?",
-              classes: "govuk-fieldset__legend--m"
+              text: "Is this the site the waste was taken to in 2025?",
+              classes: "govuk-fieldset__legend--s"
             }
           },
           items: [
@@ -44,7 +44,7 @@
             },
             {
               value: "no",
-              text: "No, it has gone to a different site"
+              text: "No, it was taken to a different site"
             }
           ]
         }) }}

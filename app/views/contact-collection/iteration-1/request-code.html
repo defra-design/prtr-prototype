@@ -1,0 +1,39 @@
+{% extends "layouts/main-no-nav.html" %}
+
+{% block pageTitle %}
+  Request a new code – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Request a new code
+      </h1>
+
+      <p>
+        If the code has not arrived after 10 minutes, or is not working, you can request a new one.
+      </p>
+
+      <p>
+        The new code will be sent to {{ data['enterEmail'] }}.
+      </p>
+
+      {{ govukButton({
+          text: "Request a new code",
+          href: "enter-code"
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

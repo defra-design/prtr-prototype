@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Did you use the same transport company as 2025? - {{ serviceName }} – GOV.UK Prototype Kit
+  Which transport company did you use? - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -16,39 +16,48 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        Did you use the same transport company as 2025?
-      </h1>
-      <p>In 2025, you reported using the following transport company:</p>
-      <p>
-        Renova Miljo<br/>
-        AB Box 36<br/>
-        Gothenburg<br/>
-        40120<br/>
-        Sweden
-      </p>
-
-      <form class="form" action="/higher-amount" method="post">
-        
-        {{ govukRadios({
-          name: "confimTransportCompany2",
-          fieldset: {
-            legend: {
-              text: "Is this the transport company you used for this transfer in 2026?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "correct",
-              text: "Yes, it is correct"
-            },
-            {
-              value: "incorrect",
-              text: "No, I need to change the amount"
-            }
-          ]
-        }) }}
+      <form class="form" action="" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Which transport company did you use?
+              </h1>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+              You've previously used these transport companies. Select the company you used in 2025.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="select-transport-address" name="selectTransportAddress" type="radio" value="sweden">
+                <label class="govuk-label govuk-radios__label" for="select-transport-address">
+                  Renova Miljo<br/>
+                  AB Box 36<br/>
+                  Gothenburg<br/>
+                  40120<br/>
+                  Sweden
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="select-transport-address-2" name="selectTransportAddress" type="radio" value="france">
+                <label class="govuk-label govuk-radios__label" for="select-transport-address-2">
+                  Metal Blanc<br/>
+                  48 Rue Louis Pasteur<br/>
+                  Bourg-Fidele<br/>
+                  08230<br/>
+                  France
+                </label>
+              </div>
+              <div class="govuk-radios__divider">or</div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="select-transport-address-3" name="selectTransportAddress" type="radio" value="other">
+                <label class="govuk-label govuk-radios__label" for="select-transport-address-3">
+                  I used a different company
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
 
         <div class="govuk-button-group">
           {{ govukButton({
@@ -62,4 +71,25 @@
     </div>
   </div>
 
+{% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "transport-company-confirm",
+         text: "Confirm transport company same as last year"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
 {% endblock %}

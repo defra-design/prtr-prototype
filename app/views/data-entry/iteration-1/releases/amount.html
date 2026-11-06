@@ -25,7 +25,12 @@
               </label>
             </h1>
             <div id="amount-hint" class="govuk-hint">
-              In your previous report, you told us the total amount released was 100kg.
+              In your previous report, you told us the total amount released was
+              {% if ( data["releaseMedium"] == "air") %}
+                64,016.52kg
+              {% else %}
+                146.25kg
+              {% endif %}
             </div>
             <div class="govuk-input__wrapper">
               <input class="govuk-input govuk-input--width-5" id="pollutant-amount" name="pollutantAmount" type="text" inputmode="decimal" aria-describedby="amount-hint">

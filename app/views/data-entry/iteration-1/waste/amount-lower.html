@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  The {{ data['wasteTreatment'] }} amount is significantly lower than 2025 - {{ serviceName }} – GOV.UK Prototype Kit
+  The {{ data['wasteTreatment'] }} amount is significantly lower than your last report - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,18 +17,16 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        The {{ data['wasteTreatment'] }} amount is significantly lower than 2025
+        The {{ data['wasteTreatment'] }} amount is significantly lower than your last report
       </h1>
-      <p>In 2025, you reported the amount of 
-              {{ data['wasteType'] | lower }} 
-              waste transferred 
-              {% if ( data["wasteMovement"] == "overseas" ) %}
-                to the same overseas company for 
-              {% else %}
-                within the UK for 
-              {% endif %}  
-              {{ data['wasteTreatment'] }} was 100 tonnes, but for 2026 you have entered 
-              {{ data['wasteAmount'] | formatNumber }} tonnes.</p>
+      <p>In your 2024 report, you entered 
+        {% if ( data["wasteType"] == "Hazardous") %}
+          5,788 tonnes.
+        {% else %}
+          134,982 tonnes.
+        {% endif %}
+      </p>
+      <p>For 2025, you've entered {{ data['wasteAmount'] | formatNumber }} tonnes.</p>
 
       <form class="form" action="obtain-data" method="post">
         {% set lowerReason %}
@@ -46,7 +44,7 @@
           fieldset: {
             legend: {
               text: "Are you sure this amount is correct?",
-              classes: "govuk-fieldset__legend--m"
+              classes: "govuk-fieldset__legend--s"
             }
           },
           items: [

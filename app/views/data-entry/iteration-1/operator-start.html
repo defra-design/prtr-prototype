@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Report Pollution Release and Transfer Register (PRTR) data – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Report Pollution Release and Transfer Register (PRTR) data
+      </h1>
+
+      <p>Use this service to report annual data for the UK Pollutant Release and Transfer Register (PRTR).</p>
+      <p>You can report data for:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>pollutant releases to air, water or land</li>
+        <li>pollutant transfers to wastewater</li>
+        <li>waste transfers</li>
+      </ul>
+
+      <h2 class="govuk-heading-l">
+        Who needs to report
+      </h2>
+
+      <p>The UK PRTR legislation sets out <a href="https://www.legislation.gov.uk/eur/2006/166/annex/I" target="_blank">industrial activities are covered</a>.</p>
+      <p>Operators of industrial facilities that carry out these activities must report relevant pollutant releases and waste transfers each year.</p>
+      <p>Annex 2 of the legislation gives <a href="https://www.legislation.gov.uk/eur/2006/166/annex/II" target="_blank">a list of pollutants that must be reported on for PRTR</a>.</p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "facilities",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-l">
+        After you submit your data
+      </h2>
+
+      <p>Your report will be reviewed by the relevant regulatory authority – for example, your local authority or national regulator.</p>
+
+      <p>They will contact you to let you know if your report has been approved or if they need you to provide more information.</p>
+
+    </div>
+
+    
+  </div>
+
+{% endblock %}

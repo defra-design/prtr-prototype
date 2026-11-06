@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  What is the address of the site the waste was transported to? – {{ serviceName }} – GOV.UK Prototype Kit
+  Enter the address of the site the waste was transported to – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -20,12 +20,14 @@
         <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
         {% call govukFieldset({
           legend: {
-            text: "What is the address of the site the waste was transported to?",
+            text: "Enter the address of the site the waste was transported to",
             classes: "govuk-fieldset__legend--xl",
             isPageHeading: true
           }
         }) %}
-        <p>This address must be outside of the UK.</p>
+        <div id="contact-hint" class="govuk-hint">
+          This address must be outside of the UK
+        </div>
         {{ govukInput({
             label: {
               text: "Address line 1"

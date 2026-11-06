@@ -19,8 +19,14 @@
       <h1 class="govuk-heading-xl">
         The total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }} is significantly lower than your last report
       </h1>
-      <p>Last year you reported the total amount released was 100kg.</p>
-      <p>This year you've entered {{ data['pollutantAmount'] | formatNumber }}kg</p>
+      <p>In your 2024 report, you said the total amount released was 
+        {% if ( data["releaseMedium"] == "air") %}
+          64,016.52kg.
+        {% else %}
+          146.25kg.
+        {% endif %}
+      </p>
+      <p>For 2025, you've entered {{ data['pollutantAmount'] | formatNumber }}kg</p>
 
       <form class="form" action="/lower-amount" method="post">
         {% set lowerReason %}

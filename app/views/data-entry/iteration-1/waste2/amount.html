@@ -25,7 +25,12 @@
               </label>
             </h1>
             <div id="amount-hint" class="govuk-hint">
-              For the same transfer last year, you reported 100 tonnes.
+              For the same transfer in your last report, you reported 
+              {% if ( data["wasteType"] == "Hazardous") %}
+                5,788 tonnes
+              {% else %}
+                134,982 tonnes
+              {% endif %}
             </div>
             <div class="govuk-input__wrapper">
               <input class="govuk-input govuk-input--width-5" id="waste-disposal-amount" name="wasteAmount2" type="text" inputmode="decimal" aria-describedby="amount-hint">
