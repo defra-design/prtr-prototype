@@ -75,7 +75,7 @@ router.post('/zeroConfirm', function(request, response) {
 
 	var confirmZero = request.session.data['zeroReturn']
 	if (confirmZero == "no"){
-		response.redirect("data-entry/iteration-1/facilities.html?CSSY=zero")
+		response.redirect("data-entry/iteration-1/confirmation-zero.html")
 	} else if (confirmZero == "yes"){
 		response.redirect("data-entry/iteration-1/report.html")
 	}

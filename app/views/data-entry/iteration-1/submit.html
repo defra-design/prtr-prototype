@@ -27,24 +27,29 @@
         <h1 class="govuk-heading-xl">
           Confirm you want to submit this report
         </h1>
-        {% if ( data["releaseAdded"] == "No") %}
-          <p>You have not added any pollutant releases.</p>
-        {% endif %}
-        {% if ( data["transferAdded"] == "No") %}
-          <p>You have not added any pollutant transfers to wastewater.</p>
-        {% endif %}
-        {% if ( data["wasteAdded"] == "No") %}
-          <p>You have not added any waste transfers.</p>
-        {% endif %}
-        <p>Once submitted, you will not be able to change the data reported.</p>
+        <p>You have not added data for:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          {% if ( data["releaseAdded"] == "No") %}
+            <li>pollutant releases</li>
+          {% endif %}
+          {% if ( data["transferAdded"] == "No") %}
+            <li>pollutant transfers to wastewater</li>
+          {% endif %}
+          {% if ( data["wasteAdded"] == "No") %}
+            <li>waste transfers</li>
+          {% endif %}
+        </ul>
         <form class="form" action="/submit-return" method="post">
           {{ govukRadios({
             name: "submitReport",
             fieldset: {
               legend: {
-                text: "Are you sure you have finished entering all data and are ready to submit this report for review?",
+                text: "Are you sure you have entered all relevant data and are ready to submit this report for review?",
                 classes: "govuk-fieldset__legend--m"
               }
+            },
+            hint: {
+              text: "Once submitted, you will not be able to change the data reported."
             },
             items: [
               {
@@ -53,7 +58,7 @@
               },
               {
                 value: "No",
-                text: "No, I need to return to reporting"
+                text: "No, I need to return to the report summary"
               }
             ]
           }) }}

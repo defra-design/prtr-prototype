@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Was any of the {{ data['pollutantTransferAmount2'] }}kg released accidentally? – {{ serviceName }} – GOV.UK Prototype Kit
+  Was any of the {{ data['pollutantTransferAmount2'] }}kg transferred accidentally? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -21,7 +21,7 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
               <h1 class="govuk-fieldset__heading">
-                Was any of the {{ data['pollutantTransferAmount2'] | formatNumber}}kg released accidentally?
+                Was any of the {{ data['pollutantTransferAmount2'] | formatNumber}}kg transferred accidentally?
               </h1>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
