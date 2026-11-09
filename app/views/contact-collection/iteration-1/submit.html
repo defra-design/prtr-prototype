@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  {% if ( data["first-operator"] == "added") and ( data["first-facility"] == "added") %}
+   Are you sure you have added all of your facilities against the people responsible for them? – {{ serviceName }} – GOV.UK Prototype Kit
+  {% else %}
+    You cannot submit this information yet – {{ serviceName }} – GOV.UK Prototype Kit
+  {% endif %}
+{% endblock %}
+
+{% block containerStart %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if ( data["first-operator"] == "added") and ( data["first-facility"] == "added") %}
+        <form class="form" action="/contactConfirmation" method="post">
+          {{ govukRadios({
+            name: "submitContact",
+            fieldset: {
+              legend: {
+                text: "Are you sure you have added all of your facilities against the people responsible for them?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--xl"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+            <a class="govuk-link" href="operators.html">Cancel</a>
+          </div>
+        </form>
+
+        
+      {% else %}
+        <h1 class="govuk-heading-xl">
+          You cannot submit this information yet
+        </h1>
+        <p>You must add at least 1 responsible person, and at least 1 facilitiy for each responsible person.</p>
+        <p><a class="govuk-link" href="operators">Return to adding people and facilities</a></p>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

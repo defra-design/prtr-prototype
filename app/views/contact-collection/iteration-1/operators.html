@@ -42,7 +42,7 @@
                 {% endif %}
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="remove-person">Remove <span class="govuk-visually-hidden"> {{ data['firstOperatorName'] }}</span></a>
+                <a class="govuk-link" href="remove-operator">Remove <span class="govuk-visually-hidden"> {{ data['firstOperatorName'] }}</span></a>
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@
                 {% endif %}
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove <span class="govuk-visually-hidden"> {{ data['secondOperatorName'] }}</span></a>
+                <a class="govuk-link" href="remove-operator.html">Remove <span class="govuk-visually-hidden"> {{ data['secondOperatorName'] }}</span></a>
               </li>
             </ul>
           </div>
@@ -154,7 +154,7 @@
       </p>
       <p>
       {{ govukButton({
-        text: "Continue",
+        text: "Submit",
         href: "submit"
       }) }}
       </p>

@@ -57,6 +57,17 @@ router.post('/usingConsultantRedirect', function(request, response) {
 	}
 })
 
+// Submit info redirect
+router.post('/contactConfirmation', function(request, response) {
+
+	var finished = request.session.data['submitContact']
+	if (finished == "Yes"){
+		response.redirect("contact-collection/iteration-1/confirmation.html")
+	} else {
+		response.redirect("contact-collection/iteration-1/operators.html")
+	}
+})
+
 
 // DATA ENTRY
 // Are you responsible for this facility?

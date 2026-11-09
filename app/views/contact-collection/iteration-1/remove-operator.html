@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Are you sure you want to remove this responsible person? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="operators" method="post">
+        {{ govukRadios({
+          name: "remove",
+          fieldset: {
+            legend: {
+              text: "Are you sure you want to remove this responsible person?",
+              classes: "govuk-fieldset__legend--xl",
+              isPageHeading: true
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="operators.html">Cancel</a>
+        </div>
+      </form>
+
+
+    
+
+    </div>
+  </div>
+
+{% endblock %}
