@@ -15,13 +15,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <span class="govuk-caption-xl">
-        {% if ( data["authority"] ) %}
-          {{ data['authority'] }}
-        {% else %}
-          Swansea City Council and Swansea Port Authority
-        {% endif %}
-      </span>
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
@@ -29,13 +22,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you a Regulator for facilities in the 
-            {% if ( data["authority"] ) %}
-              {{ data['authority'] }}
-            {% else %}
-              Swansea City Council and Swansea Port Authority
-            {% endif %}
-             area?
+            Are you a Regulator for facilities that submit PRTR data?
           </dt>
           <dd class="govuk-summary-list__value">
             No, I am not a Regulator
@@ -46,16 +33,34 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you able to tell us who the Regulators are for 
-            {% if ( data["authority"] ) %}
-              {{ data['authority'] }}
+            Which local authority do you work for?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if ( data["selectAuthority"] ) %}
+              {{ data['selectAuthority'] }}
             {% else %}
               Swansea City Council and Swansea Port Authority
             {% endif %}
-              area?
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="select-authority.html">Change<span class="govuk-visually-hidden"> authority you work fo</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can you tell us who the PRTR Regulators are at 
+            {% if ( data["selectAuthority"] ) %}
+              {{ data['selectAuthority'] }}?
+            {% else %}
+              Swansea City Council and Swansea Port Authority?
+            {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
-            Yes
+            {% if ( data["whoAreRegulators"] ) %}
+              {{ data['whoAreRegulators'] }}
+            {% else %}
+              Yes
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="not-regulator.html">Change<span class="govuk-visually-hidden"> if you know who the Regulators are</span></a>
@@ -76,16 +81,9 @@
             <a class="govuk-link" href="how-many-regulators.html">Change<span class="govuk-visually-hidden"> number of Regulators</span></a>
           </dd>
         </div>
-      </dl>
-
-      <h2 class="govuk-heading-l">
-        About first Regulator
-      </h2>
-
-      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Full name
+            First Regulator full name
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.firstRegulatorName) %}
@@ -100,7 +98,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Email address
+            First Regulator email address
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.firstRegulatorEmail) %}
@@ -113,16 +111,9 @@
             <a class="govuk-link" href="first-regulator.html">Change<span class="govuk-visually-hidden"> first Regulator email</span></a>
           </dd>
         </div>
-      </dl>
-
-      <h2 class="govuk-heading-l">
-        About second Regulator
-      </h2>
-
-      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Full name
+            Second Regulator full name
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.secondRegulatorName) %}
@@ -137,7 +128,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Email address
+            Second Reguator email address
           </dt>
           <dd class="govuk-summary-list__value">
             {% if (data.secondRegulatorEmail) %}

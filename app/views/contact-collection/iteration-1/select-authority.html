@@ -1,0 +1,384 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    Which local authority do you work for? {{ data['releaseMedium'] }}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block containerStart %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="not-regulator" method="post">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--xl" for="country">
+              Which local authority do you work for?
+            </label>
+          </h1>
+          <div id="select-pollutant-hint" class="govuk-hint">
+            Start typing the name of the authority, then select it from the list.
+          </div>
+          <select class="govuk-select" id="select-authority" name="selectAuthority"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+              <option value="">Select an option</option>
+              <option value="Adur and Worthing Council">Adur and Worthing Council</option>
+              <option value="Amber Valley Borough Council">Amber Valley Borough Council</option>
+              <option value="Arun District Council">Arun District Council</option>
+              <option value="Ashfield District Council">Ashfield District Council</option>
+              <option value="Ashford Borough Council">Ashford Borough Council</option>
+              <option value="Babergh District Council">Babergh District Council</option>
+              <option value="Barnsley Metropolitan Borough Council">Barnsley Metropolitan Borough Council</option>
+              <option value="Basildon Borough Council">Basildon Borough Council</option>
+              <option value="Basingstoke and Deane Borough Council">Basingstoke and Deane Borough Council</option>
+              <option value="Bassetlaw District Council">Bassetlaw District Council</option>
+              <option value="Bath and North East Somerset Council">Bath and North East Somerset Council</option>
+              <option value="BCP Council (Bournmouth, Christchurch and Poole)">BCP Council (Bournmouth, Christchurch and Poole)</option>
+              <option value="Bedford Borough Council">Bedford Borough Council</option>
+              <option value="Birmingham City Council">Birmingham City Council</option>
+              <option value="Blaby District Council">Blaby District Council</option>
+              <option value="Blackburn with Darwen Borough Council">Blackburn with Darwen Borough Council</option>
+              <option value="Blackpool Borough Council">Blackpool Borough Council</option>
+              <option value="Blaenau Gwent County Borough Council">Blaenau Gwent County Borough Council</option>
+              <option value="Bolsover District Council">Bolsover District Council</option>
+              <option value="Bolton BC">Bolton BC</option>
+              <option value="Boston Borough Council">Boston Borough Council</option>
+              <option value="Bracknell Forest">Bracknell Forest</option>
+              <option value="Bradford City Council">Bradford City Council</option>
+              <option value="Braintree District Council">Braintree District Council</option>
+              <option value="Breckland District Council">Breckland District Council</option>
+              <option value="Brentwood Borough Council">Brentwood Borough Council</option>
+              <option value="Bridgend County Borough Council">Bridgend County Borough Council</option>
+              <option value="Brighton and Hove City Council">Brighton and Hove City Council</option>
+              <option value="Bristol City Council">Bristol City Council</option>
+              <option value="Broadland District Council">Broadland District Council</option>
+              <option value="Broxbourne Borough Council">Broxbourne Borough Council</option>
+              <option value="Broxtowe Borough Council">Broxtowe Borough Council</option>
+              <option value="Buckinghamshire Council">Buckinghamshire Council</option>
+              <option value="Burnley Borough Council">Burnley Borough Council</option>
+              <option value="Bury Metropolitan Borough Council">Bury Metropolitan Borough Council</option>
+              <option value="Caerphilly County Borough Council">Caerphilly County Borough Council</option>
+              <option value="Calderdale Metropolitan Council">Calderdale Metropolitan Council</option>
+              <option value="Cambridge City Council">Cambridge City Council</option>
+              <option value="Cannock Chase District Council">Cannock Chase District Council</option>
+              <option value="Canterbury City Council">Canterbury City Council</option>
+              <option value="Cardiff Council">Cardiff Council</option>
+              <option value="Carmarthenshire County Council">Carmarthenshire County Council</option>
+              <option value="Castle Point Borough Council">Castle Point Borough Council</option>
+              <option value="Central Bedfordshire Council">Central Bedfordshire Council</option>
+              <option value="Ceredigion County Council">Ceredigion County Council</option>
+              <option value="Charnwood Borough Council">Charnwood Borough Council</option>
+              <option value="Chelmsford City Council">Chelmsford City Council</option>
+              <option value="Cheltenham Borough Council">Cheltenham Borough Council</option>
+              <option value="Cherwell District Council">Cherwell District Council</option>
+              <option value="Cheshire East Council">Cheshire East Council</option>
+              <option value="Cheshire West and Chester Council">Cheshire West and Chester Council</option>
+              <option value="Chesterfield Borough Council">Chesterfield Borough Council</option>
+              <option value="Chichester District Council">Chichester District Council</option>
+              <option value="Chorley Council">Chorley Council</option>
+              <option value="City and County of Swansea">City and County of Swansea</option>
+              <option value="City of Doncaster Council">City of Doncaster Council</option>
+              <option value="City of Lincoln Council">City of Lincoln Council</option>
+              <option value="City of London Authority">City of London Authority</option>
+              <option value="City of Wolverhampton Council">City of Wolverhampton Council</option>
+              <option value="City of York Council">City of York Council</option>
+              <option value="Colchester City Council">Colchester City Council</option>
+              <option value="Conwy CBC">Conwy CBC</option>
+              <option value="Cornwall Council">Cornwall Council</option>
+              <option value="Cotswold District Council">Cotswold District Council</option>
+              <option value="Coventry City Council">Coventry City Council</option>
+              <option value="Crawley Borough Council">Crawley Borough Council</option>
+              <option value="Cumberland Council">Cumberland Council</option>
+              <option value="Dacorum Borough Council">Dacorum Borough Council</option>
+              <option value="Darlington Borough Council">Darlington Borough Council</option>
+              <option value="Dartford Borough Council">Dartford Borough Council</option>
+              <option value="Denbighshire County Council">Denbighshire County Council</option>
+              <option value="Derby City Council">Derby City Council</option>
+              <option value="Derbyshire Dales District Council">Derbyshire Dales District Council</option>
+              <option value="Dorset Council">Dorset Council</option>
+              <option value="Dover District Council">Dover District Council</option>
+              <option value="Dudley Borough Council">Dudley Borough Council</option>
+              <option value="Durham County Council">Durham County Council</option>
+              <option value="East Cambridgeshire District Council">East Cambridgeshire District Council</option>
+              <option value="East Devon District Council">East Devon District Council</option>
+              <option value="East Hampshire District Council">East Hampshire District Council</option>
+              <option value="East Herts District Council">East Herts District Council</option>
+              <option value="East Lindsey District Council">East Lindsey District Council</option>
+              <option value="East Riding of Yorkshire Council">East Riding of Yorkshire Council</option>
+              <option value="East Staffordshire Borough Council">East Staffordshire Borough Council</option>
+              <option value="East Suffolk Council">East Suffolk Council</option>
+              <option value="Eastbourne Borough Council">Eastbourne Borough Council</option>
+              <option value="Eastleigh Borough Council">Eastleigh Borough Council</option>
+              <option value="Elmbridge Borough Council">Elmbridge Borough Council</option>
+              <option value="Epping Forest District Council">Epping Forest District Council</option>
+              <option value="Epsom and Ewell Borough Council">Epsom and Ewell Borough Council</option>
+              <option value="Erewash Borough Council">Erewash Borough Council</option>
+              <option value="Exeter City Council">Exeter City Council</option>
+              <option value="Fareham Borough Council">Fareham Borough Council</option>
+              <option value="Fenland District Council">Fenland District Council</option>
+              <option value="Flintshire County Council">Flintshire County Council</option>
+              <option value="Folkestone and Hythe District Council">Folkestone and Hythe District Council</option>
+              <option value="Forest of Dean District Council">Forest of Dean District Council</option>
+              <option value="Fylde Borough Council">Fylde Borough Council</option>
+              <option value="Gateshead Borough Council">Gateshead Borough Council</option>
+              <option value="Gedling Borough Council">Gedling Borough Council</option>
+              <option value="Gosport Borough Council">Gosport Borough Council</option>
+              <option value="Gravesham Borough Council">Gravesham Borough Council</option>
+              <option value="Great Yarmouth Borough Council">Great Yarmouth Borough Council</option>
+              <option value="Guildford Borough Council">Guildford Borough Council</option>
+              <option value="Gwynedd CC">Gwynedd CC</option>
+              <option value="Halton Borough Council">Halton Borough Council</option>
+              <option value="Harborough District Council">Harborough District Council</option>
+              <option value="Harlow District Council">Harlow District Council</option>
+              <option value="Hart District Council">Hart District Council</option>
+              <option value="Hartlepool Borough Council">Hartlepool Borough Council</option>
+              <option value="Hastings Borough Council">Hastings Borough Council</option>
+              <option value="Havant Borough Council">Havant Borough Council</option>
+              <option value="Herefordshire Council">Herefordshire Council</option>
+              <option value="Hertsmere Borough Council">Hertsmere Borough Council</option>
+              <option value="High Peak Borough Council">High Peak Borough Council</option>
+              <option value="Hinckley and Bosworth Borough Council">Hinckley and Bosworth Borough Council</option>
+              <option value="Horsham District Council">Horsham District Council</option>
+              <option value="Hull and Goole Port Health Authority">Hull and Goole Port Health Authority</option>
+              <option value="Hull City Council">Hull City Council</option>
+              <option value="Huntingdonshire District Council">Huntingdonshire District Council</option>
+              <option value="Hyndburn Borough Council">Hyndburn Borough Council</option>
+              <option value="Ipswich Borough Council">Ipswich Borough Council</option>
+              <option value="Isle of Anglesey County Council">Isle of Anglesey County Council</option>
+              <option value="Isle of Wight Council">Isle of Wight Council</option>
+              <option value="King's Lynn and West Norfolk">King's Lynn and West Norfolk</option>
+              <option value="Kirklees Borough Council">Kirklees Borough Council</option>
+              <option value="Knowsley Metropolitan Borough Council">Knowsley Metropolitan Borough Council</option>
+              <option value="Lancaster City Council">Lancaster City Council</option>
+              <option value="Leeds City Council">Leeds City Council</option>
+              <option value="Leicester City Council">Leicester City Council</option>
+              <option value="Lewes District Council">Lewes District Council</option>
+              <option value="Lichfield District Council">Lichfield District Council</option>
+              <option value="Liverpool City Council">Liverpool City Council</option>
+              <option value="London Borough of Barking and Dagenham">London Borough of Barking and Dagenham</option>
+              <option value="London Borough of Barnet">London Borough of Barnet</option>
+              <option value="London Borough of Bexley">London Borough of Bexley</option>
+              <option value="London Borough of Brent">London Borough of Brent</option>
+              <option value="London Borough of Bromley">London Borough of Bromley</option>
+              <option value="London Borough of Camden">London Borough of Camden</option>
+              <option value="London Borough of Croydon">London Borough of Croydon</option>
+              <option value="London Borough of Ealing">London Borough of Ealing</option>
+              <option value="London Borough of Enfield">London Borough of Enfield</option>
+              <option value="London Borough of Hackney">London Borough of Hackney</option>
+              <option value="London Borough of Hammersmith and Fulham">London Borough of Hammersmith and Fulham</option>
+              <option value="London Borough of Haringey">London Borough of Haringey</option>
+              <option value="London Borough of Harrow">London Borough of Harrow</option>
+              <option value="London Borough of Havering">London Borough of Havering</option>
+              <option value="London Borough of Hillingdon">London Borough of Hillingdon</option>
+              <option value="London Borough of Hounslow">London Borough of Hounslow</option>
+              <option value="London Borough of Islington">London Borough of Islington</option>
+              <option value="London Borough of Kingston Upon Thames">London Borough of Kingston Upon Thames</option>
+              <option value="London Borough of Lambeth">London Borough of Lambeth</option>
+              <option value="London Borough of Lewisham">London Borough of Lewisham</option>
+              <option value="London Borough of Merton">London Borough of Merton</option>
+              <option value="London Borough of Redbridge">London Borough of Redbridge</option>
+              <option value="London Borough of Richmond">London Borough of Richmond</option>
+              <option value="London Borough of Southwark">London Borough of Southwark</option>
+              <option value="London Borough of Sutton">London Borough of Sutton</option>
+              <option value="London Borough of Tower Hamlets">London Borough of Tower Hamlets</option>
+              <option value="London Borough of Waltham Forest">London Borough of Waltham Forest</option>
+              <option value="London Borough of Wandsworth">London Borough of Wandsworth</option>
+              <option value="Luton Borough Council">Luton Borough Council</option>
+              <option value="Maidstone Borough Council">Maidstone Borough Council</option>
+              <option value="Maldon District Council">Maldon District Council</option>
+              <option value="Manchester City Council">Manchester City Council</option>
+              <option value="Manchester Port Health Authority">Manchester Port Health Authority</option>
+              <option value="Mansfield District Council">Mansfield District Council</option>
+              <option value="Medway Council">Medway Council</option>
+              <option value="Melton Borough Council">Melton Borough Council</option>
+              <option value="Merthyr Tydfil CBC">Merthyr Tydfil CBC</option>
+              <option value="Mid Devon District Council">Mid Devon District Council</option>
+              <option value="Mid Suffolk District Council">Mid Suffolk District Council</option>
+              <option value="Mid Sussex District Council">Mid Sussex District Council</option>
+              <option value="Middlesbrough Council">Middlesbrough Council</option>
+              <option value="Milton Keynes City Council">Milton Keynes City Council</option>
+              <option value="Mole Valley District Council">Mole Valley District Council</option>
+              <option value="Monmouthshire CC">Monmouthshire CC</option>
+              <option value="Neath Port Talbot County Borough Council">Neath Port Talbot County Borough Council</option>
+              <option value="New Forest District Council">New Forest District Council</option>
+              <option value="Newark and Sherwood District Council">Newark and Sherwood District Council</option>
+              <option value="Newcastle Upon Tyne City Council">Newcastle Upon Tyne City Council</option>
+              <option value="Newcastle-Under-Lyme Borough Council">Newcastle-Under-Lyme Borough Council</option>
+              <option value="Newham">Newham</option>
+              <option value="Newport City Council">Newport City Council</option>
+              <option value="North Devon District Council">North Devon District Council</option>
+              <option value="North East Derbyshire District Council">North East Derbyshire District Council</option>
+              <option value="North East Lincolnshire Council">North East Lincolnshire Council</option>
+              <option value="North Hertfordshire District Council">North Hertfordshire District Council</option>
+              <option value="North Kesteven District Council">North Kesteven District Council</option>
+              <option value="North Lincolnshire Council">North Lincolnshire Council</option>
+              <option value="North Norfolk District Council">North Norfolk District Council</option>
+              <option value="North Northamptonshire Council">North Northamptonshire Council</option>
+              <option value="North Somerset Council">North Somerset Council</option>
+              <option value="North Tyneside Borough Council">North Tyneside Borough Council</option>
+              <option value="North Warwickshire Borough Council">North Warwickshire Borough Council</option>
+              <option value="North West Leicestershire District Council">North West Leicestershire District Council</option>
+              <option value="North Yorkshire Council">North Yorkshire Council</option>
+              <option value="Northumberland County Council">Northumberland County Council</option>
+              <option value="Norwich City Council">Norwich City Council</option>
+              <option value="Nottingham City Council">Nottingham City Council</option>
+              <option value="Nuneaton and Bedworth Borough Council">Nuneaton and Bedworth Borough Council</option>
+              <option value="Oadby and Wigston District Council">Oadby and Wigston District Council</option>
+              <option value="Oldham Metropolitan Borough Council">Oldham Metropolitan Borough Council</option>
+              <option value="Oxford City Council">Oxford City Council</option>
+              <option value="Pembrokeshire CC">Pembrokeshire CC</option>
+              <option value="Pendle Borough Council">Pendle Borough Council</option>
+              <option value="Peterborough City Council">Peterborough City Council</option>
+              <option value="Plymouth City Council">Plymouth City Council</option>
+              <option value="Portsmouth City Council">Portsmouth City Council</option>
+              <option value="Powys County Council">Powys County Council</option>
+              <option value="Preston City Council">Preston City Council</option>
+              <option value="Reading Borough Council">Reading Borough Council</option>
+              <option value="Redcar and Cleveland Borough Council">Redcar and Cleveland Borough Council</option>
+              <option value="Reigate and Banstead Borough Council">Reigate and Banstead Borough Council</option>
+              <option value="Rhondda Cynon Taf County Borough Council">Rhondda Cynon Taf County Borough Council</option>
+              <option value="Ribble Valley Borough Council">Ribble Valley Borough Council</option>
+              <option value="River Tees Port Health Authority">River Tees Port Health Authority</option>
+              <option value="Rochdale Borough Council">Rochdale Borough Council</option>
+              <option value="Rochford District Council">Rochford District Council</option>
+              <option value="Rossendale Borough Council">Rossendale Borough Council</option>
+              <option value="Rother District Council">Rother District Council</option>
+              <option value="Rotherham Borough Council">Rotherham Borough Council</option>
+              <option value="Royal Borough of Greenwich">Royal Borough of Greenwich</option>
+              <option value="Royal Borough of Kensington and Chelsea">Royal Borough of Kensington and Chelsea</option>
+              <option value="Royal Borough of Windsor and Maidenhead">Royal Borough of Windsor and Maidenhead</option>
+              <option value="Rugby Borough Council">Rugby Borough Council</option>
+              <option value="Runnymede Borough Council">Runnymede Borough Council</option>
+              <option value="Rushcliffe Borough Council">Rushcliffe Borough Council</option>
+              <option value="Rushmoor Borough Council">Rushmoor Borough Council</option>
+              <option value="Rutland County Council">Rutland County Council</option>
+              <option value="Salford City Council">Salford City Council</option>
+              <option value="Sandwell Metropolitan Borough Council">Sandwell Metropolitan Borough Council</option>
+              <option value="Sefton Metropolitan Borough Council">Sefton Metropolitan Borough Council</option>
+              <option value="Sevenoaks District Council">Sevenoaks District Council</option>
+              <option value="Sheffield City Council">Sheffield City Council</option>
+              <option value="Shropshire Council">Shropshire Council</option>
+              <option value="Slough Borough Council">Slough Borough Council</option>
+              <option value="Solihull Metropolitan Borough Council">Solihull Metropolitan Borough Council</option>
+              <option value="Somerset Council">Somerset Council</option>
+              <option value="South Cambridgeshire District Council">South Cambridgeshire District Council</option>
+              <option value="South Derbyshire District Council">South Derbyshire District Council</option>
+              <option value="South Gloucestershire Council">South Gloucestershire Council</option>
+              <option value="South Holland District Council">South Holland District Council</option>
+              <option value="South Kesteven District Council">South Kesteven District Council</option>
+              <option value="South Norfolk District Council">South Norfolk District Council</option>
+              <option value="South Oxfordshire District Council">South Oxfordshire District Council</option>
+              <option value="South Ribble Borough Council">South Ribble Borough Council</option>
+              <option value="South Staffordshire District Council">South Staffordshire District Council</option>
+              <option value="South Tyneside Borough Council">South Tyneside Borough Council</option>
+              <option value="South West Devon Council">South West Devon Council</option>
+              <option value="Southampton City Council">Southampton City Council</option>
+              <option value="Southend-on-Sea City Council">Southend-on-Sea City Council</option>
+              <option value="Spelthorne Borough Council">Spelthorne Borough Council</option>
+              <option value="St Albans City and District Council">St Albans City and District Council</option>
+              <option value="St Helens Borough Council">St Helens Borough Council</option>
+              <option value="Stafford Borough Council">Stafford Borough Council</option>
+              <option value="Staffordshire Moorlands District Council">Staffordshire Moorlands District Council</option>
+              <option value="Stevenage Borough Council">Stevenage Borough Council</option>
+              <option value="Stockport Metropolitan Borough Council">Stockport Metropolitan Borough Council</option>
+              <option value="Stockton Borough Council">Stockton Borough Council</option>
+              <option value="Stoke-on-Trent City Council">Stoke-on-Trent City Council</option>
+              <option value="Stratford-on-Avon District Council">Stratford-on-Avon District Council</option>
+              <option value="Stroud District Council">Stroud District Council</option>
+              <option value="Sunderland City Council">Sunderland City Council</option>
+              <option value="Surrey Heath Borough Council">Surrey Heath Borough Council</option>
+              <option value="Swale Borough Council">Swale Borough Council</option>
+              <option value="Swindon Borough Council">Swindon Borough Council</option>
+              <option value="Tameside Borough Council">Tameside Borough Council</option>
+              <option value="Tamworth Borough Council">Tamworth Borough Council</option>
+              <option value="Tandridge District Council">Tandridge District Council</option>
+              <option value="Teignbridge">Teignbridge</option>
+              <option value="Telford and Wrekin Council">Telford and Wrekin Council</option>
+              <option value="Tendring District Council">Tendring District Council</option>
+              <option value="Test Valley Borough Council">Test Valley Borough Council</option>
+              <option value="Tewkesbury Borough Council">Tewkesbury Borough Council</option>
+              <option value="Thanet District Council">Thanet District Council</option>
+              <option value="Three Rivers District Council">Three Rivers District Council</option>
+              <option value="Thurrock Council">Thurrock Council</option>
+              <option value="Tonbridge and Malling Borough Council">Tonbridge and Malling Borough Council</option>
+              <option value="Torbay Council">Torbay Council</option>
+              <option value="Torfaen County Borough Council">Torfaen County Borough Council</option>
+              <option value="Torridge District Council">Torridge District Council</option>
+              <option value="Trafford Metropolitan Borough Council">Trafford Metropolitan Borough Council</option>
+              <option value="Tunbridge Wells Borough Council">Tunbridge Wells Borough Council</option>
+              <option value="Uttlesford District Council">Uttlesford District Council</option>
+              <option value="Vale of Glamorgan">Vale of Glamorgan</option>
+              <option value="Vale of White Horse District Council">Vale of White Horse District Council</option>
+              <option value="Wakefield Metropolitan District Council">Wakefield Metropolitan District Council</option>
+              <option value="Walsall Borough Council">Walsall Borough Council</option>
+              <option value="Warrington Borough Council">Warrington Borough Council</option>
+              <option value="Warwick District Council">Warwick District Council</option>
+              <option value="Watford Borough Council">Watford Borough Council</option>
+              <option value="Waverley Borough Council">Waverley Borough Council</option>
+              <option value="Wealden District Council">Wealden District Council</option>
+              <option value="Welwyn Hatfield Borough Council">Welwyn Hatfield Borough Council</option>
+              <option value="West Berkshire Council">West Berkshire Council</option>
+              <option value="West Lancashire Borough Council">West Lancashire Borough Council</option>
+              <option value="West Lindsey District Council">West Lindsey District Council</option>
+              <option value="West Northamptonshire Council">West Northamptonshire Council</option>
+              <option value="West Oxfordshire District Council">West Oxfordshire District Council</option>
+              <option value="West Suffolk Council">West Suffolk Council</option>
+              <option value="Westminster City Council">Westminster City Council</option>
+              <option value="Westmorland and Furness Council">Westmorland and Furness Council</option>
+              <option value="Wigan Borough Council">Wigan Borough Council</option>
+              <option value="Wiltshire Council">Wiltshire Council</option>
+              <option value="Winchester City Council">Winchester City Council</option>
+              <option value="Wirral Metropolitan Borough Council">Wirral Metropolitan Borough Council</option>
+              <option value="Woking Borough Council">Woking Borough Council</option>
+              <option value="Wokingham Council">Wokingham Council</option>
+              <option value="Worcestershire Regulatory Services (Bromsgrove District council, Gloucester city, Malvern Hills District council, Redditch Borough Council, Worcester City Council, Wychavon District Council, Wyre Forest District council)">Worcestershire Regulatory Services (Bromsgrove District council, Gloucester city, Malvern Hills District council, Redditch Borough Council, Worcester City Council, Wychavon District Council, Wyre Forest District council)</option>
+              <option value="Wrexham County Borough Council">Wrexham County Borough Council</option>
+              <option value="Wyre Borough Council">Wyre Borough Council</option>
+              <option value="Swansea Port Authority">Swansea Port Authority</option>
+          </select>
+        </div>
+        
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          <a class="govuk-link" href="../report.html">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+{% block govukFooter %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "select-pollutant-category",
+         text: "Select pollutant by category"
+       },
+       {
+         href: "select-pollutant",
+         text: "Select pollutant from full list"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}

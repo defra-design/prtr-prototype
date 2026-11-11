@@ -2,8 +2,8 @@
 
 {% block pageTitle %}
   How many Regulators are there for 
-    {% if ( data["authority"] ) %}
-      {{ data['authority'] }}
+    {% if ( data["selectAuthority"] ) %}
+      {{ data['selectAuthority'] }}
     {% else %}
       Swansea City Council and Swansea Port Authority
     {% endif %}
@@ -26,8 +26,8 @@
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--xl" for="number-regulators">
               How many Regulators are there for 
-              {% if ( data["authority"] ) %}
-                {{ data['authority'] }}
+              {% if ( data["selectAuthority"] ) %}
+                {{ data['selectAuthority'] }}
               {% else %}
                 Swansea City Council and Swansea Port Authority
               {% endif %}

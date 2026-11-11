@@ -29,7 +29,7 @@ router.post('/aboutYouRedirect', function(request, response) {
 	if (yourRole == "Yes"){
 		response.redirect("contact-collection/iteration-1/using-consultant.html")
 	} else if (yourRole == "No, I am not a Regulator"){
-		response.redirect("contact-collection/iteration-1/not-regulator.html")
+		response.redirect("contact-collection/iteration-1/select-authority.html")
 	} else if (yourRole == "No, I am a Consultant working on behalf of a Regulator for this area"){
 		response.redirect("contact-collection/iteration-1/consulting.html")
 	}

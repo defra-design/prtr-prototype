@@ -11,13 +11,7 @@
         <h1 class="govuk-heading-xl">
           About you
         </h1>
-        <p>We have you listed in our records as a Regulator for facilities in the 
-        {% if ( data["authority"] ) %}
-          {{ data['authority'] }}
-        {% else %}
-          Swansea City Council and Swansea Port Authority
-        {% endif %}
-         area.</p>
+        <p>You are listed in our records as a Regulator for facilities that submit PRTR data.</p>
         <form class="form" action="/aboutYouRedirect" method="post">
           {{ govukRadios({
             name: "aboutYou",
@@ -37,8 +31,8 @@
                 text: "No, I am not a Regulator"
               },
               {
-                value: "No, I am a Consultant working on behalf of a Regulator for this area",
-                text: "No, I am a Consultant working on behalf of a Regulator for this area"
+                value: "No, I am a Consultant working on behalf of a Regulator",
+                text: "No, I am a Consultant working on behalf of a Regulator"
               }
             ]
           }) }}

@@ -2,8 +2,8 @@
 
 {% block pageTitle %}
   Are you able to tell us who the Regulators are for 
-  {% if ( data["authority"] ) %}
-    {{ data['authority'] }}
+  {% if ( data["selectAuthority"] ) %}
+    {{ data['selectAuthority'] }}
   {% else %}
     Swansea City Council and Swansea Port Authority
   {% endif %}
@@ -28,9 +28,9 @@
           <fieldset class="govuk-fieldset" aria-describedby="who-are-regulators-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <h1 class="govuk-fieldset__heading">
-                Are you able to tell us who the Regulators are for 
-                {% if ( data["authority"] ) %}
-                  {{ data['authority'] }}
+                Can you tell us who the PRTR Regulators are at
+                {% if ( data["selectAuthority"] ) %}
+                  {{ data['selectAuthority'] }}
                 {% else %}
                   Swansea City Council and Swansea Port Authority
                 {% endif %}
@@ -38,7 +38,7 @@
               </h1>
             </legend>
             <div id="who-are-regulators-hint" class="govuk-hint">
-              We will need to contact them to be able to grant them and their Operators access to the new service.
+              We will need to contact them to confirm which operators they regulate and give them access to the new PRTR reporting service.
             </div>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
