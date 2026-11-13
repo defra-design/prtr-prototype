@@ -1,7 +1,7 @@
 {% extends "layouts/main-no-nav.html" %}
 
 {% block pageTitle %}
-    About you – {{ serviceName }} – GOV.UK Prototype Kit
+    Confirm if you are a regulator – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -9,9 +9,9 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">
-          About you
+          Confirm if you are a regulator
         </h1>
-        <p>You are listed in our records as a Regulator for facilities that submit PRTR data.</p>
+        <p>You are listed in our records as being responsible for managing PRTR data collection and review for your local authority.</p>
         <form class="form" action="/aboutYouRedirect" method="post">
           {{ govukRadios({
             name: "aboutYou",
@@ -23,16 +23,16 @@
             },
             items: [
               {
-                value: "Yes",
-                text: "Yes"
+                value: "Yes, I am a regulator",
+                text: "Yes, I am a regulator"
               },
               {
-                value: "No, I am not a Regulator",
-                text: "No, I am not a Regulator"
+                value: "No, I am not responsible for PRTR data at my local authority",
+                text: "No, I am not responsible for PRTR data at my local authority"
               },
               {
-                value: "No, I am a Consultant working on behalf of a Regulator",
-                text: "No, I am a Consultant working on behalf of a Regulator"
+                value: "No, I am a consultant reviewing data on behalf of a local authority",
+                text: "No, I am a consultant reviewing data on behalf of a local authority"
               }
             ]
           }) }}

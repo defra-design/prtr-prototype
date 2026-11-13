@@ -26,11 +26,11 @@ const router = govukPrototypeKit.requests.setupRouter()
 router.post('/aboutYouRedirect', function(request, response) {
 
 	var yourRole = request.session.data['aboutYou']
-	if (yourRole == "Yes"){
+	if (yourRole == "Yes, I am a regulator"){
 		response.redirect("contact-collection/iteration-1/using-consultant.html")
-	} else if (yourRole == "No, I am not a Regulator"){
+	} else if (yourRole == "No, I am not responsible for PRTR data at my local authority"){
 		response.redirect("contact-collection/iteration-1/select-authority.html")
-	} else if (yourRole == "No, I am a Consultant working on behalf of a Regulator for this area"){
+	} else if (yourRole == "No, I am a consultant reviewing data on behalf of a local authority"){
 		response.redirect("contact-collection/iteration-1/consulting.html")
 	}
 })
@@ -53,7 +53,7 @@ router.post('/usingConsultantRedirect', function(request, response) {
 	if (usingCons == "Yes"){
 		response.redirect("contact-collection/iteration-1/your-consultant.html")
 	} else {
-		response.redirect("contact-collection/iteration-1/submit-prtr-data.html")
+		response.redirect("contact-collection/iteration-1/check-answers.html")
 	}
 })
 

@@ -18,29 +18,37 @@
       <h1 class="govuk-heading-xl">Details of facility {{ data['firstOperatorName'] }} will be reporting PRTR data for</h1>
       <form class="form" action="operators?second-facility=added" method="post">
         <div class="govuk-form-group">
-          <label class="govuk-label govuk-label--m" for="second-facility-name">
+          <label class="govuk-label govuk-label--m" for="select-second-faciity">
             Name of facility
           </label>
-          <!-- <div id="second-facility-name-hint" class="govuk-hint">
-            You will need to give us their names and email addresses in the next step. Maximum of 10?
-          </div> -->
-          <input class="govuk-input" id="second-facility-name" name="secondFacilityName" type="text">
+          <div id="select-second-faciity-hint" class="govuk-hint">
+            Start typing the name of a facility, then select it from the list.
+          </div>
+          <select class="govuk-select" id="select-second-faciity" name="selectSecondFacility"
+            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+            <option value="">Select an option</option>
+            <option value="Facility 1">Facility 1</option>
+            <option value="Facility 2">Facility 2</option>
+            <option value="Facility 3">Facility 3</option>
+            <option value="Facility 4">Facility 4</option>
+            <option value="Facility 5">Facility 5</option>
+          </select>
         </div>
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="second-facility-id">
             National ID of facility
           </label>
-          <!-- <div id="second-facility-id-hint" class="govuk-hint">
-            Enter their direct email, avoid entering a shared mailbox.
-          </div> -->
-          <input class="govuk-input govuk-!-width-one-half" id="second-operator-id" name="secondFacilityID" type="text">
+          <div id="second-facility-id-hint" class="govuk-hint">
+            Check the National ID is correct for the facility you want to select, as some facilities share the same name
+          </div>
+          <p id="second-facility-id">E362_221</p>
         </div>
 
         {% call govukDetails({
-          summaryText: "The facility I need is not coming up"
+          summaryText: "I cannot find one of my facilities"
         }) %}
-          <p>If the facility is new, or became functional recently, it may not have been updated in the UK registry yet.</p>
-          <p>Email us on xxx with the name of the facility and we will let you know what detail we need to set up the facility for PRTR reporting.</p>
+          <p>If the facility is new, or became functional recently, it may not have been added to the UK registry yet.</p>
+          <p>Email us on xxx with the name of the facility and we will tell you what details we need to set up the facility for PRTR reporting.</p>
         {% endcall %}
         
         <div class="govuk-button-group">

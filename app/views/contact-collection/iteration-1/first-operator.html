@@ -1,7 +1,7 @@
 {% extends "layouts/main-no-nav.html" %}
 
 {% block pageTitle %}
-  Details of the responsible person – {{ serviceName }} – GOV.UK Prototype Kit
+  Operator details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -15,11 +15,12 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">Details of the responsible person</h1>
+      <h1 class="govuk-heading-xl">Operator details</h1>
+      <p>Enter the contact details for an operator responsible for submitting PRTR data for a facility.</p>
       <form class="form" action="operators?first-operator=added" method="post">
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="first-operator-name">
-            Full name
+            Operator's full name
           </label>
           <!-- <div id="first-operator-name-hint" class="govuk-hint">
             You will need to give us their names and email addresses in the next step. Maximum of 10?
@@ -28,18 +29,21 @@
         </div>
         <div class="govuk-form-group">
           <label class="govuk-label govuk-label--m" for="first-operator-email">
-            Email address
+            Operator's email address
           </label>
-          <div id="first-operator-email-hint" class="govuk-hint">
-            Enter their direct email, avoid entering a shared mailbox.
+          <div id="regulator-represented-email-hint" class="govuk-hint">
+            Enter their individual email address, not a shared mailbox
           </div>
           <input class="govuk-input" id="first-operator-email" name="firstOperatorEmail" type="text">
         </div>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              Will this responsible person be using a Consultant to submit PRTR data on their behalf?
+              Will this person be entering PRTR data into the system, or will it be someone else?
             </legend>
+            <div id="operator-using-consultant-hint" class="govuk-hint">
+              For example, an external consultant
+            </div>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="operator-using-consultant" name="operatorUsingConsultant" type="radio" value="Yes"  data-aria-controls="conditional-consultant">
@@ -50,14 +54,17 @@
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-consultant">
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--s" for="operator-consultant-name">
-                    Consultant full name
+                    Data entrant's full name
                   </label>
                   <input class="govuk-input" id="operator-consultant-name" name="operatorConsultantName">
                 </div>
                 <div class="govuk-form-group">
                   <label class="govuk-label govuk-label--s" for="operator-consultant-email">
-                    Consultant email address
+                     Data entrant's email address
                   </label>
+                  <div id="operator-consultant-email-hint" class="govuk-hint">
+                    Enter their individual email address, not a shared mailbox
+                  </div>
                   <input class="govuk-input" id="operator-consultant-email" name="operatorConsultantEmail">
                 </div>
               </div>
@@ -70,29 +77,7 @@
             </div>
           </fieldset>
         </div>
-        {% if ( data["regSubmittingData"] == "Yes") %}
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                Do you submit PRTR data in the current data entry system on behalf of this responsible person?
-              </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="regulator-submitting" name="regulatorSubmitting" type="radio" value="Yes">
-                  <label class="govuk-label govuk-radios__label" for="regulator-submitting">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="regulator-submitting-2" name="regulatorSubmitting" type="radio" value="No">
-                  <label class="govuk-label govuk-radios__label" for="regulator-submitting-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        {% endif %}
+        
         <div class="govuk-button-group">
         {{ govukButton({
           text: "Continue"

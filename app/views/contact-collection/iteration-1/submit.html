@@ -22,7 +22,7 @@
             name: "submitContact",
             fieldset: {
               legend: {
-                text: "Are you sure you have added all of your facilities against the people responsible for them?",
+                text: "Are you sure you have added all the facilities you regulate and the people responsible for them?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--xl"
               }
@@ -52,7 +52,11 @@
         <h1 class="govuk-heading-xl">
           You cannot submit this information yet
         </h1>
-        <p>You must add at least 1 responsible person, and at least 1 facilitiy for each responsible person.</p>
+        <p>You must add at least
+          <ul class="govuk-list govuk-list--bullet">
+            <li>one responsible person</li>
+            <li>one facilitiy for each responsible person</li>
+        </p>
         <p><a class="govuk-link" href="operators">Return to adding people and facilities</a></p>
       {% endif %}
 
