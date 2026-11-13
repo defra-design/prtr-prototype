@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  How did you get the data for {{ data['pollutantTransfer'] | lower }} transferred to wastewater? – {{ serviceName }} – GOV.UK Prototype Kit
+  How did you get the data for {{ data['pollutantTransfer'] }} transferred to wastewater? – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -22,7 +22,7 @@
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
               <span class="govuk-caption-xl">{{ data['facility-name'] or 'Celsa Swansea Scrap Yard' }}</span>
               <h1 class="govuk-fieldset__heading">
-                How did you get the data for {{ data['pollutantTransfer'] | lower }} transferred to wastewater?
+                How did you get the data for {{ data['pollutantTransfer'] }} transferred to wastewater?
               </h1>
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">

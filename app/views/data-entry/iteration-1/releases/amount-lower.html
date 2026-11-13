@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  The total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }} is significantly lower than your last report - {{ serviceName }} – GOV.UK Prototype Kit
+  The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is significantly lower than your last report - {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block containerStart %}
@@ -17,7 +17,7 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        The total amount of {{ data['pollutant'] | lower }} released to {{ data['releaseMedium'] }} is significantly lower than your last report
+        The total amount of {{ data['pollutant'] }} released to {{ data['releaseMedium'] }} is significantly lower than your last report
       </h1>
       <p>In your 2024 report, you said the total amount released was 
         {% if ( data["releaseMedium"] == "air") %}
